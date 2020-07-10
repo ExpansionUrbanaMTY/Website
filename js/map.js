@@ -18,7 +18,7 @@ function playSlider(){
     var values = [1990, 1995, 2000, 2005, 2010, 2015, 2018, 2019];
     mySlider.setValue(values[0]);
     for(let i=0;i<8;i++){
-        mySlider.value = v;
+        mySlider.value = i;
         setTimeout(()=>{
             console.log("adios", i)
         }, 10*1000)
