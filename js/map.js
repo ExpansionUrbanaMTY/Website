@@ -9,9 +9,9 @@ var mySlider = new rSlider({
 });
 
 // Callback
-mySlider.onChange(function (value) { 
-    // argument values represents current values 
-    console.log("holal", mySlider.getValue());
+mySlider.onChange(function (values) { 
+    console.log(slider.getValue());
+    console.log("hola=")
 });
 
 function sleep(delay) {
@@ -33,45 +33,52 @@ function playSlider(){
 //     document.querySelector('#year').innerText = `Año seleccionado: ${selectedYears}`;
 // });
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [-100.309, 25.6714],
-zoom: 8
-});
- 
-map.on('load', function() {
-    d3.json(
-    './data/gridDef2.geojson',
-    function(err, data) {
-    if (err) throw err;
-     
-    // Create a month property value based on time
-    // used to filter against.
-    data.features = data.features.map(function(d) {
-    d.properties.month = new Date(d.properties.time).getMonth();
-    return d;
-    });
-     
-    map.addSource('expansion', {
-    'type': 'geojson',
-    data: data
+
+var rows;
+
+d3.csv("./data/FishnetRecortadoT.csv", function(loadedRows) {
+    rows = loadedRows;
+    console.log(rows)
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-100.309, 25.6714],
+    zoom: 8
     });
     
-    map.addLayer({
-        'id': 'id',
-        'type': 'fill',
-        'source': 'expansion',
-        'layout': {},
-        'paint': {
-        'fill-color': '#088',
-        'fill-opacity': 0.8
-        }
-    });
+    map.on('load', function() {
+        d3.json(
+        './data/gridDef2.geojson',
+        function(err, data) {
+        if (err) throw err;
         
-    
-    }
-    );
+
+        
+        map.addSource('expansion', {
+        'type': 'geojson',
+        data: data
+        });
+        
+        map.addLayer({
+            'id': 'id',
+            'type': 'fill',
+            'source': 'expansion',
+            'layout': {},
+            'paint': {
+            'fill-color': '#088',
+            'fill-opacity': 0.8
+            }
+        });
+            
+        
+        }
+        );
+    });
+
+
 });
+
+
 
