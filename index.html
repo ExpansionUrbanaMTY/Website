@@ -4,36 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mancha Urbana</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <!--MapBox-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <!--Slider-->
+    <link rel="stylesheet" href="css/rSlider.min.css">
+    <script src="js/rSlider.min.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <div class="wrapper">
-        <div class="nav"> 
-            <p>im a Nav Bar :)</p>
-        </div>
+        <!--Navbar-->
+        <nav class="uk-navbar-container" uk-navbar>
+
+            <div class="uk-navbar-left">
+        
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Forma Urbana</a></li>
+                    <li><a href="#">Atlas Monterrey</a></li>
+                    <li><a href="#">Metodología</a></li>
+                    <li><a href="#">Equipo</a></li>
+                </ul>
+        
+            </div>
+        
+        </nav>
+        <!--Main Container-->
         <div class="container"> 
             <div class="primary">
                 <div class="title-p"><h1>Mapa de Expansión Urbana en Monterrey</h1></div>
                 <div class="description-p">
                     <p>Lorem Ipsum</p>
                 </div>
-                <div class="map"> <p> im a map :)</p></div>
+                <div class="map">
+                    <div id="map"></div>
+                </div>
                 <div class="subtitle-p"><h2>Expansión urbana a través de los años</h2></div>
-                <div class="explain"><p>Al deslizar la barra se puede ver la expansión de la mancha urbana en el mapa que se encuentra del lado derecho.</p></div>
-                <div class="slider"> <p>im a slider :)</p></div>
+                <div class="explain">
+                    <p>Al deslizar la barra se puede ver la expansión de la mancha urbana en el mapa que se encuentra del lado derecho.</p>
+                    <p id="year">Año seleccionado: </p>
+                </div>
+                <div class="slider">
+                    <input type="text" id="sampleSlider" />
+                </div>
+                <div class="button-play">
+                    <button class="uk-button uk-button-danger" onclick =playSlider()>
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         
             <div class="secondary">
                 <div class="title-s"><h1>Costo Vial</h1></div>
                 <div class="description-s">
-                    <p>Lorem Ipsum</p>
+                    <p>Descripción del costo vial...Lorem Ipsum</p>
                 </div>
-                <div class="parameters"> <p>we are parameters :)</p></div>
-                <div class="result"> <p>im a result :)</p></div>
+                <div class="parameters"> <p>Aquí van los parámetros para obtener un costo vial</p></div>
+                <div class="result"> <p>Aquí va el costo vial generado</p></div>
             </div>
         </div>
-        <div class="footer"> <p>im a footer</p></div>
+        <div class="footer"> <!--Por si se quiere agregar un footer--></div>
     </div>
+    <script src="./js/map.js">
+    </script>
+    <script>
+        
+    </script>
 </body>
 </html>

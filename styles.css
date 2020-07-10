@@ -1,7 +1,12 @@
 /*Core Styles*/
-html{
-    font-family: 'Roboto', sans-serif;
+html, body{
+    font-family: 'Roboto', sans-serif !important;
 }
+
+h1{
+    font-weight: 600 !important;
+}
+
 /*CSS Grid*/
 .wrapper {
     display: grid;
@@ -13,7 +18,6 @@ html{
 .nav{
   grid-column: 1/2; 
   grid-row: 1/2;  
-  background-color: grey;
 }
 
 .container{
@@ -31,6 +35,10 @@ html{
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     grid-template-rows: auto;
+}
+
+.primary>*, .secondary>*{
+    padding: 0px 16px;
 }
 
 .title-p{
@@ -53,14 +61,31 @@ html{
     grid-row: 4/5;
 }
 
+.explain #year{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
 .slider{
     grid-column: 1/2; 
     grid-row: 5/6;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
+.button-play{
+    margin-top:2rem;
+}
+
 .map{
     grid-column: 2/3; 
     grid-row: 1/6;
-    background-color: azure;
+    padding: 0 !important
+}
+
+.map #map{
+    background-color: grey;
+    height: 100%;
+    width: 100%
 }
 
 .secondary{
@@ -72,6 +97,7 @@ html{
 }
 
 .title-s{
+    margin-top: 50px;
     grid-column: 1/3; 
     grid-row: 1/2;
 }
