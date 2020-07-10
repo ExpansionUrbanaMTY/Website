@@ -11,17 +11,17 @@ var mySlider = new rSlider({
 // Callback
 mySlider.onChange(function (value) { 
     // argument values represents current values 
-    console.log(value);
+    console.log("holal", mySlider.getValue());
 });
 
 function playSlider(){
     var values = [1990, 1995, 2000, 2005, 2010, 2015, 2018, 2019];
-    mySlider.setValues(values[0]);
-    for(let i=0;i<7;i++){
+    mySlider.setValue(values[0]);
+    for(let i=0;i<8;i++){
+        mySlider.value = v;
         setTimeout(()=>{
-            mySlider.setValues(values[i]);
-            console.log(i)
-        }, 6*1000)
+            console.log("adios", i)
+        }, 10*1000)
     }
 }
 
