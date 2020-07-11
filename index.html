@@ -16,7 +16,7 @@
     <script src="js/rSlider.min.js"></script>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -44,25 +44,37 @@
                     <p>Lorem Ipsum</p>
                 </div>
                 <div class="map">
-                    <div id="map"></div>
+                    <div id="map-1990"></div>
+                    <div id="map-1995"></div>
+                    <div id="map-2000"></div>
+                    <div id="map-2005"></div>
+                    <div id="map-2010"></div>
+                    <div id="map-2015"></div>
+                    <div id="map-2019"></div>
                 </div>
                 <div class="subtitle-p"><h2>Expansión urbana a través de los años</h2></div>
                 <div class="explain">
                     <p>Al deslizar la barra se puede ver la expansión de la mancha urbana en el mapa que se encuentra del lado derecho.</p>
-                    <p id="year">Año seleccionado: </p>
+                    <p id="year">Año seleccionado: 1990</p>
                 </div>
                 <div class="slider">
                     <!--
                     <input type="text" id="sampleSlider" />
                     -->
-                    <label id="month"></label>
-                    <input id="slider" type="range" min="1" max="7" step="1" value="1" />
+                    <!-- <label id="yearTooltip">2005</label> -->
+                    <div style="display: flex">
+                        <span class="tooltip">1990</span>
+                        <input id="slider" type="range" min="0" max="6" step="1" value="0" />
+                        <span class="tooltip">2019</span>
+                    </div>
+                    <h4>Visualización Automática:</h4>
+                    <div class="button-play">
+                        <button class="uk-button uk-button-danger" onclick="playSlider()">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="button-play">
-                    <button class="uk-button uk-button-danger" onclick =playSlider()>
-                        <i class="fa fa-play" aria-hidden="true"></i>
-                    </button>
-                </div>
+                
             </div>
         
             <div class="secondary">
@@ -76,7 +88,7 @@
         </div>
         <div class="footer"> <!--Por si se quiere agregar un footer--></div>
     </div>
-    <script src="./js/map.js">
+    <script src="./js/map.js?a">
     </script>
     <script>
         
