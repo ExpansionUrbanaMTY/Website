@@ -50,7 +50,6 @@ function playSlider(){
 // });
 
 // Eato hace el mapa
-document.querySelector('#map-1990').style.display = 'block'
 
 loadMap(1990)
 loadMap(1995)
@@ -60,23 +59,26 @@ loadMap(2010)
 loadMap(2015)
 loadMap(2019)
 
+document.querySelector('#map-1990').style.display = 'block'
 // Esto hace lo mismo que lo de abajo pero más
 // Esto es para añadirle los datos según el año
 // Ando leyendolo de acá, mira: https://docs.mapbox.com/mapbox-gl-js/example/data-join/ 
 async function loadMap(year){
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
-    var map2 = new mapboxgl.Map({
+    let map2 = new mapboxgl.Map({
         container: 'map-'+year,
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [-100.309, 25.6714],
         zoom: 8
     });
+    map2.resize();
+    document.querySelector('#map-'+year).style.display = 'none'
 
     let rows = await d3.csv('./data/FishnetRecortado.csv');
     let geojson = await d3.json('./data/gridDef2.geojson')
     
-    map2.on('load', ()=>{
+    map2.on('load', (e)=>{
         map2.addSource('expansion', {
             type: 'geojson', 
             data: geojson
@@ -103,6 +105,7 @@ async function loadMap(year){
                 'fill-opacity': 0.8
             }
         });
+        
     })
 }
 
