@@ -20,11 +20,9 @@ function onChange(value){
     document.querySelector('#year').innerHTML = `Año seleccionado: ${year}`;
     map2.setLayoutProperty(year.toString(), 'visibility', 'visible');
 
-    setTimeout(()=>{
-        years.forEach(y=>{
-            map2.setLayoutProperty(y.toString(), 'visibility', y==year ? 'visible' : 'none');
+        years.filter(y=>y!=year).forEach(y=>{
+            map2.setLayoutProperty(y.toString(), 'visibility', 'none');
         })
-    }, 900);
 
     
 }
@@ -38,7 +36,7 @@ function playSlider(){
         setTimeout(()=>{
             document.querySelector('#slider').value = i;
             onChange(i)
-        }, 1000 * (i+1));
+        }, 3*1000 * (i+1));
     }
     return;
 }
