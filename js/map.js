@@ -13,96 +13,79 @@
 //     console.log(slider.getValue());
 //     console.log("hola=")
 // });
-let years = [1990, 1995, 2000, 2005, 2010, 2015, 2019]
+const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019]
 
-function onChange(element){
-    let year = years[element.value]
-    document.querySelector('#year').innerHTML = `Año seleccionado: ${year}`
-    document.querySelectorAll('.map>*').forEach(l=>{l.style.display='none'})
-    document.querySelector('#map-'+year).style.display = 'block'
+function onChange(value){
+    let year = years[value]
+    document.querySelector('#year').innerHTML = `Año seleccionado: ${year}`;
+    map2.setLayoutProperty(year.toString(), 'visibility', 'visible');
+
+        years.filter(y=>y!=year).forEach(y=>{
+            map2.setLayoutProperty(y.toString(), 'visibility', 'none');
+        })
+
+    
 }
 
 document.querySelector('#slider').addEventListener('change', (e)=>{
-    onChange(e.target)
+    onChange(e.target.value)
 })
 
-function sleep(delay) {
-    var start = new Date().getTime();
-    while (new Date().getTime() < start + delay);
-}
-
 function playSlider(){
-    var values = [1990, 1995, 2000, 2005, 2010, 2015, 2019];
     for(let i=0;i<7;i++){
         setTimeout(()=>{
             document.querySelector('#slider').value = i;
-            onChange(document.querySelector('#slider'))
-        }, 1000 * i);
+            onChange(i)
+        }, 3*1000 * (i+1));
     }
     return;
 }
 
-// document.querySelector('#slider').addEventListener('change', (e)=>{
-//     let value = e.target.value;
-//     let years = [1990, 1995, 2000, 2005, 2010, 2015, 2019];
-//     let selectedYear = years[value-1]
-//     document.querySelector('#year').innerText = `Año seleccionado: ${selectedYears}`;
-// });
+// Generar mapa
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
+let map2 = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-100.309, 25.6714],
+    zoom: 8
+});
+loadMap()
 
-// Eato hace el mapa
-document.querySelector('#map-1990').style.display = 'block'
-
-loadMap(1990)
-loadMap(1995)
-loadMap(2000)
-loadMap(2005)
-loadMap(2010)
-loadMap(2015)
-loadMap(2019)
-
-// Esto hace lo mismo que lo de abajo pero más
-// Esto es para añadirle los datos según el año
-// Ando leyendolo de acá, mira: https://docs.mapbox.com/mapbox-gl-js/example/data-join/ 
-async function loadMap(year){
-
-    mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
-    var map2 = new mapboxgl.Map({
-        container: 'map-'+year,
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-100.309, 25.6714],
-        zoom: 8
-    });
-
+// Cargar datos de csv y geojson al mapa
+async function loadMap(){
+    map2.resize();
     let rows = await d3.csv('./data/FishnetRecortado.csv');
     let geojson = await d3.json('./data/gridDef2.geojson')
-    
-    map2.on('load', ()=>{
+    map2.on('load', (e)=>{
         map2.addSource('expansion', {
             type: 'geojson', 
             data: geojson
         });
-        var expression = ['match', ['get', 'Id']];
-        rows.forEach(function(row) {
-            if(row['MU'+year]=='1'){
-                expression.push(Number(row['Id']), '#088');
-            } else {
-                expression.push(Number(row['Id']), 'transparent');
-            }
-        });
-        expression.push('#fff')
-
-        map2.addLayer({
-            'id': 'id',
-            'type': 'fill',
-            'source': 'expansion',
-            // 'source-layer': 'expansion',
-            'layout': {},
-            'paint': {
-                'fill-color': expression,
-                // 'fill-color': '#088',
-                'fill-opacity': 0.8
-            }
-        });
+        years.forEach((year)=>{
+            var expression = ['match', ['get', 'Id']];
+            rows.forEach(function(row) {
+                if(row['MU'+year]=='1'){
+                    expression.push(Number(row['Id']), '#088');
+                } else {
+                    expression.push(Number(row['Id']), 'transparent');
+                }
+            });
+            expression.push('#fff')
+            map2.addLayer({
+                'id': year.toString(),
+                'type': 'fill',
+                'source': 'expansion',
+                // 'source-layer': 'expansion',
+                'layout': {},
+                'paint': {
+                    'fill-color': expression,
+                    // 'fill-color': '#088',
+                    'fill-opacity': 0.8
+                }
+            });
+            map2.setLayoutProperty(year.toString(), 'visibility', 'none');
+        })
+        map2.setLayoutProperty(years[0].toString(), 'visibility', 'visible');
     })
 }
 
