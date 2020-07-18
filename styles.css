@@ -16,18 +16,23 @@
 }
 /*Composicion*/
 #top-grid{
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
 #grids{
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
 /*componentes*/
+
+.uk-logo{
+    margin-top: 1rem;
+}
+
 .slider #slider{
     width: 100%;
 }

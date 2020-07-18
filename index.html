@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mancha Urbana</title>
+    <title>Mancha Urbana MTY</title>
     <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="shortcut icon" href="./img/logos/logo.png" type="image/x-icon">
+	<link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
+    
     <link rel="stylesheet" href="styles.css">
     <!--MapBox-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
@@ -28,13 +31,16 @@
             <div class="uk-navbar-left">
         
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="index.html">Inicio</a></li>
+                    <a class="uk-navbar-item uk-logo" href="#top" uk-scroll="">
+                        <img data-src="img/logos/s5.png" width="245px" height="95px" alt="" uk-img="" src="./img/logos/s5.png">
+                    </a>
                 </ul>
         
             </div>
 
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
+                    <li><a href="index.html">Mancha Urbana</a></li>
                     <li><a href="#">Forma Urbana</a></li>
                     <li><a href="#">Atlas Monterrey</a></li>
                     <li><a href="#">Metodología</a></li>
@@ -48,7 +54,7 @@
         <div class="uk-container">
             <article class="uk-article">
 
-                <h1 class="uk-article-title uk-text-bold"><a class="uk-link-reset" href="">Mapa de Expansión Urbana en Monterrey</a></h1>
+                <h1 class="uk-article-title uk-text-bold">Mapa de Expansión Urbana en Monterrey</h1>
             
             
                 <p class="uk-text-lead">Al deslizar la barra se puede ver la expansión de la mancha urbana en el mapa que se encuentra del lado derecho.</p>
@@ -78,26 +84,37 @@
 
     <!--Charts-->
     <div class="uk-child-width-expand@s" id="grids" uk-grid>
+        
         <div class="uk-container">
-            <ul uk-tab>
-                <li class="uk-active"><a href="#">Población</a></li>
-                <li><a href="#">Densidad Población</a></li>
-                <li><a href="#">Extensiones</a></li>
+            <h1 class="uk-article-title uk-text-bold">Gráficas</h1>
+            <ul uk-tab >
+                <li><a href="">Población</a></li>
+                <li><a href="">Densidad Población</a></li>
+                <li><a href="">Extensiones</a></li>
+            </ul>
+            
+            <ul class="uk-switcher uk-margin">
+                <li><canvas id="populationChart" width="250" height="150"></canvas></li>
+                <li><canvas id="densityChart" width="250" height="150"></canvas></li>
+                <li><canvas id="extensionsChart" width="250" height="150"></canvas></li>
             </ul>
 
         </div>
         <div class="uk-container">
             <article class="uk-article">
 
-                <h1 class="uk-article-title uk-text-bold"><a class="uk-link-reset" href="">Costo Vial</a></h1>
+                <h1 class="uk-article-title uk-text-bold">Costo Vial</h1>
             
             
-                <p class="uk-text-lead">Descripcion de las graficas</p>
+                <p class="uk-text-lead">Descripcion Costo vial</p>
+                
 
             </article>
+
         </div>
     </div>
 
     <script src="./js/map.js?a"></script>
+    <script src="./js/charts.js"></script>
 </body>
 </html>
