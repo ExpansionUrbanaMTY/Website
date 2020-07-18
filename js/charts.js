@@ -4,10 +4,6 @@ async function readData(){
     let densidad = await d3.csv('./data/DensidadPob.csv');
     let extension = await d3.csv('./data/Extensiones.csv');
 
-    console.log("La población es", poblacion);
-    console.log("La densidad es", densidad);
-    console.log("La extension es", extension);
-
 
     // Poblacion
     var populationContainer = document.getElementById('populationChart');
@@ -20,19 +16,16 @@ async function readData(){
                 data: Object.values(poblacion[0]).filter(l=>l!="Nucleo"),
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 1)',
+
                 ],
                 borderWidth: 1
             },
@@ -40,20 +33,17 @@ async function readData(){
                 label: 'Complemento',
                 data: Object.values(poblacion[1]).filter(l=>l!="Complemento"),
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)'
                 ],
                 borderWidth: 1
             },
@@ -61,20 +51,16 @@ async function readData(){
                 label: 'Total',
                 data: Object.values(poblacion[2]).filter(l=>l!="Total"),
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 206, 86, 1)'
                 ],
                 borderWidth: 1
             }]
