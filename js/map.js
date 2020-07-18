@@ -1,18 +1,3 @@
-// var mySlider = new rSlider({
-//     target: '#sampleSlider',
-//     values: [1990, 1995, 2000, 2005, 2010, 2015, 2018, 2019],
-//     range: false,
-//     tooltip: false,
-//     scale: true,
-//     labels: true,
-//     set: [1990]
-// });
-
-// // Callback
-// mySlider.onChange(function (values) { 
-//     console.log(slider.getValue());
-//     console.log("hola=")
-// });
 const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019]
 
 function onChange(value){
@@ -31,12 +16,23 @@ document.querySelector('#slider').addEventListener('change', (e)=>{
     onChange(e.target.value)
 })
 
+let timer;
+
 function playSlider(){
+    clearTimeout(timer); 
+    // document.getElementById("simulationBtn").setAttribute("disabled","true");
     for(let i=0;i<7;i++){
-        setTimeout(()=>{
+        if(i === 0){
+            i+=1;
             document.querySelector('#slider').value = i;
             onChange(i)
-        }, 3*1000 * (i+1));
+        }
+        else{
+            timer = setTimeout(()=>{
+                document.querySelector('#slider').value = i;
+                onChange(i)
+            }, 1*1000 * (i+1));
+        }
     }
     return;
 }

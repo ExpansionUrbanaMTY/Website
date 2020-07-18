@@ -17,45 +17,43 @@
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <!--Charts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
 </head>
 <body>
-    <div class="wrapper">
-        <!--Navbar-->
-        <nav class="uk-navbar-container" uk-navbar>
+    <!--Navbar-->
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+        <nav class="uk-navbar-container uk-navbar-transparent acrylic" uk-navbar>
 
             <div class="uk-navbar-left">
         
                 <ul class="uk-navbar-nav">
                     <li class="uk-active"><a href="index.html">Inicio</a></li>
+                </ul>
+        
+            </div>
+
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
                     <li><a href="#">Forma Urbana</a></li>
                     <li><a href="#">Atlas Monterrey</a></li>
                     <li><a href="#">Metodología</a></li>
                     <li><a href="#">Equipo</a></li>
                 </ul>
-        
             </div>
-        
         </nav>
-        <!--Main Container-->
-        <div class="container"> 
-            <div class="primary">
-                <div class="title-p"><h1>Mapa de Expansión Urbana en Monterrey</h1></div>
-                <div class="description-p">
-                    <p>Lorem Ipsum</p>
-                </div>
-                <div class="map">
-                    <div id="map"></div>
-                </div>
-                <div class="subtitle-p"><h2>Expansión urbana a través de los años</h2></div>
-                <div class="explain">
-                    <p>Al deslizar la barra se puede ver la expansión de la mancha urbana en el mapa que se encuentra del lado derecho.</p>
-                    <p id="year">Año seleccionado: 1990</p>
-                </div>
+    </div>
+    <!--Map-->
+    <div class="uk-child-width-expand@s" id="top-grid" uk-grid>
+        <div class="uk-container">
+            <article class="uk-article">
+
+                <h1 class="uk-article-title uk-text-bold"><a class="uk-link-reset" href="">Mapa de Expansión Urbana en Monterrey</a></h1>
+            
+            
+                <p class="uk-text-lead">Al deslizar la barra se puede ver la expansión de la mancha urbana en el mapa que se encuentra del lado derecho.</p>
+                <p class="uk-text-lead" id="year">Año seleccionado: 1990</p>
                 <div class="slider">
-                    <!--
-                    <input type="text" id="sampleSlider" />
-                    -->
-                    <!-- <label id="yearTooltip">2005</label> -->
                     <div style="display: flex">
                         <span class="tooltip">1990</span>
                         <input id="slider" type="range" min="0" max="6" step="1" value="0" />
@@ -63,25 +61,43 @@
                     </div>
                     <h4>Visualización Automática:</h4>
                     <div class="button-play">
-                        <button class="uk-button uk-button-danger" onclick="playSlider()">
+                        <button class="uk-button uk-button-danger" onclick="playSlider()" id="simulationBtn">
                             <i class="fa fa-play" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
-                
-            </div>
-        
-            <div class="secondary">
-                <div class="title-s"><h1>Costo Vial</h1></div>
-                <div class="description-s">
-                    <p>Descripción del costo vial...Lorem Ipsum</p>
-                </div>
-                <div class="parameters"> <p>Aquí van los parámetros para obtener un costo vial</p></div>
-                <div class="result"> <p>Aquí va el costo vial generado</p></div>
+
+            </article>
+        </div>
+        <div class="uk-container">
+            <div class="map">
+                <div id="map"></div>
             </div>
         </div>
-        <div class="footer"> <!--Por si se quiere agregar un footer--></div>
     </div>
+
+    <!--Charts-->
+    <div class="uk-child-width-expand@s" id="grids" uk-grid>
+        <div class="uk-container">
+            <ul uk-tab>
+                <li class="uk-active"><a href="#">Población</a></li>
+                <li><a href="#">Densidad Población</a></li>
+                <li><a href="#">Extensiones</a></li>
+            </ul>
+
+        </div>
+        <div class="uk-container">
+            <article class="uk-article">
+
+                <h1 class="uk-article-title uk-text-bold"><a class="uk-link-reset" href="">Costo Vial</a></h1>
+            
+            
+                <p class="uk-text-lead">Descripcion de las graficas</p>
+
+            </article>
+        </div>
+    </div>
+
     <script src="./js/map.js?a"></script>
 </body>
 </html>
