@@ -16,24 +16,30 @@ document.querySelector('#slider').addEventListener('change', (e)=>{
     onChange(e.target.value)
 })
 
-let timer;
+function advanceSlider(i){
+return new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(i<=7){
+            document.querySelector("#slider").value = i-1;
+            onChange(i-1);
+        }
+        resolve("Donwe")    
+        console.log(i-1);    
+    }, 1500*i)
+})
+}
 
 function playSlider(){
-    clearTimeout(timer); 
-    // document.getElementById("simulationBtn").setAttribute("disabled","true");
-    for(let i=0;i<7;i++){
-        if(i === 0){
-            i+=1;
-            document.querySelector('#slider').value = i;
-            onChange(i)
-        }
-        else{
-            timer = setTimeout(()=>{
-                document.querySelector('#slider').value = i;
-                onChange(i)
-            }, 1*1000 * (i+1));
-        }
+    document.getElementById("simulationBtn").setAttribute("disabled","true");
+    let promises = [];
+    for(let i=1;i<=8;i++){
+        promises.push( advanceSlider(i) );
     }
+    Promise.all(promises).then(()=>{
+        document.querySelector("#slider").value = 0;
+        onChange(0);
+        document.getElementById("simulationBtn").removeAttribute("disabled");
+    })
     return;
 }
 
