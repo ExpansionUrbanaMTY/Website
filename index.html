@@ -31,7 +31,7 @@
             <div class="uk-navbar-left">
         
                 <ul class="uk-navbar-nav">
-                    <a class="uk-navbar-item uk-logo" href="#top" uk-scroll="">
+                    <a class="uk-navbar-item uk-logo" href="index.html" uk-scroll="">
                         <img data-src="img/logos/s5.png" width="245px" height="95px" alt="" uk-img="" src="./img/logos/s5.png">
                     </a>
                 </ul>
@@ -40,9 +40,9 @@
 
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
-                    <li><a href="index.html">Expansión Urbana</a></li>
+                    <li class="uk-active"><a href="index.html">Expansión Urbana</a></li>
                     <li><a href="#">Forma Urbana</a></li>
-                    <li><a href="#">Atlas Monterrey</a></li>
+                    <li><a href="AtlasCiudades.html">Atlas de Ciudades</a></li>
                     <li><a href="#">Metodología</a></li>
                     <li><a href="#">Equipo</a></li>
                 </ul>
@@ -89,32 +89,25 @@
             <h1 class="uk-article-title uk-text-bold">Gráficas</h1>
             <ul uk-tab >
                 <li><a href="">Población</a></li>
-                <li><a href="">Densidad Población</a></li>
-                <li><a href="">Extensiones</a></li>
+                <li><a href="">Superficies</a></li>
+                <li><a href="">Densidad Poblacional</a></li>
             </ul>
             
             <ul class="uk-switcher uk-margin">
                 <li><canvas id="populationChart" width="250" height="150"></canvas></li>
-                <li><canvas id="densityChart" width="250" height="150"></canvas></li>
                 <li><canvas id="extensionsChart" width="250" height="150"></canvas></li>
+                <li><canvas id="densityChart" width="250" height="150"></canvas></li>
             </ul>
 
         </div>
         <div class="uk-container">
-            <article class="uk-article">
-
-                <h1 class="uk-article-title uk-text-bold">Costo Vial</h1>
             
-            
-                <p class="uk-text-lead">Descripcion Costo vial</p>
-                
-
-            </article>
 
         </div>
     </div>
 
     <script src="./js/map.js?a"></script>
     <script src="./js/charts.js"></script>
+    <script src="./js/imagesModal.js"></script>
 </body>
 </html>

@@ -67,10 +67,35 @@
     /* display: none; */
 }
 
+#image-card-map{
+  padding: 1rem; 
+} 
+#card-map{
+    cursor: pointer;
+}
+#card-map:hover{
+    transform: scale(1.1);
+}
+#image-modal-map{
+    padding: 2rem;
+}
+
+.modal-map-text{
+    box-shadow: none;
+}
+
 /*Extras*/
 .mapboxgl-ctrl-attrib-inner{
     opacity: 0 !important;
 }
 .mapboxgl-ctrl-bottom-right{
     opacity: 0 !important;
+}
+
+
+.calles .uk-card .uk-card-body {
+  display: none; 
+}
+.uk-card-media-left.uk-cover-container.uk-first-column{
+  object-fit: contain;
 }

@@ -49,7 +49,7 @@ let map2 = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-100.309, 25.6714],
-    zoom: 8
+    zoom: 8.43
 });
 loadMap()
 
