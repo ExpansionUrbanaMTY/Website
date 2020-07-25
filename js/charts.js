@@ -68,8 +68,18 @@ async function readData(){
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Habitantes'
+                      }
                 }]
             }
         }
@@ -136,8 +146,18 @@ async function readData(){
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Habitantes / Kilómetros Cuadrados'
+                      }
                 }]
             }
         }
@@ -220,10 +240,21 @@ async function readData(){
         },
         options: {
             scales: {
+                
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Kilómetros cuadrados'
+                      }
                 }]
             }
         }
