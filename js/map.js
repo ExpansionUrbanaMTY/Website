@@ -4,10 +4,12 @@ function onChange(value){
     let year = years[value]
     document.querySelector('#year').innerHTML = `Año seleccionado: ${year}`;
     map2.setLayoutProperty(year.toString(), 'visibility', 'visible');
-
+    
+    setTimeout(()=>{
         years.filter(y=>y!=year).forEach(y=>{
             map2.setLayoutProperty(y.toString(), 'visibility', 'none');
         })
+    }, 500)
 
     
 }
