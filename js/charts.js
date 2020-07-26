@@ -68,8 +68,18 @@ async function readData(){
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Habitantes'
+                      }
                 }]
             }
         }
@@ -136,13 +146,23 @@ async function readData(){
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Habitantes / Kilómetros Cuadrados'
+                      }
                 }]
             }
         }
     });
-    //extensiones
+    //Extensiones
     var extensionsContainer = document.getElementById('extensionsChart');
     var extensionsChart = new Chart(extensionsContainer, {
         type: 'bar',
@@ -220,10 +240,119 @@ async function readData(){
         },
         options: {
             scales: {
+                
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Kilómetros cuadrados'
+                      }
+                }]
+            }
+        }
+    });
+
+    //Costos
+    var costContainer = document.getElementById('costChart');
+    var costChart = new Chart(costContainer, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(extension[2]).filter(l=>l!=""),
+            datasets: [{
+                label: 'Costo de pavimentación',
+                data: Object.values(extension[0]).filter(l=>l!="Nucleo"),
+                backgroundColor: [
+                    'rgba(1,110,196,0.8)',
+                    'rgba(1,110,196,0.8)',
+                    'rgba(1,110,196,0.8)',
+                    'rgba(1,110,196,0.8)',
+                    'rgba(1,110,196,0.8)',
+                    'rgba(1,110,196,0.8)',
+                    'rgba(1,110,196,0.8)'
+                ],
+                borderColor: [
+                    'rgba(1,110,196,1)',
+                    'rgba(1,110,196,1)',
+                    'rgba(1,110,196,1)',
+                    'rgba(1,110,196,1)',
+                    'rgba(1,110,196,1)',
+                    'rgba(1,110,196,1)',
+                    'rgba(1,110,196,1)'
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Tomas de agua',
+                data: Object.values(extension[1]).filter(l=>l!="Complemento"),
+                backgroundColor: [
+                    'rgba(49,192,219,0.8)',
+                    'rgba(49,192,219,0.8)',
+                    'rgba(49,192,219,0.8)',
+                    'rgba(49,192,219,0.8)',
+                    'rgba(49,192,219,0.8)',
+                    'rgba(49,192,219,0.8)',
+                    'rgba(49,192,219,0.8)'
+                ],
+                borderColor: [
+                    'rgba(49,192,219,1)',
+                    'rgba(49,192,219,1)',
+                    'rgba(49,192,219,1)',
+                    'rgba(49,192,219,1)',
+                    'rgba(49,192,219,1)',
+                    'rgba(49,192,219,1)',
+                    'rgba(49,192,219,1)'
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Total',
+                data: Object.values(extension[2]).filter(l=>l!="Total"),
+                backgroundColor: [
+                    'rgba(61,180,179,0.8)',
+                    'rgba(61,180,179,0.8)',
+                    'rgba(61,180,179,0.8)',
+                    'rgba(61,180,179,0.8)',
+                    'rgba(61,180,179,0.8)',
+                    'rgba(61,180,179,0.8)',
+                    'rgba(61,180,179,0.8)'
+                ],
+                borderColor: [
+                    'rgba(61,180,179,1)',
+                    'rgba(61,180,179,1)',
+                    'rgba(61,180,179,1)',
+                    'rgba(61,180,179,1)',
+                    'rgba(61,180,179,1)',
+                    'rgba(61,180,179,1)',
+                    'rgba(61,180,179,1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Pesos Mexicanos'
+                      }
                 }]
             }
         }
