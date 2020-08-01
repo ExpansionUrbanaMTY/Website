@@ -70,10 +70,11 @@
 #image-card-map{
   padding: 1rem; 
 } 
-#card-map{
+.card-map{
     cursor: pointer;
+    text-align: center;
 }
-#card-map:hover{
+.card-map:hover{
     transform: scale(1.1);
 }
 #image-modal-map{
@@ -98,4 +99,26 @@
 }
 .uk-card-media-left.uk-cover-container.uk-first-column{
   object-fit: contain;
+}
+
+.modal{
+    display: flex;
+    align-items: center;
+}
+.modal>*{
+    flex: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    object-fit: contain;
+    /* Idk, esto es porque las imagenes sirven raro.  */
+    min-width: 0;
+    width: 0;
+}
+.uk-modal-dialog{
+    width: auto !important;
+}
+
+
+#graphcont{
+    margin-top: 100px;
 }
