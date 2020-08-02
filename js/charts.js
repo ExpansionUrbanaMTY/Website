@@ -357,6 +357,13 @@ async function readData(){
             }
         }
     });
+
+    //----------------------------------Forma Urbana-------------------------------------------------------------
+
+    let poblacionf = await d3.csv('./data/censo.csv');
+
+    //Poblacion
+
 }
 
 readData(); 
