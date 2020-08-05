@@ -69,7 +69,7 @@ async function loadMap(){
             var expression = ['match', ['get', 'Id']];
             rows.forEach(function(row) {
                 if(row['MU'+year]=='1'){
-                    expression.push(Number(row['Id']), '#088');
+                    expression.push(Number(row['Id']), '#992B81');
                 } else {
                     expression.push(Number(row['Id']), 'transparent');
                 }
@@ -84,7 +84,7 @@ async function loadMap(){
                 'paint': {
                     'fill-color': expression,
                     // 'fill-color': '#088',
-                    'fill-opacity': 0.8
+                    'fill-opacity': 0.9
                 }
             });
             map2.setLayoutProperty(year.toString(), 'visibility', 'none');
