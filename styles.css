@@ -126,3 +126,11 @@
 .container-fluid{
     padding: 2rem;
 }
+
+.uk-tab>.uk-active>a{
+    border-color: #20174E !important;
+}
+
+.uk-button-danger{
+    background-color: #D2416F !important;
+}
