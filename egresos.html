@@ -1,27 +1,19 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mancha Urbana MTY</title>
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="shortcut icon" href="./img/logos/logo.png" type="image/x-icon">
-	<link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
-    
-    <link rel="stylesheet" href="styles.css">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
     <!--MapBox-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
-    <!--Slider-->
-    <link rel="stylesheet" href="css/rSlider.min.css">
-    <script src="js/rSlider.min.js"></script>
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- d3 -->
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-    <!--Charts-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <style>
         body{
             height: 100vh;
@@ -33,34 +25,26 @@
         }
 
     </style>
+
 </head>
 <body>
-    <!--Navbar-->
-    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-        <nav class="uk-navbar-container uk-navbar-transparent acrylic" uk-navbar>
-
-            <div class="uk-navbar-left">
-        
-                <ul class="uk-navbar-nav">
-                    <a class="uk-navbar-item uk-logo" href="index.html" uk-scroll="">
-                        <img data-src="img/logos/Transparencia-02.png" width="245px" height="95px" alt="" uk-img="" src="./img/logos/s5.png">
-                    </a>
-                </ul>
-        
-            </div>
-
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li><a href="index.html">Costos</a></li>
-                    <li><a href="formaurbana.html">Forma Urbana</a></li>
-                    <li class="uk-active"><a href="egresos.html">Ingresos y Egresos</a></li>
-                    <li><a href="atlas.html">Atlas de Calles</a></li>
-                    <li><a href="#">Metodología</a></li>
-                    <li><a href="#">Equipo</a></li>
-                </ul>
-            </div>
-        </nav>
+    <div id="nav">
+        <img src="img/logos/logo-final.png" height="50px">
+        <h4>Expansión Urbana de Monterrey</h4>
+        <ul>
+            <li><a href="index.html">Costos</a></li>
+            <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="egresos.html">Ingresos y Egresos</a></li>
+            <li><a href="atlas.html">Atlas de Calles</a></li>
+            <li><a href="#">Metodología</a></li>
+            <li><a href="#">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
+
     <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/egresos" frameborder="0"></iframe> <!--Es una metapágina-->
+
+
 </body>
-</html>
