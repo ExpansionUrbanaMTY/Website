@@ -16,7 +16,7 @@ body{
 }
 
 img{
-    height: 50px !important
+   height: 50px !important
 }
 
 
@@ -189,3 +189,12 @@ hr.rounded {
 #complex-title:hover{
     color:  #992b81;
 }
+
+.carousel-atlas-container{
+   
+}
+
+.altas-carousel{
+}
+
+

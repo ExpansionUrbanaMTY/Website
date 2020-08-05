@@ -13,10 +13,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
-    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-    <!-- NOTE: prior to v2.2.1 tiny-slider.js need to be in <body> -->
+    <!--Carousel-->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+				
 </head>
 <body>
 
@@ -52,12 +54,41 @@
                     As train schedules, wait times between connections and delays vary throughout the day and over the course of a week, travel time between any location and the rest of the country changes constantly. In this visualization, deformations are proportional to travel time and reveal the changes in the course of a one week period. Users can select any one location as their origin to explore what cities can be reached within specific travel times. The interface allows users to access the information for a specific time or visualize this information over the course of a week.
             </p>
             <div class="carousel-atlas-container">
-                <div class="my-slider">
-                    <div>hola</div>
-                    <div>hola2</div>
-                    <div>hola3</div>
+                <div class="responsive-carousel">
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 1-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 2-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 3-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 4-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 5-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 6-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 7-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 8-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 9-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 10-100.jpg" alt="StreetMap">
+                    </div>
+                    <div class="card">
+                        <img class="carousel-image" src="img/Diagramas/Cluster 11-100.jpg" alt="StreetMap">
+                    </div>
                 </div>
-                  <!-- or ul.my-slider > li -->
             </div>
         </div>
         <div id="atlas-media-contianer">
@@ -65,17 +96,10 @@
         </div>
      </div>
     
-     <script type="module">
-        import {tns} from './src/tiny-slider.js';
-      
-        var slider = tns({
-          container: '.my-slider',
-          items: 3,
-          slideBy: 'page',
-          autoplay: true
-        });
-    </script>
-    <script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
         function mobileNav() {
             var x = document.getElementById("nav");
             if (x.className === "nav") {
@@ -86,5 +110,44 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
+        $('.responsive-carousel').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            variableWidth: true,
+            variableHeight: true,
+            centerMode: true,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+            });          
     </script>
+    
 </body>
