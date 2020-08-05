@@ -46,5 +46,17 @@
 
     <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/egresos" frameborder="0"></iframe> <!--Es una metapágina-->
 
+    <script>
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+    </script>
 
 </body>

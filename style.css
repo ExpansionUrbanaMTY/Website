@@ -18,6 +18,39 @@ img{
     height: 50px !important
 }
 
+
+.tabs{
+    display: flex;
+    list-style: none;
+    margin: 16px 0;
+    padding: 8px;
+    width: 100%;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+    color: black;
+    box-sizing: border-box;
+}
+.tabs li{
+    flex: 1;
+    text-align: center
+}
+.tabs li.active{
+    font-weight: 800;
+}
+.tabs-content{
+    margin: 16px 0;
+    padding: 0;
+    list-style: none;
+}
+.tabs-content li{
+    display:none;
+}
+.tabs-content li.active{
+    display: block;
+}
+
 .nav-toggle{
     color: #982B80;
     font-size: 1.2rem;
@@ -28,7 +61,10 @@ img{
     display: flex;
     align-items: center;
     padding: 0px 16px;
-    height: 80px
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 #nav ul{
     margin-left: auto;
@@ -87,6 +123,11 @@ img{
       display: block;
       text-align: left;
     }
+
+    #map-overlay{
+        margin-top: 60vh !important;
+        max-width: 100% !important;
+    }
 }
 
 
@@ -96,10 +137,19 @@ img{
     padding: 16px
 }
 #map-container>*{
-    position: absolute;
+    /* position: absolute; */
 } 
 #map-container #map{
+    position: fixed;
+    z-index: 1;
     top: 0; left: 0; right: 0; bottom: 0;
+}
+#map-overlay{
+    max-width: 500px;
+    position: absolute;
+    z-index: 2;
+    padding: 16px;
+    box-sizing: border-box;
 }
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
@@ -110,6 +160,30 @@ img{
     font-weight: bold;
 }
 
-#map-container #graphs{
-    max-width: 500px;
+.wrapper {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3rem;
+}
+
+.atlas-container{
+    
+}
+.atlas-media-contianer{
+
+}
+hr.rounded {
+    border-top: 2px solid rgba(223, 16, 205, 0.527);
+    color:rgba(223, 16, 205, 0.527);
+}
+
+#complex-title{
+    color: #ce31a7;
+    
+}
+
+#complex-title:hover{
+    color:  #992b81;
 }
