@@ -43,16 +43,18 @@
     </div>
 
 <!--http://senseable.mit.edu/trainsofdata/-->
-    <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
+    <div class="uk-grid-match uk-grid-collapse uk-child-width-expand@s" uk-grid>
         <div>
             <div class="uk-padding uk-light">
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Atlas de Calles</h1>
+                    <h1 class="uk-article-title" style="font-weight: bold;">Atlas de Calles</h1>
                 
                     <p class="uk-text-lead">Tipología de la estructura vial de Monterrey</p>
-                
-                    <p class="uk-text-justify">Este cluster está compuesto por calles mayoritariamente radiales que hacen uso de calles colectoras para conectarse entre sí. Las comunidades que lo componen se encuentran en la periferia, y en secciones urbanas o “manchas” no integradas al AMM. El cluster representa zonas exclusivamente residenciales, con viviendas de baja a media densidad. La red de calles muestra una alta centralidad de grado, con muchas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.</p>
+                    <div style="height: 30vh;">
+                        <p class="uk-text-justify" id="cluster-text">Este cluster está compuesto por calles mayoritariamente radiales que hacen uso de calles colectoras para conectarse entre sí. Las comunidades que lo componen se encuentran en la periferia, y en secciones urbanas o “manchas” no integradas al AMM. El cluster representa zonas exclusivamente residenciales, con viviendas de baja a media densidad. La red de calles muestra una alta centralidad de grado, con muchas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.</p>
+                    </div>
+                   
             
                     <div uk-slider style="padding-left:2rem;padding-right: 2rem; margin-top: 2rem;">
 
@@ -60,48 +62,48 @@
                     
                             <div class="uk-slider-container uk-light">
                                 <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-3@m  uk-grid">
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 1-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(1)">
+                                        <img src="/img/Diagramas/Cluster 1-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">1</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 2-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(2)">
+                                        <img src="/img/Diagramas/Cluster 2-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">2</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 3-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(3)">
+                                        <img src="/img/Diagramas/Cluster 3-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">3</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 4-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(4)">
+                                        <img src="/img/Diagramas/Cluster 4-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">4</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 5-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(5)">
+                                        <img src="/img/Diagramas/Cluster 5-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">5</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 6-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(6)">
+                                        <img src="/img/Diagramas/Cluster 6-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">6</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 7-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(7)">
+                                        <img src="/img/Diagramas/Cluster 7-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">7</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 8-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(8)">
+                                        <img src="/img/Diagramas/Cluster 8-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">8</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 9-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(9)">
+                                        <img src="/img/Diagramas/Cluster 9-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">9</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 10-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(10)">
+                                        <img src="/img/Diagramas/Cluster 10-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">10</h1></div>
                                     </li>
-                                    <li class="uk-transition-toggle" tabindex="0">
-                                        <img src="/img/Diagramas/Cluster 11-100.jpg" alt="">
+                                    <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(11)">
+                                        <img src="/img/Diagramas/Cluster 11-100.png" alt="">
                                         <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">11</h1></div>
                                     </li>
                                 </ul>
@@ -120,12 +122,8 @@
                         </div>
                     
                         <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                    
                     </div>
 
-
-                    
-                
                 </article>
             </div>
         </div>
@@ -137,7 +135,7 @@
                     <!--Map-->
                     <div>
                         <div class="uk-card uk-card-default">
-                            <img data-src="/img/Mapas/1c_1.png"  alt="" uk-img>
+                            <img src="/img/Mapas/1c_1.png"  alt="" uk-img class="map-atlas" id="map-cluster" uk-toggle="target: #modal-map">
                         </div>
                     </div>
                     <!--Image and video-->
@@ -147,7 +145,7 @@
                                 <!--Image-->
                                 <div>
                                     <div class="uk-card uk-card-default">
-                                        <img data-src="/img/Diagramas/Cluster 1-100.jpg"  alt="" uk-img>
+                                        <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" uk-img id="diagram-cluster" uk-toggle="target: #modal-diagram">
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +153,7 @@
                                 <!--video-->
                                 <div>
                                     <div class="uk-card uk-card-default uk-card-body">
-                                        <img data-src="/img/Diagramas/Cluster 1-100.jpg"  alt="" uk-img>
+                                        <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" id="video-cluster" uk-toggle="target: #modal-video">
                                     </div>
                                 </div>
                             </div>
@@ -167,6 +165,29 @@
         </div>
     </div>
 
+
+    <!-- Modals-->
+    <!--Map-->
+    <div id="modal-map" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <div style="height: 80vh;">
+                <img src="/img/Mapas/1c_1.png"  alt="" uk-img class="map-atlas" id="map-cluster">
+            </div>
+            
+        </div>
+    </div>
+    <!--Diagram-->
+    <div id="modal-diagram" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" uk-img id="diagram-cluster">
+        </div>
+    </div>
+    <!--Video-->
+    <div id="modal-video" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" id="video-cluster">
+        </div>
+    </div>
 
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -184,6 +205,29 @@
             }
         }
         
+
+
+        function showCluster(cluster){
+            cluster = cluster-1;
+             d3.json("/data/atlas.json").then(function(data_json) {
+                //console.log(data_json);
+                //console.log(data_json.calles[cluster])
+                let title = data_json.calles[cluster].nombre;
+                let description = data_json.calles[cluster].descripcion;
+                let map = data_json.calles[cluster].map;
+                let diagram = data_json.calles[cluster].diagram;
+                let video = data_json.calles[cluster].video;
+
+                document.getElementById("complex-title").innerHTML = title;
+                document.getElementById("cluster-text").innerHTML = description;
+
+                document.getElementById("map-cluster").src =  map;
+                document.getElementById("diagram-cluster").src = diagram;
+                document.getElementById("video-cluster").src = video;
+            })
+        }
+        showCluster(1);
+
     </script>
     
 </body>

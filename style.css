@@ -203,3 +203,22 @@ hr.rounded {
     cursor: pointer;
 }
 
+.map-atlas{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #3A6F9A;
+}
+
+#map-cluster:hover{
+    cursor: pointer;
+}
+#diagram-cluster:hover{
+    cursor: pointer;
+}
+#video-cluster:hover{
+    cursor: pointer;
+}
