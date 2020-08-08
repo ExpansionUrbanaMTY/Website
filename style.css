@@ -135,16 +135,14 @@ img{
 
 #map-container{
     height: 100vh;
-    position: relative;
+    position: absolute;
     padding: 16px;
-    overflow: scroll;
 }
 #map-container>*{
     /* position: absolute; */
 } 
 #map-container #map{
     position: fixed;
-    z-index: 1;
     top: 0; left: 0; right: 0; bottom: 0;
 }
 #map-overlay{
@@ -221,4 +219,35 @@ hr.rounded {
 }
 #video-cluster:hover{
     cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.tabs>li:hover{
+    cursor: pointer;
+}
+
+.uk-offcanvas-bar{
+    background-color:rgba(31, 31, 31, 0.534) !important;
+}
+.mapboxgl-ctrl-bottom-left{
+    visibility: hidden;
 }

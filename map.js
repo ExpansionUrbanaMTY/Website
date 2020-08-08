@@ -3,8 +3,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1e
 let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
-    center: [-100.309, 25.6714],
-    zoom: 8.7
+    center: [-100.8126957, 25.801482],
+    zoom: 8.8
 });
 
 let changeLayer = (value)=>{
