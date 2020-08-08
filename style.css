@@ -15,10 +15,11 @@ body{
     padding-bottom: 16px;
 }
 
+/*
 img{
    height: 50px !important
 }
-
+*/
 
 .tabs{
     display: flex;
@@ -182,12 +183,13 @@ hr.rounded {
 }
 
 #complex-title{
-    color: #ce31a7;
+    color: #ce31a7 !important;
+    text-align:right;
     
 }
 
 #complex-title:hover{
-    color:  #992b81;
+
 }
 
 .carousel-atlas-container{
@@ -197,4 +199,7 @@ hr.rounded {
 .altas-carousel{
 }
 
+.uk-transition-toggle:hover{
+    cursor: pointer;
+}
 
