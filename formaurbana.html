@@ -1,29 +1,19 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mancha Urbana MTY</title>
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="shortcut icon" href="./img/logos/logo.png" type="image/x-icon">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
-    
-    <link rel="stylesheet" href="styles.css">
     <!--MapBox-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
-    <!--Slider-->
-    <link rel="stylesheet" href="css/rSlider.min.css">
-    <script src="js/rSlider.min.js"></script>
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- d3 -->
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-    <!--Charts-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
-    
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <style>
         body{
             height: 100vh;
@@ -35,126 +25,38 @@
         }
 
     </style>
+
 </head>
 <body>
-    <!--Navbar-->
-    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-        <nav class="uk-navbar-container uk-navbar-transparent acrylic" uk-navbar>
-
-            <div class="uk-navbar-left">
-        
-                <ul class="uk-navbar-nav">
-                    <a class="uk-navbar-item uk-logo" href="index.html" uk-scroll="">
-                        <img data-src="img/logos/Transparencia.png" width="245px" height="95px" alt="" uk-img="" src="./img/logos/s5.png">
-                    </a>
-                    <li class="uk-active uk-text-bold"><a>Expansión Urbana de Monterrey</a></li>
-                </ul>
-        
-            </div>
-
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li><a href="index.html">Costos</a></li>
-                    <li class="uk-active"><a href="formaurbana.html">Forma Urbana</a></li>
-                    <li><a href="egresos.html">Ingresos y Egresos</a></li>
-                    <li><a href="atlas.html">Atlas de Calles</a></li>
-                    <li><a href="#">Metodología</a></li>
-                    <li><a href="#">Equipo</a></li>
-                </ul>
-            </div>
-        </nav>
+    <div id="nav">
+        <img src="img/logos/logo-final.png" height="50px">
+        <h4>Expansión Urbana de Monterrey</h4>
+        <ul>
+            <li><a href="index.html">Costos</a></li>
+            <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="egresos.html">Ingresos y Egresos</a></li>
+            <li><a href="atlas.html">Atlas de Calles</a></li>
+            <li><a href="#">Metodología</a></li>
+            <li><a href="#">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
-    <!--Main-->
 
-    <!--
-    <div id="top-grid">
-        <h2 class="uk-article-title uk-text-bold">Forma urbana de la Zona Metropolitana de Monterrey</h2>
-        <div class="uk-child-width-expand@s"uk-grid>
-    -->
-            <!--Charts and info-->
-            <!--
-            <div class="uk-container">
-                <div class="uk-container">
-                    <ul uk-tab uk-switcher="connect: .switcher-container">
-                        <li><a href="#/">Act. Economicas</a></li>
-                        <li><a href="#/">Población y vivienda</a></li>
-                        <li><a href="#/">Forma urbana</a></li>
-                    </ul>
-        
-                    <ul class="uk-switcher switcher-container uk-margin">
-                        <li>
-                            <h3 class="uk-text-bold">Actividades Económicas</h3>
-                            <div class="uk-margin">
-                                <select class="uk-select">
-                                    <option>Actividades Económicas 2019</option>
-                                    <option>Actividades Económicas 2015</option>
-                                    <option>Actividades Económicas 2010</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="uk-text-bold">Población y vivienda 2000/2016</h3>
-                            <div class="uk-text-justify">
-                                <p>
-                                    En cuanto a población se nota una marcada tendencia entre 2000 y 2016. Los primeros 11 kilómetros de la ciudad han sido despoblados marcadamente, con una pérdida del 12% de la población respecto al año 2000, este sector de la ciudad comprende el centro histórico y se extiende hasta San Pedro Garza García, el inicio de Carretera Nacional, el centro de Guadalupe, el centro de San Nicolás de los Garza y Mitras Centro. Sin embargo, el número de viviendas en este sector incrementó en 11.7%, indicando que, aunque la población está deshabitando la zona, la construcción continúa, probablemente provocando una caída en la densidad de población de la mancha urbana.
-                                </p>
-                                <p>
-                                    No obstante, la población total de la ciudad ha incrementado en 22%, pasando de 3,3332,000 habitantes en el año 2000 a 4,062,800 en el 2016. Esto significa que la población se ha ido a las periferias de la ciudad, más allá de los primeros 11 kilómetros, teniendo el kilómetro 15 un aumento de más de 100 mil habitantes. El incremento de población entre los 12 kilómetros y los 40 ha sido del 66%. De igual forma a estas distancias el número de viviendas a incrementado considerablemente, pasando de 340,209 viviendas en el 2000 a 896,873 en el año 2016, es decir, un incremento de más del 160% por ciento. Esto demuestra una mayor demanda habitacional en las periferias de la ciudad. Mientras que en el año 2000 sólo el 43.5% de la población vivía a más de 11 kilómetros del centro histórico, en el 2016 fue el 59.1% quién habitó las periferias del área metropolitana.
-                                </p>
-                                <p>
-                                    Este cambio de zonas de habitación significa mayores distancias de traslado al centro de empleos consolidado históricamente. Sin embargo, también suponen nuevas fuentes de empleo en servicios y comercios para satisfacer las necesidades de los nuevos habitantes.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="uk-text-bold">Sobre la forma urbana</h3>
-                            <div class="uk-text-justify">
-                                <p>
-                                    Phasellus id sem eu tortor mollis pharetra. Curabitur eleifend sapien sed fringilla auctor. Curabitur commodo vitae est non auctor. Quisque in iaculis dolor. Cras ut leo at ex fermentum facilisis id at quam. Nullam varius mi scelerisque, rhoncus lectus quis, efficitur dui. Duis vitae sapien sed leo euismod aliquam. Praesent luctus euismod odio, non convallis leo consequat ut. Praesent rhoncus lorem in felis luctus euismod. Donec eu mauris gravida, dignissim ante a, sollicitudin felis. Pellentesque interdum vitae nisi ac auctor. Mauris hendrerit viverra tempor. Etiam fringilla tincidunt aliquam. Proin sit amet odio quam. Morbi quis massa rutrum, pellentesque dui vitae, vulputate nunc. Proin facilisis nulla a pretium condimentum.
-                                </p>
-                                <p>
-                                    In vel fringilla arcu. In imperdiet nisi rhoncus odio tincidunt, sit amet congue nisl bibendum. Mauris et justo ligula. Ut eget pretium augue. Curabitur porttitor orci in metus tincidunt cursus. Nam et massa volutpat, bibendum ipsum id, sodales diam. Integer faucibus quam et libero aliquam eleifend. Cras pulvinar fermentum semper. Fusce vitae efficitur leo, eget faucibus erat. Nullam tristique fermentum vehicula. Sed iaculis, felis dapibus tempor dapibus, eros nulla tincidunt elit, non egestas magna justo in ipsum. Aenean at sagittis nibh, sit amet iaculis lacus. Duis ut vestibulum elit, sed posuere erat. Etiam et vestibulum enim. Aenean consequat nisi id finibus lobortis. Praesent et nulla eu sem porttitor pulvinar.
-                                </p>
-                                <p>
-                                    Duis facilisis, lorem vitae mattis iaculis, purus purus scelerisque est, ac gravida orci nisl eget enim. Phasellus nulla arcu, mattis id tristique vel, fermentum non metus. Integer tristique tellus eget porta ultricies. Duis porta nisi eu eleifend accumsan. Nunc eget quam ut ipsum ultricies aliquam nec quis risus. Fusce egestas orci congue elit maximus bibendum. Nunc accumsan molestie mauris, eget suscipit dui tincidunt ac. Cras id ipsum ac metus lacinia euismod at a leo. Sed lacus erat, finibus aliquam enim sit amet, posuere faucibus orci. Vivamus pharetra finibus ligula, ac feugiat velit feugiat nec. Nullam enim justo, eleifend ac consectetur id, fermentum a ex. Aenean congue tempor odio, sit amet dictum purus congue ut.
-                                </p>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-            -->
-            <!--Maps-->
-            <!--
-            <div class="uk-container">
-                <div class="uk-container">
-                    <ul uk-tab uk-switcher="connect: .switcher-container1">
-                        <li><a href="#/">Distancia al centro</a></li>
-                        <li><a href="#/">Diferencia empleo</a></li>
-                        <li><a href="#/">Diferencia poblacion</a></li>
-                    </ul>
-        
-                    <ul class="uk-switcher switcher-container1 uk-margin">
-                        <li>
-                            <h3 class="uk-text-bold">Distancia al centro de la ciudad</h3>
-                        </li>
-                        <li>
-                            <h3 class="uk-text-bold">Diferencia de empleos 2010-2019</h3>
-                        </li>
-                        <li>
-                            <h3 class="uk-text-bold">Diferencia de población 2000-2016</h3>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script src="./js/map.js?a"></script>
-    <script src="./js/charts.js"></script>
-    -->
     <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/denue" frameborder="0"></iframe> <!--Es una metapágina-->
+
+    <script>
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+    </script>
+
 </body>
-</html>
