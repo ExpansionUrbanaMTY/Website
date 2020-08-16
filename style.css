@@ -130,6 +130,15 @@ img{
         margin-top: 60vh !important;
         max-width: 100% !important;
     }
+    #maps-container1{
+        padding-left: 40px !important;
+    }
+    #maps-container{
+        padding-right: 40px !important;
+    }
+    #atlas-title{
+        font-size: 300% !important;
+    }
 }
 
 
@@ -249,4 +258,8 @@ hr.rounded {
 }
 .mapboxgl-ctrl-bottom-left{
     visibility: hidden;
+}
+
+#selection{
+    color: hotpink !important;
 }
