@@ -13,8 +13,11 @@ body{
     background-color: #121212;
     color: white;
     padding-bottom: 16px;
+    overflow-x: scroll !important;
 }
-
+body.uk-offcanvas-container, body.uk-offcanvas-page{
+    overflow-x: scroll !important;
+}
 /*
 img{
    height: 50px !important
@@ -134,12 +137,12 @@ img{
 
 
 #map-container{
-    height: 100vh;
-    position: absolute;
+    height: calc(100vh - 80px);
+    position: relative;
     padding: 16px;
 }
 #map-container>*{
-    /* position: absolute; */
+    position: absolute !important;
 } 
 #map-container #map{
     position: fixed;
@@ -250,4 +253,15 @@ hr.rounded {
 }
 .mapboxgl-ctrl-bottom-left{
     visibility: hidden;
+}
+
+.fullscreen-cont{
+    padding: 32px;
+    color: white;
+    height: calc(50vh - 40px);
+    border-bottom: 2px solid rgb(30, 30, 30);
+    box-sizing: border-box;
+}
+.fullscreen-cont h1{
+    color: white;
 }

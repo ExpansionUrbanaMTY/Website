@@ -3,22 +3,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expansión Urbana Mty</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
     <!--MapBox-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
     <!-- d3 -->
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
-
+    
     <link rel="stylesheet" href="css/uikit.min.css" />
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
-
+    
+    <link rel="stylesheet" href="style.css">
     <!--Carousel-->
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 				
 </head>
-<body style="overflow: hidden;">
+<body>
 
     <div id="nav" style=" z-index: 1000;">
         <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
@@ -46,8 +46,6 @@
 
     <div id="map-container">
         <div id="map"></div>
-        
-
         <div id="offcanvas-overlay" uk-offcanvas="overlay: false" style="z-index: 0;" bg-close="false">
             <div class="uk-offcanvas-bar" style=" width: 40vw!important;">
 
@@ -100,7 +98,14 @@
             </div>
         </div>
     </div>
-   
+    <div class="fullscreen-cont">
+        <h1 id="title" style="font-weight: bold;">Superficie de calles por municipio de la Zona Metropolitana de Monterrey</h1> 
+        <p>Aquí va la beia tabla</p>
+    </div>
+    <div class="fullscreen-cont">
+        <h1 id="title" style="font-weight: bold;">Costo de reposición de pavimentos</h1> 
+        <p>Aquí va la gráfica</p>
+   </div>
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
