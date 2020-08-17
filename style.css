@@ -13,10 +13,10 @@ body{
     background-color: #121212;
     color: white;
     padding-bottom: 16px;
-    overflow-x: scroll !important;
+    overflow-x: visible !important;
 }
 body.uk-offcanvas-container, body.uk-offcanvas-page{
-    overflow-x: scroll !important;
+    overflow-x: visible !important;
 }
 /*
 img{
@@ -140,6 +140,7 @@ img{
     height: calc(100vh - 80px);
     position: relative;
     padding: 16px;
+    box-sizing: border-box;
 }
 #map-container>*{
     position: absolute !important;
@@ -258,10 +259,37 @@ hr.rounded {
 .fullscreen-cont{
     padding: 32px;
     color: white;
-    height: calc(50vh - 40px);
+    min-height: calc(100vh - 80px);
     border-bottom: 2px solid rgb(30, 30, 30);
     box-sizing: border-box;
 }
 .fullscreen-cont h1{
     color: white;
+    flex-basis: 100%;
+}
+.fullscreen-cont>*{
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fullscreen-cont>table{
+    /* margin: 8px; */
+    font-size: 1.2rem;
+    border-spacing: 0px;
+}
+.fullscreen-cont>table td{
+    border: none;
+    border-collapse: collapse;
+    border-bottom: 1px solid rgb(30,30,30);
+    padding: 8px 16px
+}
+.fullscreen-cont>table>thead{
+    font-weight: 600;
+}
+.fullscreen-cont>table>tbody>tr:nth-child(even){
+    background-color: rgb(30, 30, 30);
+}
+.fullscreen-cont>table>tbody>tr:hover{
+    background-color: rgb(100, 100, 100);
 }
