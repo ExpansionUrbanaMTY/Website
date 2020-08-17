@@ -159,8 +159,8 @@ img{
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
 }
-#offcanvas-overlay{
-    backdrop-filter: blur(5px);
+#offcanvas-overlay>div{
+    backdrop-filter: blur(3px);
 }
 .tooltip{
     font-size: large;
