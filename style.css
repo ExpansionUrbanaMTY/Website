@@ -159,7 +159,9 @@ img{
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
 }
-
+#offcanvas-overlay{
+    backdrop-filter: blur(5px);
+}
 .tooltip{
     font-size: large;
     font-weight: bold;
@@ -260,12 +262,13 @@ hr.rounded {
     padding: 32px;
     color: white;
     min-height: calc(100vh - 80px);
-    border-bottom: 2px solid rgb(30, 30, 30);
+    border-bottom: 2px solid rgb(80, 80, 80);
     box-sizing: border-box;
 }
 .fullscreen-cont h1{
     color: white;
     flex-basis: 100%;
+    text-align: center;
 }
 .fullscreen-cont>*{
     max-width: 800px;
@@ -292,4 +295,22 @@ hr.rounded {
 }
 .fullscreen-cont>table>tbody>tr:hover{
     background-color: rgb(100, 100, 100);
+}
+
+#costos{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#costos>*{
+    /* max-width: 100%; */
+    flex: 1;
+    margin: 8px;
+}
+#costos h1{
+    /* max-width: 800px; */
+    max-width: 100%;
+    padding: 0px calc( 50% - 400px );
+    margin: 0px auto;
+    flex-basis: 100%;
 }
