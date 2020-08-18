@@ -263,3 +263,9 @@ hr.rounded {
 #selection{
     color: hotpink !important;
 }
+.uk-modal-dialog{
+    width: 1000 !important;
+}
+.uk-transition-toggle{
+    max-width: 300;
+}

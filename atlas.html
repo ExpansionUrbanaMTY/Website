@@ -44,7 +44,7 @@
 
 <!--http://senseable.mit.edu/trainsofdata/-->
     <div class="uk-padding uk-light" style="padding-bottom: 0 !important;padding-top: 20px;padding-left: 65px; padding-bottom: 0px!important" id="maps-container1">
-        <h1  style="font-weight: 650;font-size: 400%;" id="atlas-title">Atlas de Calles</h1>
+        <h1  style="font-weight: 650;font-size: 400%;" id="atlas-title">Morfología de Calles</h1>
     </div>
     
     <div class="uk-grid-match uk-grid-collapse uk-child-width-expand@s" uk-grid>
@@ -52,15 +52,38 @@
             <div class="uk-padding uk-light" style="padding-top: 0 !important;padding-left: 65px;padding-bottom: 0px!important" id="maps-container1">
                 <article class="uk-article">
 
+                    <p class="uk-text-lead">Tipología de la estructura vial de Monterrey</p>
+
                     <h1  id="complex-title">Nuevos suburbios</h1>
 
-                    <p class="uk-text-lead">Tipología de la estructura vial de Monterrey</p>
                     <div>
                         <p class="uk-text-justify" id="cluster-text">Este cluster está compuesto por calles mayoritariamente radiales que hacen uso de calles colectoras para conectarse entre sí. Las comunidades que lo componen se encuentran en la periferia, y en secciones urbanas o “manchas” no integradas al AMM. El cluster representa zonas exclusivamente residenciales, con viviendas de baja a media densidad. La red de calles muestra una alta centralidad de grado, con muchas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.</p>
                     </div>
                     <div>
-                        
-                        
+                        <table class="uk-table">
+                            <tbody>
+                                <tr>
+                                    <td>Tipo de calle</td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar1" class="uk-progress" value="1" max="5"></progress></td>
+                                </tr>
+                                <tr>
+                                    <td>Centricidad</td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar2" class="uk-progress" value="1" max="5"></progress></td>
+                                </tr>
+                                <tr>
+                                    <td>Relación empleo vivienda</td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar3" class="uk-progress" value="1" max="5"></progress></td>
+                                </tr>
+                                <tr>
+                                    <td>Densidad</td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar4" class="uk-progress" value="1" max="5"></progress></td>
+                                </tr>
+                                <tr>
+                                    <td>Relación empleos vivienda</td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar5" class="uk-progress" value="1" max="5"></progress></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </article>
             </div>
@@ -69,7 +92,7 @@
             <div class="uk-padding uk-light" style="padding-top: 0 !important; padding-right: 65px;padding-bottom: 10px !important;" id="maps-container">
                 <div class="uk-grid-match uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
                     <div>
-                        <div class="uk-card uk-card-default uk-card-body">
+                        <div class="uk-card uk-card-default uk-card-body" style="background-color: #272727;">
                             <div>
                                 <img src="/img/Mapas/1c_1.png" alt="" uk-img class="map-atlas" id="map-cluster" uk-toggle="target: #modal-map" style='max-width: 100%; max-height: 100%'>
                             </div>
@@ -80,13 +103,13 @@
                         <div class="uk-grid-match uk-card ">
                             <div class="uk-grid-medium  uk-child-width-1-1@s uk-grid-medium uk-text-center" uk-grid>  
                                 <div>
-                                    <div class="uk-card uk-card-default">
-                                        <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" uk-img id="diagram-cluster" uk-toggle="target: #modal-diagram">
+                                    <div class="uk-card uk-card-default" style="background-color: #272727;">
+                                        <img src="/img/Diagramas/Cluster 1-100.png"  alt="" uk-img id="diagram-cluster" uk-toggle="target: #modal-diagram" style="padding: 1rem;">
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="uk-card uk-card-default">
-                                        <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" id="video-cluster" uk-toggle="target: #modal-video">
+                                    <div class="uk-card uk-card-default" style="background-color: #272727;">
+                                        <img src="/img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster" uk-toggle="target: #modal-video" style="padding: 1rem;">
                                     </div>
                                 </div>
                             </div>
@@ -106,47 +129,47 @@
                         <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-5@m  uk-grid">
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(1)">
                                 <img src="/img/Diagramas/Cluster 1-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">1</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">1</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(2)">
                                 <img src="/img/Diagramas/Cluster 2-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">2</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">2</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(3)">
                                 <img src="/img/Diagramas/Cluster 3-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">3</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">3</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(4)">
                                 <img src="/img/Diagramas/Cluster 4-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">4</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">4</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(5)">
                                 <img src="/img/Diagramas/Cluster 5-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">5</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">5</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(6)">
                                 <img src="/img/Diagramas/Cluster 6-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">6</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">6</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(7)">
                                 <img src="/img/Diagramas/Cluster 7-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">7</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">7</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(8)">
                                 <img src="/img/Diagramas/Cluster 8-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">8</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">8</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(9)">
                                 <img src="/img/Diagramas/Cluster 9-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">9</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">9</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(10)">
                                 <img src="/img/Diagramas/Cluster 10-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">10</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">10</h1></div>
                             </li>
                             <li class="uk-transition-toggle" tabindex="0" onclick="showCluster(11)">
                                 <img src="/img/Diagramas/Cluster 11-100.png" alt="">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: black;">11</h1></div>
+                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small" style="color: whitesmoke;">11</h1></div>
                             </li>
                         </ul>
                     </div>
@@ -172,23 +195,22 @@
     <!-- Modals-->
     <!--Map-->
     <div id="modal-map" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
+        <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
             <div style="height: 80vh;">
                 <img src="/img/Mapas/1c_1.png"  alt="" uk-img class="map-atlas" id="map-cluster">
             </div>
-            
         </div>
     </div>
     <!--Diagram-->
     <div id="modal-diagram" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-            <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" uk-img id="diagram-cluster">
+        <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
+            <img src="/img/Diagramas/Cluster 1-100.png"  alt="" uk-img id="diagram-cluster">
         </div>
     </div>
     <!--Video-->
     <div id="modal-video" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-            <img src="/img/Diagramas/Cluster 1-100.jpg"  alt="" id="video-cluster">
+        <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
+            <img src="/img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster">
         </div>
     </div>
 
@@ -220,6 +242,7 @@
                 let map = data_json.calles[cluster].map;
                 let diagram = data_json.calles[cluster].diagram;
                 let video = data_json.calles[cluster].video;
+                let indicadores = data_json.calles[cluster].indicadores;
 
                 document.getElementById("complex-title").innerHTML = title;
                 document.getElementById("cluster-text").innerHTML = description;
@@ -227,6 +250,13 @@
                 document.getElementById("map-cluster").src =  map;
                 document.getElementById("diagram-cluster").src = diagram;
                 document.getElementById("video-cluster").src = video;
+
+                document.getElementById("js-progressbar1").value =indicadores[0];
+                document.getElementById("js-progressbar2").value =indicadores[1];
+                document.getElementById("js-progressbar3").value =indicadores[2];
+                document.getElementById("js-progressbar4").value =indicadores[3];
+                document.getElementById("js-progressbar5").value =indicadores[4];
+
             })
         }
         showCluster(1);
