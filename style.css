@@ -141,7 +141,7 @@ img{
     }
     #atlas-title{
         font-size: 300% !important;
-    }
+  
 }
 
 
@@ -152,7 +152,7 @@ img{
     box-sizing: border-box;
 }
 #map-container>*{
-    position: absolute !important;
+    position: absolu
 } 
 #map-container #map{
     position: fixed;
@@ -168,9 +168,11 @@ img{
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
 }
+
 #offcanvas-overlay>div{
     backdrop-filter: blur(3px);
 }
+
 .tooltip{
     font-size: large;
     font-weight: bold;
@@ -199,7 +201,6 @@ hr.rounded {
     color: #ce31a7 !important;
     scroll-padding-top: 0 !important;
     margin-top: 0 !important;
-    
 }
 
 #complex-title:hover{

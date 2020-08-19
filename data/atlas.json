@@ -55,7 +55,7 @@
             "diagram":"./img/Diagramas/Cluster 7-100.png",
             "video":"./img/Diagramas/Cluster 7-100.png",
             "indicadores": [1, 1.5, 4.5, 1.5, 5]
-        }, 
+        },
         {
             "nombre": "Municipios anexados",
             "descripcion": "Este cluster está compuesto de zonas mixtas, donde segmentos de calles altamente radiales conviven con pequeños segmentos cuadriculados. Las comunidades que lo componen se encuentran en la zona periférica, así como en municipios previamente aislados del AMM que fueron conectados por la mancha urbana, como Santiago y García. Representa zonas mayoritariamente residenciales con densidad variada, así como centros de comercio. La red de calles muestra una centralidad de grado media, con algunas conexiones entre nodos, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",

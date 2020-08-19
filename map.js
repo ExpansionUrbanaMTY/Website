@@ -8,7 +8,7 @@ let map = new mapboxgl.Map({
 });
 
 let changeLayer = (value)=>{
-    let year = years[value];
+    let ye
     document.querySelector('#title').innerHTML = `Mancha urbana, ${year}`;
     map.setLayoutProperty(year.toString(), 'visibility', 'visible');
     setTimeout(()=>{

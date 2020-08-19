@@ -215,8 +215,6 @@
             <img src="./img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster">
         </div>
     </div>
-
-    
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -232,8 +230,6 @@
             }
         }
         
-
-
         function showCluster(cluster){
             cluster = cluster-1;
              d3.json("./data/atlas.json").then(function(data_json) {
@@ -245,10 +241,10 @@
                 let diagram = data_json.calles[cluster].diagram;
                 let video = data_json.calles[cluster].video;
                 let indicadores = data_json.calles[cluster].indicadores;
-
+               
                 document.getElementById("complex-title").innerHTML = title;
                 document.getElementById("cluster-text").innerHTML = description;
-
+               
                 document.getElementById("map-cluster").src =  map;
                 document.getElementById("diagram-cluster").src = diagram;
                 document.getElementById("video-cluster").src = video;
@@ -258,7 +254,6 @@
                 document.getElementById("js-progressbar3").value =indicadores[2];
                 document.getElementById("js-progressbar4").value =indicadores[3];
                 document.getElementById("js-progressbar5").value =indicadores[4];
-
             })
         }
         showCluster(1);
