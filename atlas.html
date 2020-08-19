@@ -236,7 +236,7 @@
 
         function showCluster(cluster){
             cluster = cluster-1;
-             d3.json("/data/atlas.json").then(function(data_json) {
+             d3.json("./data/atlas.json").then(function(data_json) {
                 //console.log(data_json);
                 //console.log(data_json.calles[cluster])
                 let title = data_json.calles[cluster].nombre;
