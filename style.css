@@ -13,8 +13,11 @@ body{
     background-color: #121212;
     color: white;
     padding-bottom: 16px;
+    overflow-x: visible !important;
 }
-
+body.uk-offcanvas-container, body.uk-offcanvas-page{
+    overflow-x: visible !important;
+}
 /*
 img{
    height: 50px !important
@@ -143,12 +146,13 @@ img{
 
 
 #map-container{
-    height: 100vh;
-    position: absolute;
+    height: calc(100vh - 80px);
+    position: relative;
     padding: 16px;
+    box-sizing: border-box;
 }
 #map-container>*{
-    /* position: absolute; */
+    position: absolute !important;
 } 
 #map-container #map{
     position: fixed;
@@ -164,7 +168,9 @@ img{
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
 }
-
+#offcanvas-overlay>div{
+    backdrop-filter: blur(3px);
+}
 .tooltip{
     font-size: large;
     font-weight: bold;
@@ -270,4 +276,61 @@ hr.rounded {
 }
 .uk-transition-toggle{
     max-width: 300;
+}
+.fullscreen-cont{
+    padding: 32px;
+    color: white;
+    min-height: calc(100vh - 80px);
+    border-bottom: 2px solid rgb(80, 80, 80);
+    box-sizing: border-box;
+}
+.fullscreen-cont h1{
+    color: white;
+    flex-basis: 100%;
+    text-align: center;
+}
+.fullscreen-cont>*{
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fullscreen-cont>table{
+    /* margin: 8px; */
+    font-size: 1.2rem;
+    border-spacing: 0px;
+}
+.fullscreen-cont>table td{
+    border: none;
+    border-collapse: collapse;
+    border-bottom: 1px solid rgb(30,30,30);
+    padding: 8px 16px
+}
+.fullscreen-cont>table>thead{
+    font-weight: 600;
+}
+.fullscreen-cont>table>tbody>tr:nth-child(even){
+    background-color: rgb(30, 30, 30);
+}
+.fullscreen-cont>table>tbody>tr:hover{
+    background-color: rgb(100, 100, 100);
+}
+
+#costos{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#costos>*{
+    /* max-width: 100%; */
+    flex: 1;
+    margin: 8px;
+}
+#costos h1{
+    /* max-width: 800px; */
+    max-width: 100%;
+    padding: 0px calc( 50% - 400px );
+    margin: 0px auto;
+    flex-basis: 100%;
 }
