@@ -3,79 +3,90 @@
         {
             "nombre": "Nuevos suburbios",
             "descripcion": "Este cluster está compuesto por calles mayoritariamente radiales que hacen uso de calles colectoras para conectarse entre sí. Las comunidades que lo componen se encuentran en la periferia, y en secciones urbanas o “manchas” no integradas al AMM. El cluster representa zonas exclusivamente residenciales, con viviendas de baja a media densidad. La red de calles muestra una alta centralidad de grado, con muchas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_1.png",
-            "diagram":"/img/Diagramas/Cluster 1-100.png",
-            "video":"/img/Diagramas/Cluster 1-100.png"
+            "map":"./img/Mapas/1c_1.png",
+            "diagram":"./img/Diagramas/Cluster 1-100.png",
+            "video":"./img/Diagramas/Cluster 1-100.png",
+            "indicadores": [2, 1, 5, 2, 0.9]
         },
         {
             "nombre": "Subcentros a desnivel",
             "descripcion": "Este cluster está compuesto por calles mayoritariamente radiales y con poco orden. Las comunidades que lo componen se encuentran en la periferia del AMM, y son zonas mayoritariamente residenciales, con viviendas de baja a media densidad, así como algunos polígonos de zonas mixtas con comercio y oficinas. La red de calles muestra una centralidad de grado nivel medio, con algunas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_2.png",
-            "diagram":"/img/Diagramas/Cluster 2-100.png",
-            "video":"/img/Diagramas/Cluster 2-100.png"
+            "map":"./img/Mapas/1c_2.png",
+            "diagram":"../img/Diagramas/Cluster 2-100.png",
+            "video":"./img/Diagramas/Cluster 2-100.png",
+            "indicadores": [1.5, 2, 3.5,2, 2]
         },
         {
             "nombre": "Expansión industrial",
             "descripcion": "Este cluster representa zonas mixtas, donde segmentos de calles cuadriculadas y segmentos de calles altamente radiales conviven entre sí.  Las comunidades que lo componen se encuentran en la zona periférica del AMM. representa zonas mixtas con grandes sectores industriales, comercio y servicios, así como vivienda de baja a media densidad. La red de calles muestra una centralidad de grado nivel medio, con algunas conexiones entre nodos, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_3.png",
-            "diagram":"/img/Diagramas/Cluster 3-100.png",
-            "video":"/img/Diagramas/Cluster 3-100.png"
+            "map":"./img/Mapas/1c_3.png",
+            "diagram":"./img/Diagramas/Cluster 3-100.png",
+            "video":"./img/Diagramas/Cluster 3-100.png",
+            "indicadores": [2.5, 2, 2.5, 1.5, 1.5]
         },
         {
             "nombre": "San Bernabé y suburbios barriales",
             "descripcion": "Este cluster está compuesto de calles ordenadas en largos rectángulos con forma semi-radial, conectadas entre sí por medio de calles colectoras. Las comunidades que lo componen se encuentran integradas al AMM, tanto dentro del cuadrante maduro de la ciudad como en la periferia. Representa zonas mayoritariamente residenciales, con viviendas de media a alta densidad, y con una concentración baja de comercios. La red de calles muestra una baja centralidad de grado, con pocas conexiones entre nodos, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_4.png",
-            "diagram":"/img/Diagramas/Cluster 4-100.png",
-            "video":"/img/Diagramas/Cluster 4-100.png"
+            "map":"./img/Mapas/1c_4.png",
+            "diagram":"./img/Diagramas/Cluster 4-100.png",
+            "video":"./img/Diagramas/Cluster 4-100.png",
+            "indicadores": [3, 3, 4, 4, 1.5]
         },
         {
             "nombre": "Vivienda social",
             "descripcion": "Este cluster está compuesto de calles con un alto orden, arregladas en largos rectángulos con calles colectoras entre sí. Las comunidades que lo componen se encuentran en la periferia y en secciones urbanas no integradas al polígono principal del AMM. El cluster representa zonas casi exclusivamente residenciales, con viviendas de alta densidad, con pocos  centros de comercio y servicios. La red de calles muestra una centralidad de grado media, con algunas conexiones entre nodos, así como una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_5.png",
-            "diagram":"/img/Diagramas/Cluster 5-100.png",
-            "video":"/img/Diagramas/Cluster 5-100.png"
+            "map":"./img/Mapas/1c_5.png",
+            "diagram":"./img/Diagramas/Cluster 5-100.png",
+            "video":"./img/Diagramas/Cluster 5-100.png",
+            "indicadores": [3.5, 1.5, 4.5, 5, 1.8]
         },
         {
             "nombre": "Casa-habitación aislada",
             "descripcion": "Este cluster está compuesto de calles con poco orden arregladas de manera altamente radial. Las comunidades que lo componen se encuentran en la zona periférica del AMM, y son zonas exclusivamente residenciales, con viviendas de baja a media densidad. La red de calles muestra una centralidad de grado muy baja, con muy pocas conexiones entre nodos, y una intermediación muy baja, donde una serie limitada de nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_6.png",
-            "diagram":"/img/Diagramas/Cluster 6-100.png",
-            "video":"/img/Diagramas/Cluster 6-100.png"
+            "map":"./img/Mapas/1c_6.png",
+            "diagram":"./img/Diagramas/Cluster 6-100.png",
+            "video":"./img/Diagramas/Cluster 6-100.png",
+            "indicadores": [1.5, 2, 5, 2.5, 0]
         },
         {
             "nombre": "Quintas periféricas",
             "descripcion": "Este cluster está compuesto por calles altamente radiales y con poco orden entre sí. Las comunidades que lo componen se encuentran en la periferia y en secciones urbanas no integradas al polígono principal del AMM, y representan zonas casi exclusivamente residenciales, con viviendas de densidad baja a media. La red de calles muestra una centralidad de grado muy baja, con muy pocas conexiones entre los nodos que la componen, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_7.png",
-            "diagram":"/img/Diagramas/Cluster 7-100.png",
-            "video":"/img/Diagramas/Cluster 7-100.png"
-        }, 
+            "map":"./img/Mapas/1c_7.png",
+            "diagram":"./img/Diagramas/Cluster 7-100.png",
+            "video":"./img/Diagramas/Cluster 7-100.png",
+            "indicadores": [1, 1.5, 4.5, 1.5, 5]
+        },
         {
             "nombre": "Municipios anexados",
             "descripcion": "Este cluster está compuesto de zonas mixtas, donde segmentos de calles altamente radiales conviven con pequeños segmentos cuadriculados. Las comunidades que lo componen se encuentran en la zona periférica, así como en municipios previamente aislados del AMM que fueron conectados por la mancha urbana, como Santiago y García. Representa zonas mayoritariamente residenciales con densidad variada, así como centros de comercio. La red de calles muestra una centralidad de grado media, con algunas conexiones entre nodos, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_8.png",
-            "diagram":"/img/Diagramas/Cluster 8-100.png",
-            "video":"/img/Diagramas/Cluster 8-100.png"
+            "map":"./img/Mapas/1c_8.png",
+            "diagram":"./img/Diagramas/Cluster 8-100.png",
+            "video":"./img/Diagramas/Cluster 8-100.png",
+            "indicadores": [1.5, 2, 3.5, 2.5, 1.7]
         },
         {
             "nombre": "Centro de Monterrey",
             "descripcion": "Este cluster está compuesto por calles con un alto orden, ordenadas en cuadrículas perfectas y arreglos de cuadrículas elongadas. Las comunidades que lo componen se encuentran en el centro del AMM. Representa zonas mixtas, con grandes sectores de industria, comercio, oficina y servicios conviviendo con viviendas de media a alta densidad. La red de calles muestra una centralidad de grado muy alta, con muchas conexiones entre nodos, y una intermediación alta, donde muchos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_9.png",
-            "diagram":"/img/Diagramas/Cluster 9-100.png",
-            "video":"/img/Diagramas/Cluster 9-100.png"
+            "map":"./img/Mapas/1c_9.png",
+            "diagram":"./img/Diagramas/Cluster 9-100.png",
+            "video":"./img/Diagramas/Cluster 9-100.png",
+            "indicadores": [5, 5, 2.5, 3.5, 0]
         },
         {
             "nombre": "Nueva vivienda social",
             "descripcion": "Este cluster está compuesto por calles arregladas en cuadrículas elongadas dispersas en distintos patrones. Las comunidades que lo componen se encuentran en polígonos aislados de la periferia del AMM. representa zonas exclusivamente residenciales con viviendas de media a alta densidad, con presencia baja de comercios. La red de calles muestra una centralidad de grado media, con algunas conexiones entre nodos, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.",
-            "map":"/img/Mapas/1c_10.png",
-            "diagram":"/img/Diagramas/Cluster 10-100.png",
-            "video":"/img/Diagramas/Cluster 10-100.png"
+            "map":"./img/Mapas/1c_10.png",
+            "diagram":"./img/Diagramas/Cluster 10-100.png",
+            "video":"./img/Diagramas/Cluster 10-100.png",
+            "indicadores": [4, 1, 5, 4.5, 1.4]
         },
         {
             "nombre": "Suburbios centrales",
             "descripcion": "Este cluster está compuesto por calles ordenadas en largos rectángulos que hacen uso de calles colectoras para conectarse entre sí. A veces éstos tienden a un arreglo cuadricular, y a veces asimilan un arreglo radial. Las comunidades que lo componen se encuentran en el exterior del centro del AMM. representa zonas mixtas mayoritariamente compuestas de comercio y servicios, así como algunos sectores de industria y oficina, en regiones contiguas a viviendas de media a alta densidad. La red de calles muestra una centralidad de grado alta, con muchas conexiones entre nodos, y una intermediación baja, donde pocos nodos forman parte del camino más corto.",
-            "map":"/img/Mapas/1c_11.png",
-            "diagram":"/img/Diagramas/Cluster 11-100.png",
-            "video":"/img/Diagramas/Cluster 11-100.png"
+            "map":"./img/Mapas/1c_11.png",
+            "diagram":"./img/Diagramas/Cluster 11-100.png",
+            "video":"./img/Diagramas/Cluster 11-100.png",
+            "indicadores": [3, 4, 3, 4, 0.7]
         }
     ]
 }

@@ -6132,14 +6132,14 @@ ul.uk-nav-sub {
  * 1. Remove right border in IE11 and Edge
  */
 .uk-progress::-webkit-progress-value {
-  background-color: #1e87f0;
+  background-color: #D2416F;
   transition: width 0.6s ease;
 }
 .uk-progress::-moz-progress-bar {
-  background-color: #1e87f0;
+  background-color: #D2416F;
 }
 .uk-progress::-ms-fill {
-  background-color: #1e87f0;
+  background-color: #D2416F;
   transition: width 0.6s ease;
   /* 1 */
   border: 0;

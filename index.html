@@ -10,15 +10,16 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
     <!-- d3 -->
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
-
+    
     <link rel="stylesheet" href="css/uikit.min.css" />
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
-
+    
+    <link rel="stylesheet" href="style.css">
     <!--Carousel-->
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -26,8 +27,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 				
 </head>
-<body style="overflow: hidden;">
-
+<body>
     <div id="nav" style=" z-index: 1000;">
         <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
         <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
@@ -35,7 +35,7 @@
             <li><a href="index.html">Costos</a></li>
             <li><a href="formaurbana.html">Forma Urbana</a></li>
             <li><a href="egresos.html">Ingresos y Egresos</a></li>
-            <li><a href="atlas.html">Atlas de Calles</a></li>
+            <li><a href="atlas.html">Morfología de Calles</a></li>
             <li><a href="#">Metodología</a></li>
             <li><a href="#">Equipo</a></li>
         </ul>
@@ -46,14 +46,12 @@
 
     <div id="map-container">
         <div id="map"></div>
-        
-
         <div id="offcanvas-overlay" uk-offcanvas="overlay: false" style="z-index: 0;" bg-close="false">
             <div class="uk-offcanvas-bar" style=" width: 40vw!important;">
 
-                <div style="margin-top: 80px;">
-                    <h1 id="title" style="font-weight: bold;">Mapa de la mancha urbana en el año: 1990</h1> 
-                    <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+                <div style="margin-top: 0.5rem;">
+                    <h1 id="title" style="font-weight: bold;">Mancha urbana, 1990</h1> 
+                    <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;padding-top: 1rem;">
                         <span class="tooltip">1990</span>
                         <input id="slider" type="range" min="0" max="6" step="1" value="0" />
                         <span class="tooltip">2019</span>
@@ -61,8 +59,7 @@
                             <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
                         </button>
                     </div>
-                    
-                    <div id="graphs" style="width: 100%;">
+                    <div id="graphs" style="width: 100%; padding-top: 1r
                         <ul class="tabs">
                             <li class="active">Población</li>
                             <li>Superficies</li>
@@ -90,7 +87,7 @@
                                 <canvas id="densityChart" width="350" height="275"></canvas>
                                 <p class="uk-text-justify">La densidad del Área Metropolitana de Monterrey ha caído drásticamente. Pasó de ser 7,746.5 habitantes por kilómetro cuadrado en 1990 a 4,793.8 en 2016. Una reducción total del 38% en el periodo de 26 años. Esta disminución en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Entre 1990 y 2000 la ciudad perdió un 7% de densidad, entre 2000 y 2010 otro 19% y entre 2010 y 2016 otro 18%. Las áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y desconectado del resto de la ciudad. </p>
                             </li>
-                            <li style="height:275"><canvas id="costChart" width="350" height="275"></canvas></li>
+                            <li style="height:275"><canvas id="costssChart" width="350" height="275"></canvas></li>
                         </ul>
         
                     </div>
@@ -100,7 +97,185 @@
             </div>
         </div>
     </div>
-   
+    <div class="fullscreen-cont">
+        <h1 id="title" style="font-weight: bold;">Superficie de calles por municipio de la Zona Metropolitana de Monterrey</h1> 
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Nisl tincidunt eget nullam non nisi est sit. Integer eget aliquet nibh praesent tristique magna. Et malesuada fames ac turpis. Nisi lacus sed viverra tellus in. Ultrices vitae auctor eu augue ut lectus. Lacinia quis vel eros donec ac odio tempor. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur. Amet justo donec enim diam vulputate ut pharetra sit. Justo nec ultrices dui sapien eget. Amet facilisis magna etiam tempor orci eu lobortis. Eget velit aliquet sagittis id consectetur. Massa id neque aliquam vestibulum morbi blandit cursus risus at. Sapien eget mi proin sed. Senectus et netus et malesuada fames ac turpis. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
+        </p>
+
+        <table>
+            <thead>
+                <td>Municipio</td>
+                <td>Superficie pavimentada</td>
+                <td>Población</td>
+                <td>Área total</td>
+                <td>Área urbanizada</td>
+                <td>m^2 per cápita</td>
+                <td>% de vialidades</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Abasolo </td>
+                    <td> 243,669 </td>
+                    <td> 2,918 </td>
+                    <td> 46,863,758 </td>
+                    <td> 1,583,965 </td>
+                    <td> 83.5 </td>
+                    <td> 15.4% </td>
+                </tr>
+                <tr>
+                    <td> Apodaca </td>
+                    <td> 25,650,819 </td>
+                    <td> 665,734 </td>
+                    <td> 224,610,433 </td>
+                    <td> 123,101,173 </td>
+                    <td> 38.5 </td>
+                    <td> 20.8% </td>
+                </tr>
+                <tr>
+                    <td> Cadereyta </td>
+                    <td> 8,400,604 </td>
+                    <td> 105,145 </td>
+                    <td> 1,140,186,364 </td>
+                    <td> 33,763,556 </td>
+                    <td> 79.9 </td>
+                    <td> 24.9% </td>
+                </tr>
+                <tr>
+                    <td> El Carmen </td>
+                    <td> 3,710,529 </td>
+                    <td> 47,326 </td>
+                    <td> 104,235,138 </td>
+                    <td> 10,724,499 </td>
+                    <td> 78.4 </td>
+                    <td> 34.6% </td>
+                </tr>
+                <tr>
+                    <td> García </td>
+                    <td> 15,995,272 </td>
+                    <td> 300,745 </td>
+                    <td> 1,031,895,332 </td>
+                    <td> 85,160,981 </td>
+                    <td> 53.2 </td>
+                    <td> 18.8% </td>
+                </tr>
+                <tr>
+                    <td> General Escobedo </td>
+                    <td> 18,627,568 </td>
+                    <td> 466,325 </td>
+                    <td> 148,874,290 </td>
+                    <td> 88,488,166 </td>
+                    <td> 39.9 </td>
+                    <td> 21.1% </td>
+                </tr>
+                <tr>
+                    <td> General Zuazua </td>
+                    <td> 3,769,488 </td>
+                    <td> 91,913 </td>
+                    <td> 184,405,729 </td>
+                    <td> 28,885,353 </td>
+                    <td> 41.0 </td>
+                    <td> 13.0% </td>
+                </tr>
+                <tr>
+                    <td> Guadalupe </td>
+                    <td> 20,354,610 </td>
+                    <td> 710,413 </td>
+                    <td> 117,643,418 </td>
+                    <td> 93,023,472 </td>
+                    <td> 28.7 </td>
+                    <td> 21.9% </td>
+                </tr>
+                <tr>
+                    <td> Juárez </td>
+                    <td> 17,942,263 </td>
+                    <td> 396,864 </td>
+                    <td> 247,176,240 </td>
+                    <td> 72,514,140 </td>
+                    <td> 45.2 </td>
+                    <td> 24.7% </td>
+                </tr>
+                <tr>
+                    <td> Monterrey </td>
+                    <td> 44,773,087 </td>
+                    <td> 1,124,835 </td>
+                    <td> 324,724,084 </td>
+                    <td> 186,424,677 </td>
+                    <td> 39.8 </td>
+                    <td> 24.0% </td>
+                </tr>
+                <tr>
+                    <td> Pesquería </td>
+                    <td> 4,791,089 </td>
+                    <td> 112,583 </td>
+                    <td> 322,623,461 </td>
+                    <td> 20,166,064 </td>
+                    <td> 42.6 </td>
+                    <td> 23.8% </td>
+                </tr>
+                <tr>
+                    <td> Salinas Victoria </td>
+                    <td> 5,693,164 </td>
+                    <td> 61,868 </td>
+                    <td> 1,666,704,252 </td>
+                    <td> 36,347,232 </td>
+                    <td> 92.0 </td>
+                    <td> 15.7% </td>
+                </tr>
+                <tr>
+                    <td> San Nicolas de los Garza </td>
+                    <td> 13,854,836 </td>
+                    <td> 474,163 </td>
+                    <td> 60,146,050 </td>
+                    <td> 58,716,302 </td>
+                    <td> 29.2 </td>
+                    <td> 23.6% </td>
+                </tr>
+                <tr>
+                    <td> San Pedro Garza García </td>
+                    <td> 8,263,732 </td>
+                    <td> 137,614 </td>
+                    <td> 70,758,947 </td>
+                    <td> 39,299,710 </td>
+                    <td> 60.1 </td>
+                    <td> 21.0% </td>
+                </tr>
+                <tr>
+                    <td> Santa Catarina </td>
+                    <td> 10,043,057 </td>
+                    <td> 322,051 </td>
+                    <td> 915,570,986 </td>
+                    <td> 55,783,646 </td>
+                    <td> 31.2 </td>
+                    <td> 18.0% </td>
+                </tr>
+                <tr>
+                    <td> Santiago </td>
+                    <td> 7,323,744 </td>
+                    <td> 46,955 </td>
+                    <td> 738,921,156 </td>
+                    <td> 39,135,435 </td>
+                    <td> 156.0 </td>
+                    <td> 18.7% </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="fullscreen-cont" id="costos">
+        <h1 id="title" style="font-weight: bold;">Costo de reposición de pavimentos</h1> 
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Nisl tincidunt eget nullam non nisi est sit. Integer eget aliquet nibh praesent tristique magna. Et malesuada fames ac turpis. Nisi lacus sed viverra tellus in. Ultrices vitae auctor eu augue ut lectus. Lacinia quis vel eros donec ac odio tempor. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur. Amet justo donec enim diam vulputate ut pharetra sit. Justo nec ultrices dui sapien eget. Amet facilisis magna etiam tempor orci eu lobortis. Eget velit aliquet sagittis id consectetur. Massa id neque aliquam vestibulum morbi blandit cursus risus at. Sapien eget mi proin sed. Senectus et netus et malesuada fames ac turpis. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
+        </p>
+        <canvas id="costChart" width="350" height="275"></canvas>
+   </div>
+   <div class="fullscreen-cont">
+        <h1 id="title" style="font-weight: bold;">Escenarios de costo de reposición de pavimientos</h1>
+       <p>
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo porro, voluptatum inventore necessitatibus laborum quaerat praesentium quidem quae voluptate. Corporis id esse perferendis voluptates rem nostrum repellat quisquam ea? Natus.
+       </p>
+   </div>
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -128,8 +303,6 @@
             })
         })
         UIkit.offcanvas('#offcanvas-overlay').toggle();
-
-
     </script>
     <script src="./map.js"></script>
     <script src="./js/charts.js"></script>

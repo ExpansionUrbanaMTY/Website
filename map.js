@@ -8,8 +8,8 @@ let map = new mapboxgl.Map({
 });
 
 let changeLayer = (value)=>{
-    let year = years[value];
-    document.querySelector('#title').innerHTML = `Mapa de la mancha urbana en el año: ${year}`;
+    let ye
+    document.querySelector('#title').innerHTML = `Mancha urbana, ${year}`;
     map.setLayoutProperty(year.toString(), 'visibility', 'visible');
     setTimeout(()=>{
         years.filter(y=>y!=year).forEach(y=>{
