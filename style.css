@@ -152,7 +152,7 @@ img{
     box-sizing: border-box;
 }
 #map-container>*{
-    position: absolu
+    position: absolute;
 } 
 #map-container #map{
     position: fixed;
