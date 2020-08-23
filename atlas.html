@@ -66,22 +66,32 @@
                                 <tr>
                                     <td>Tipo de calle</td>
                                     <td class="uk-table-expand"><progress id="js-progressbar1" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td><p id="in1">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Centricidad</td>
                                     <td class="uk-table-expand"><progress id="js-progressbar2" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td><p id="in2">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Relación empleo vivienda</td>
                                     <td class="uk-table-expand"><progress id="js-progressbar3" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td><p id="in2">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Densidad</td>
                                     <td class="uk-table-expand"><progress id="js-progressbar4" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td><p id="in3">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Relación empleos vivienda</td>
                                     <td class="uk-table-expand"><progress id="js-progressbar5" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td><p id="in4">5</p></td>
+                                </tr>
+                                <tr>
+                                    <td>Km^2 de pavimento per cápita</td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar6" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td><p id="in5">5</p></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -94,9 +104,9 @@
             align-items: center;  justify-content: center;" id="maps-container">
                 <div class="uk-grid-match uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
                     <div>
-                        <div class="uk-card uk-card-default uk-card-body" style="background-color: #272727;">
+                        <div class="uk-card uk-card-default uk-card-body" style="background-color: #EFEFEF;">
                             <div>
-                                <img src="./img/Mapas/1c_1.png" alt="" uk-img class="map-atlas" id="map-cluster" uk-toggle="target: #modal-map" style='max-width: 100%; max-height: 100%'>
+                                <img src="./img/Mapas/1c_1.jpg" alt="" uk-img class="map-atlas" id="map-cluster" uk-toggle="target: #modal-map" style='max-width: 100%; max-height: 100%'>
                             </div>
                             
                         </div>
@@ -197,22 +207,22 @@
     <!-- Modals-->
     <!--Map-->
     <div id="modal-map" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
+        <div class="uk-modal-dialog uk-modal-body" style="background-color: #EFEFEF;">
             <div style="height: 80vh;">
-                <img src="./img/Mapas/1c_1.png"  alt="" uk-img class="map-atlas" id="map-cluster">
+                <img src="./img/Mapas/1c_1.jpg"  alt="" uk-img class="map-atlas" id="map-cluster2">
             </div>
         </div>
     </div>
     <!--Diagram-->
     <div id="modal-diagram" uk-modal>
         <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
-            <img src="./img/Diagramas/Cluster 1-100.png"  alt="" uk-img id="diagram-cluster">
+            <img src="./img/Diagramas/Cluster 1-100.png"  alt="" uk-img id="diagram-cluster2">
         </div>
     </div>
     <!--Video-->
     <div id="modal-video" uk-modal>
         <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
-            <img src="./img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster">
+            <img src="./img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster2">
         </div>
     </div>
 
@@ -231,8 +241,6 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
-        
-
 
         function showCluster(cluster){
             cluster = cluster-1;
@@ -253,11 +261,23 @@
                 document.getElementById("diagram-cluster").src = diagram;
                 document.getElementById("video-cluster").src = video;
 
+                document.getElementById("map-cluster2").src =  map;
+                document.getElementById("diagram-cluster2").src = diagram;
+                document.getElementById("video-cluster2").src = video;
+
                 document.getElementById("js-progressbar1").value =indicadores[0];
                 document.getElementById("js-progressbar2").value =indicadores[1];
                 document.getElementById("js-progressbar3").value =indicadores[2];
                 document.getElementById("js-progressbar4").value =indicadores[3];
                 document.getElementById("js-progressbar5").value =indicadores[4];
+                document.getElementById("js-progressbar6").value =indicadores[5];
+
+                document.getElementById("in1").innerHTML =indicadores[0];
+                document.getElementById("in2").innerHTML =indicadores[1];
+                document.getElementById("in3").innerHTML =indicadores[2];
+                document.getElementById("in4").innerHTML =indicadores[3];
+                document.getElementById("in5").innerHTML =indicadores[4];
+                document.getElementById("in6").innerHTML =indicadores[5];
 
             })
         }

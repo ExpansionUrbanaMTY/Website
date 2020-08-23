@@ -334,3 +334,14 @@ hr.rounded {
     margin: 0px auto;
     flex-basis: 100%;
 }
+
+progress::-webkit-progress-value {
+    background-color: #D2416F !important;
+}
+
+progress {
+    text-align: center !important;
+}
+progress:after {
+    content: attr(value) !important;
+}
