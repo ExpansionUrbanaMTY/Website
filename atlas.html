@@ -65,22 +65,22 @@
                             <tbody>
                                 <tr>
                                     <td>Tipo de calle</td>
-                                    <td class="uk-table-expand"><progress id="js-progressbar1" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar1" class="uk-progress" value="1" max="5" uk-tooltip="Indicador"></progress></td>
                                     <td><p id="in1">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Centricidad</td>
-                                    <td class="uk-table-expand"><progress id="js-progressbar2" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar2" class="uk-progress" value="1" max="5" uk-tooltip="Indicador"></progress></td>
                                     <td><p id="in2">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Relación empleo vivienda</td>
-                                    <td class="uk-table-expand"><progress id="js-progressbar3" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar3" class="uk-progress" value="1" max="5" uk-tooltip="Indicador"></progress></td>
                                     <td><p id="in2">5</p></td>
                                 </tr>
                                 <tr>
                                     <td>Densidad</td>
-                                    <td class="uk-table-expand"><progress id="js-progressbar4" class="uk-progress" value="1" max="5"></progress></td>
+                                    <td class="uk-table-expand"><progress id="js-progressbar4" class="uk-progress" value="1" max="5" uk-tooltip="Indicador"></progress></td>
                                     <td><p id="in3">5</p></td>
                                 </tr>
                                 <tr>
@@ -104,7 +104,7 @@
             align-items: center;  justify-content: center;" id="maps-container">
                 <div class="uk-grid-match uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
                     <div>
-                        <div class="uk-card uk-card-default uk-card-body" style="background-color: #EFEFEF;">
+                        <div class="uk-card uk-card-default uk-card-body" style="background-color: #121212;">
                             <div>
                                 <img src="./img/Mapas/1c_1.jpg" alt="" uk-img class="map-atlas" id="map-cluster" uk-toggle="target: #modal-map" style='max-width: 100%; max-height: 100%'>
                             </div>
@@ -121,7 +121,7 @@
                                 </div>
                                 <div>
                                     <div class="uk-card uk-card-default" style="background-color: #272727;">
-                                        <img src="./img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster" uk-toggle="target: #modal-video" style="padding: 1rem;">
+                                        <video src="./videos/Cluster 1.mp4" controls playsinline uk-video loop automute="true" id="video-cluster"></video>
                                     </div>
                                 </div>
                             </div>
@@ -219,12 +219,6 @@
             <img src="./img/Diagramas/Cluster 1-100.png"  alt="" uk-img id="diagram-cluster2">
         </div>
     </div>
-    <!--Video-->
-    <div id="modal-video" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body" style="background-color: #272727;">
-            <img src="./img/Diagramas/Cluster 1-100.png"  alt="" id="video-cluster2">
-        </div>
-    </div>
 
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -253,6 +247,10 @@
                 let diagram = data_json.calles[cluster].diagram;
                 let video = data_json.calles[cluster].video;
                 let indicadores = data_json.calles[cluster].indicadores;
+                let indicador1 = data_json.calles[cluster].indicador1;
+                let indicador2 = data_json.calles[cluster].indicador2;
+                let indicador3 = data_json.calles[cluster].indicador3;
+                let indicador4 = data_json.calles[cluster].indicador4;
 
                 document.getElementById("complex-title").innerHTML = title;
                 document.getElementById("cluster-text").innerHTML = description;
@@ -263,7 +261,6 @@
 
                 document.getElementById("map-cluster2").src =  map;
                 document.getElementById("diagram-cluster2").src = diagram;
-                document.getElementById("video-cluster2").src = video;
 
                 document.getElementById("js-progressbar1").value =indicadores[0];
                 document.getElementById("js-progressbar2").value =indicadores[1];
@@ -271,6 +268,12 @@
                 document.getElementById("js-progressbar4").value =indicadores[3];
                 document.getElementById("js-progressbar5").value =indicadores[4];
                 document.getElementById("js-progressbar6").value =indicadores[5];
+
+                document.getElementById("js-progressbar1").setAttribute("uk-tooltip", indicador1);
+                document.getElementById("js-progressbar2").setAttribute("uk-tooltip", indicador2);
+                document.getElementById("js-progressbar3").setAttribute("uk-tooltip", indicador3);
+                document.getElementById("js-progressbar4").setAttribute("uk-tooltip", indicador4);
+                
 
                 document.getElementById("in1").innerHTML =indicadores[0];
                 document.getElementById("in2").innerHTML =indicadores[1];
