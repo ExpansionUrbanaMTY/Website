@@ -13,27 +13,26 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
 
-    <style>
-        body{
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        iframe{
-            flex: 1; /*hello there*/
-        }
-
-    </style>
-
+    <!--Carousel-->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+				
 </head>
 <body>
+
     <div id="nav">
-        <img src="img/logos/logo-final.png" height="50px">
-        <h4>Expansión Urbana de Monterrey</h4>
+        <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
+        <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
         <ul>
             <li><a href="index.html">Costos</a></li>
             <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="funcionurbana.html">Función Urbana</a></li>
             <li><a href="egresos.html">Ingresos y Egresos</a></li>
             <li><a href="atlas.html">Morfología de Calles</a></li>
             <li><a href="#">Metodología</a></li>
@@ -44,9 +43,58 @@
         </a>
     </div>
 
-    <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/denue" frameborder="0"></iframe> <!--Es una metapágina-->
+    <div class="uk-padding uk-light" style="padding-bottom: 0 !important;padding-top: 20px;padding-left: 65px; padding-bottom: 0px!important" id="maps-container1">
+        <h1  style="font-weight: 650;font-size: 400%;" id="atlas-title">Forma Urbana</h1>
+    </div>
 
-    <script>
+    <div class="uk-child-width-expand@s uk-grid-small uk-grid-match" uk-grid>
+        <div>
+            <div class="uk-light uk-card uk-card-default uk-card-body " style="background-color: #121212; padding-left: 65px;padding-top: 0 !important;">
+                <article class="uk-article">
+
+                    <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                    <h1  id="complex-title">Lorem ipsum </h1>
+
+                    <div>
+                        <p class="uk-text-justify" id="cluster-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius justo at faucibus porta. Aliquam nibh mauris, ultricies sit amet sollicitudin at, lacinia vitae tellus. Vivamus elementum enim diam, a lacinia nisl ultricies cursus. Fusce vitae luctus enim. Quisque accumsan sapien consectetur, maximus quam ac, sollicitudin arcu. Etiam mattis metus convallis dui luctus, at varius elit pellentesque. Aenean id lorem id turpis elementum tempus.
+
+Donec a ultrices diam, sed sagittis risus. Donec rhoncus at enim aliquam feugiat. Nam tempus erat quis nisl rutrum malesuada. Cras iaculis, dolor eget euismod dictum, velit augue sollicitudin neque, ut blandit lectus nunc id mi. Proin accumsan a mi ut vestibulum. Vivamus scelerisque porttitor rutrum. Cras dictum, purus vitae posuere faucibus, lectus dolor rutrum mi, vel dapibus mi nisl nec tellus. Mauris vel feugiat justo. Donec pulvinar diam sapien, vel pretium massa fermentum in. Nam sollicitudin ultrices mauris, vitae porta metus commodo et.
+
+Donec placerat, ligula in euismod luctus, justo nibh eleifend lorem, ac ultricies lacus urna a quam. Mauris convallis vestibulum libero in laoreet. Sed et sem dolor. Suspendisse interdum condimentum purus, sed tempus nibh semper et. Aliquam ullamcorper nisi vestibulum maximus luctus. Nunc sed semper est. Aenean viverra purus a semper interdum. Ut eu urna eu sapien fermentum dapibus. Ut in ex leo. In dictum viverra cursus. Pellentesque ac diam ac nunc imperdiet tristique. Mauris ac lacus quis eros convallis elementum efficitur quis leo. Mauris euismod massa vitae est scelerisque ultrices. Morbi quam ipsum, pellentesque et porta vitae, imperdiet id augue. Nunc metus tellus, maximus eu malesuada nec, mollis eu magna.
+                        </p>
+                    </div>
+
+                    <p class="uk-article-meta">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </article>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body uk-text-center " style="background-color: #121212; padding-right: 65px;">
+                <figure class="cd-image-container">
+                    <img src="img/FormaUrbana/1960-01.png" alt="Original Image">
+                    <span class="cd-image-label" data-type="original"></span>
+            
+                    <div class="cd-resize-img"> <!-- the resizable image on top -->
+                        <img src="./img/FormaUrbana/2020-01.png" alt="Modified Image">
+                        <span class="cd-image-label" data-type="modified"></span>
+                    </div>
+            
+                    <span class="cd-handle"></span>
+                </figure> <!-- cd-image-container -->
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery.mobile.custom.min.js"></script> <!-- Resource jQuery -->
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
         function mobileNav() {
             var x = document.getElementById("nav");
             if (x.className === "nav") {
@@ -57,6 +105,9 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
-    </script>
 
+        
+
+    </script>
+    
 </body>
