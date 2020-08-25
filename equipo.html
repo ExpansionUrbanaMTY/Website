@@ -1,0 +1,78 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <!--MapBox-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- d3 -->
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="nav">
+        <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
+        <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
+        <ul>
+            <li><a href="index.html">Costos</a></li>
+            <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="egresos.html">Ingresos y Egresos</a></li>
+            <li><a href="atlas.html">Morfología de Calles</a></li>
+            <li><a href="#">Metodología</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="uk-container-large" style="margin:30px">
+        <h1 style="color: white; font-size:45px; font-weight: bolder; margin-bottom: 40px;">El Equipo</h1>
+        <dl class="uk-description-list uk-description-list-divider">
+            <dt style="color:#982B80; font-weight: bolder; font-size: large;">Responsables Técnicos</dt>
+            <dd>Roberto Ponce López <a href = "mailto: rpl@tec.mx">(rpl@tec.mx)</a></dd>
+            <dd>Fabián Lozano García <a href = "mailto: rpl@tec.mx">(dflozano@tec.mx)</a></dd>
+            <dt style="color:#D1426F; font-weight: bolder; font-size: large;">Dirección Creativa</dt>
+            <dd>José Antonio Torre</dd>
+            <dd>Juan Alayo</dd>
+            <dt style="color:#df5f8a; font-weight: bolder; font-size: large;">Equipo Asesor</dt>
+            <dd>Moisés López Cantú</dd>
+            <dd>Carlos Placencia Vega</dd>
+            <dt style="color:#F3775D; font-weight: bolder; font-size: large;">Asistentes de Investigación</dt>
+            <dd>Sebastián Fajardo Tuner</dd>
+            <dd>Alicia Landín Quirós</dd>
+            <dd>Pedro Pacheco Solano</dd>
+            <dd>Mónica Medellín Estrada</dd>
+            <dd>Marielle Cámara Díaz</dd>
+            <dt style="color:#e49856; font-weight: bolder; font-size: large;">Visualización de Datos y Diseño Web</dt>
+            <dd>Eduardo Villalpando Mello</dd>
+            <dd>Lourdes Badillo Granillo</dd>
+            <dd>Juan Carlos Garfias Tovar</dd>
+            <dd>Roger Eduardo Vázquez Tuz</dd>
+        </dl>
+        <p style="margin-top: 10%; justify-self: center;">Esta investigación ha sido fondeada por la Fundación FEMSA, a través del Centro del Agua y Distrito Tec del Tecnológico de Monterrey</p>
+    </div>
+
+   <!--Prueba-->
+
+    <script>
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+    </script>
+
+</body>
