@@ -93,7 +93,6 @@
                                 <canvas id="densityChart" width="350" height="275"></canvas>
                                 <p class="uk-text-justify">La densidad del Área Metropolitana de Monterrey ha caído drásticamente. Pasó de ser 7,746.5 habitantes por kilómetro cuadrado en 1990 a 4,793.8 en 2016. Una reducción total del 38% en el periodo de 26 años. Esta disminución en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Entre 1990 y 2000 la ciudad perdió un 7% de densidad, entre 2000 y 2010 otro 19% y entre 2010 y 2016 otro 18%. Las áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y desconectado del resto de la ciudad. </p>
                             </li>
-                            <li style="height:275"><canvas id="costssChart" width="350" height="275"></canvas></li>
                         </ul>
         
                     </div>
@@ -309,9 +308,25 @@
    </div>
    <div class="fullscreen-cont">
         <h1 id="title" style="font-weight: bold;">Escenarios de costo de reposición de pavimientos</h1>
-       <p>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo porro, voluptatum inventore necessitatibus laborum quaerat praesentium quidem quae voluptate. Corporis id esse perferendis voluptates rem nostrum repellat quisquam ea? Natus.
-       </p>
+        <ul class="tabs">
+            <li class="active">Población</li>
+            <li>Superficies</li>
+            <li>Densidad Poblacional</li>
+        </ul>
+
+        <ul class="tabs-content">
+            <li class="active" style="height:275">
+                <p class="uk-text-justify">La zona núcleo de la mancha urbana ha tenido el crecimiento más importante, logrando un crecimiento del 63% a 2016 respecto a 1990. Sin embargo, esto podría ser explicado debido a la evolución de la urbanización que ha llenado los vacíos entre núcleos anteriores y zonas urbanizadas previamente desconectadas al centro de la ciudad.</p>
+            </li>
+            <li style="height:275">
+                
+                <p class="uk-text-justify">Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado de complemento a ser de 8.95.</p>
+            </li>
+            <li style="height:275">
+                <p class="uk-text-justify">La densidad del Área Metropolitana de Monterrey ha caído drásticamente. Pasó de ser 7,746.5 habitantes por kilómetro cuadrado en 1990 a 4,793.8 en 2016. Una reducción total del 38% en el periodo de 26 años. Esta disminución en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Entre 1990 y 2000 la ciudad perdió un 7% de densidad, entre 2000 y 2010 otro 19% y entre 2010 y 2016 otro 18%. Las áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y desconectado del resto de la ciudad. </p>
+            </li>
+            <li style="height:275"></li>
+        </ul>
    </div>
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -328,17 +343,30 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
-        document.querySelectorAll('.tabs li').forEach((tabSelector, i)=>{
-            tabSelector.addEventListener('click', ()=>{
-                tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l=>l.classList.remove('active'));
-                tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l=>l.classList.remove('active'));
-                tabSelector.classList.add('active');
-                
-                tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li')[i].classList.add('active')
-
-
+        document.querySelectorAll('.tabs').forEach(tabs=>{
+            tabs.querySelectorAll('li').forEach((tabSelector, i)=>{
+                tabSelector.addEventListener('click', ()=>{
+                    tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l=>l.classList.remove('active'));
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l=>l.classList.remove('active'));
+                    tabSelector.classList.add('active');
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li')[i].classList.add('active')
+                })
             })
         })
+
+
+
+        // document.querySelectorAll('.tabs li').forEach((tabSelector, i)=>{
+        //     tabSelector.addEventListener('click', ()=>{
+        //         tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l=>l.classList.remove('active'));
+        //         tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l=>l.classList.remove('active'));
+        //         tabSelector.classList.add('active');
+                
+        //         tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li')[i].classList.add('active')
+
+
+        //     })
+        // })
         UIkit.offcanvas('#offcanvas-overlay').toggle();
     </script>
     <script src="./map.js"></script>
