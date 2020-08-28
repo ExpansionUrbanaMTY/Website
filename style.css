@@ -25,7 +25,7 @@ img{
 */
 
 p{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .tabs{
@@ -188,12 +188,6 @@ p{
     padding-top: 3rem;
 }
 
-.atlas-container{
-    
-}
-.atlas-media-contianer{
-
-}
 hr.rounded {
     border-top: 2px solid rgba(223, 16, 205, 0.527);
     color:rgba(223, 16, 205, 0.527);
@@ -206,6 +200,7 @@ hr.rounded {
     
 }
 
+/*
 #complex-title:hover{
 
 }
@@ -216,6 +211,8 @@ hr.rounded {
 
 .altas-carousel{
 }
+
+*/
 
 .uk-transition-toggle:hover{
     cursor: pointer;
@@ -275,9 +272,11 @@ hr.rounded {
 #selection{
     color: hotpink !important;
 }
+/*
 .uk-modal-dialog{
-    /*width: 1000 !important;*/
+    width: 1000 !important;
 }
+*/
 .uk-transition-toggle{
     max-width: 300;
 }
@@ -710,12 +709,15 @@ img{
     padding-top: 3rem;
 }
 
+/*
 .atlas-container{
     
 }
 .atlas-media-contianer{
 
 }
+*/
+
 hr.rounded {
     border-top: 2px solid rgba(223, 16, 205, 0.527);
     color:rgba(223, 16, 205, 0.527);
@@ -727,6 +729,8 @@ hr.rounded {
     margin-top: 0 !important;
 }
 
+/*
+
 #complex-title:hover{
 
 }
@@ -737,6 +741,7 @@ hr.rounded {
 
 .altas-carousel{
 }
+*/
 
 .uk-transition-toggle:hover{
     cursor: pointer;
@@ -796,9 +801,10 @@ hr.rounded {
 #selection{
     color: hotpink !important;
 }
+/*
 .uk-modal-dialog{
-    /*width: 1000 !important;*/
-}
+    width: 1000 !important;
+}*/
 .uk-transition-toggle{
     max-width: 300;
 }

@@ -227,7 +227,13 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Pesos Mexicanos'
+                        labelString: 'Miles de millones de pesos mexicanos'
+                      }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
                       }
                 }]
             }
