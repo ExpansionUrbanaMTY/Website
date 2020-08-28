@@ -1,0 +1,63 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <!--MapBox-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- d3 -->
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        iframe{
+            flex: 1; /*hello there*/
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="nav">
+        <img src="img/logos/logo-final.png" height="50px">
+        <h4>Expansión Urbana de Monterrey</h4>
+        <ul>
+            <li><a href="index.html">Costos</a></li>
+            <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="funcionurbana.html">Función Urbana</a></li>
+            <li><a href="egresos.html">Ingresos y Egresos</a></li>
+            <li><a href="atlas.html">Morfología de Calles</a></li>
+            <li><a href="#">Metodología</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/denue" frameborder="0"></iframe> <!--Es una metapágina-->
+
+    <script>
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+    </script>
+
+</body>
