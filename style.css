@@ -18,11 +18,146 @@ body{
 body.uk-offcanvas-container, body.uk-offcanvas-page{
     overflow-x: visible !important;
 }
-/*
-img{
-   height: 50px !important
+
+p{
+    font-size: 16px;
 }
-*/
+
+
+
+#nav{
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+#nav ul{
+    margin-left: auto;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    box-sizing: border-box;
+    list-style-position: inside !important;
+}
+#nav ul li{
+    flex: 1;
+    display: flex; 
+}
+#nav ul li a{
+    color: inherit;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    width: 100%
+}
+#nav .nav-toggle{
+    color: #982B80;
+    font-size: 1.2rem;
+}
+#nav .icon {
+    margin-left: auto;
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    #nav.responsive {position: relative;}
+    /* Hace que no se vean los */
+    #nav ul{
+        display: none
+    }
+    
+    #nav.responsive ul{
+        z-index: 1000;
+        position: absolute; 
+        background: #d1426fe7; 
+        backdrop-filter: blur(10px);
+        display: block;
+        top: 80px;
+        margin: 0;
+        right: 0;
+        left: 0;
+    }
+    /* Hace que se vea el hamburger menu */
+    #nav a.icon {
+      display: block;
+    }
+    #nav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    #map-overlay{
+        margin-top: 60vh !important;
+        max-width: 100% !important;
+    }
+    #maps-container1{
+        padding-left: 40px !important;
+    }
+    #maps-container{
+        padding-right: 40px !important;
+    }
+    #atlas-title{
+        font-size: 300% !important;
+    }
+}
+
+#map-container{
+    height: calc(100vh - 80px);
+    position: relative;
+    padding: 16px;
+    box-sizing: border-box;
+}
+#map-container>*{
+    position: absolute !important;
+} 
+#map-container #map{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+#map-container #offcanvas-overlay{
+    left: 0;
+}
+#map-container #offcanvas-overlay>div{
+    width: 40vw !important;
+    backdrop-filter: blur(3px);
+    box-sizing: border-box;
+}
+#map-container #map-title{
+    backdrop-filter: blur(8px);
+    top: 0;
+    right: 0;
+    width: 60vw;
+    box-sizing: border-box;
+    color: white;
+    padding: 16px 32px;
+}
+#map-container #map-title h1{
+    color: white;
+}
+#map-container #map-title div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+}
+#map-container #map-title div>*{
+    margin: 4px
+}
+#map-container #map-title div>input{
+    flex: 1
+}
+/* #map-overlay{
+    max-width: 500px;
+    position: absolute;
+    z-index: 2;
+    padding: 16px;
+    box-sizing: border-box;
+} */
 
 .tabs{
     display: flex;
@@ -56,121 +191,14 @@ img{
     display: block;
 }
 
-.nav-toggle{
-    color: #982B80;
-    font-size: 1.2rem;
-}
-
-#nav{
-    background: #1a1a1a;
-    display: flex;
-    align-items: center;
-    padding: 0px 16px;
-    height: 80px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-#nav ul{
-    margin-left: auto;
-    padding: 0 !important;
-    display: flex;
-    align-items: center;
-    list-style: none;
-    box-sizing: border-box;
-    list-style-position: inside !important;
-}
-#nav ul li{
-    flex: 1;
-    display: flex; 
-}
-#nav ul li a{
-    color: inherit;
-    text-decoration: none;
-    text-align: center;
-    padding: 12px;
-    width: 100%
-}
-
-/* Hide the link that should open and close the topnav on small screens */
-#nav .icon {
-    margin-left: auto;
-    display: none;
-}
-
-@media screen and (max-width: 1000px) {
-    /* Hace que se vea el hamburger menu */
-    #nav a.icon {
-      display: block;
-    }
-    /* Hace que no se vean los */
-    #nav ul{
-        display: none
-    }
-
-    #nav.responsive ul{
-        z-index: 1000;
-        position: absolute; 
-        background: #d1426fe7; 
-        backdrop-filter: blur(10px);
-        display: block;
-        top: 80px;
-        margin: 0;
-        right: 0;
-        left: 0;
-    }
 
 
-    #nav.responsive {position: relative;}
-
-    #nav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-
-    #map-overlay{
-        margin-top: 60vh !important;
-        max-width: 100% !important;
-    }
-    #maps-container1{
-        padding-left: 40px !important;
-    }
-    #maps-container{
-        padding-right: 40px !important;
-    }
-    #atlas-title{
-        font-size: 300% !important;
-    }
-}
 
 
-#map-container{
-    height: calc(100vh - 80px);
-    position: relative;
-    padding: 16px;
-    box-sizing: border-box;
-}
-#map-container>*{
-    position: absolute !important;
-} 
-#map-container #map{
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-}
-#map-overlay{
-    max-width: 500px;
-    position: absolute;
-    z-index: 2;
-    padding: 16px;
-    box-sizing: border-box;
-}
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
 }
-#offcanvas-overlay>div{
-    backdrop-filter: blur(3px);
-}
+
 .tooltip{
     font-size: large;
     font-weight: bold;
@@ -184,12 +212,6 @@ img{
     padding-top: 3rem;
 }
 
-.atlas-container{
-    
-}
-.atlas-media-contianer{
-
-}
 hr.rounded {
     border-top: 2px solid rgba(223, 16, 205, 0.527);
     color:rgba(223, 16, 205, 0.527);
@@ -202,6 +224,7 @@ hr.rounded {
     
 }
 
+/*
 #complex-title:hover{
 
 }
@@ -212,6 +235,8 @@ hr.rounded {
 
 .altas-carousel{
 }
+
+*/
 
 .uk-transition-toggle:hover{
     cursor: pointer;
@@ -271,9 +296,11 @@ hr.rounded {
 #selection{
     color: hotpink !important;
 }
+/*
 .uk-modal-dialog{
-    /*width: 1000 !important;*/
+    width: 1000 !important;
 }
+*/
 .uk-transition-toggle{
     max-width: 300;
 }
@@ -706,12 +733,15 @@ img{
     padding-top: 3rem;
 }
 
+/*
 .atlas-container{
     
 }
 .atlas-media-contianer{
 
 }
+*/
+
 hr.rounded {
     border-top: 2px solid rgba(223, 16, 205, 0.527);
     color:rgba(223, 16, 205, 0.527);
@@ -723,6 +753,8 @@ hr.rounded {
     margin-top: 0 !important;
 }
 
+/*
+
 #complex-title:hover{
 
 }
@@ -733,6 +765,7 @@ hr.rounded {
 
 .altas-carousel{
 }
+*/
 
 .uk-transition-toggle:hover{
     cursor: pointer;
@@ -792,9 +825,10 @@ hr.rounded {
 #selection{
     color: hotpink !important;
 }
+/*
 .uk-modal-dialog{
-    /*width: 1000 !important;*/
-}
+    width: 1000 !important;
+}*/
 .uk-transition-toggle{
     max-width: 300;
 }

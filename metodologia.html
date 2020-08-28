@@ -1,0 +1,89 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <!--MapBox-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- d3 -->
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div id="nav">
+        <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
+        <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
+        <ul>
+            <li><a href="index.html">Costos</a></li>
+            <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="funcionurbana.html">Función Urbana</a></li>
+            <li><a href="egresos.html">Ingresos y Egresos</a></li>
+            <li><a href="atlas.html">Morfología de Calles</a></li>
+            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <article class="uk-article" style="margin: 25px;">
+
+        <h1 class="uk-article-title" style="color: white; font-weight: bolder;">Metodología</a></h1>
+    
+    
+        <p style="color: white;">La metodología de este proyecto de investigación consiste en métodos mixtos. La ejecución del proyecto de investigación ha sido de agosto del 2019 a septiembre del 2020. A continuación, se describen las características de cada etapa de análisis.</p>
+        
+        <h3 style="color: white; font-weight: bold;">Métodos Cualitativos</h3>
+        <p>Para indagar acerca de los costos de reposición de pavimentos y del ciclo de vida de los pavimentos y agua potable se llevaron 12 entrevistas a profundidad con funcionarios públicos del área de obras públicas de los municipios de la zona metropolitana y con funcionarios de la Secretaría de Infraestructura del gobierno del estado de Nuevo León. Las entrevistas a profundidad tuvieron una duración aproximada de una hora cada una. En el caso de dos entrevistados, hubo una segunda entrevista y en el caso de un entrevistado hubo una tercera sesión vara validar temas de costos específicos.</p>
+        <p>Las entrevistas a profundidad tuvieron una guía semiestructurada que abordaba los tópicos de costos de construcción y reposición de pavimentos y agua potable, así como de los elementos que incidían en la temporalidad de sus mantenimientos. Las entrevistas se encuentran grabadas y documentadas. Por motivos de confidencialidad de los entrevistados, mantenemos la anonimidad de sus nombres.</p>
+        <p>Finalmente, los costos de pavimentación bajo diferentes supuestos fueron aproximado tomando el rango de valores aportado por los entrevistados. Estos costos fueron contrastados y validados con dos empresas constructoras de referencia en la Zona Metropolitana de Monterrey (ZMM): Terra Regia y Ucalli. Los resultados de costos de pavimentos presentados en esta investigación son el valor promedio entre el rango de costos por superficie de construcción y reposición de pavimentos aportado por funcionarios públicos y desarrolladores privados en la ZMM.</p>
+        
+        <h3 style="color: white; font-weight: bold;">Métodos Cuantitativos</h3>
+        
+        <h4 style="color: white;">Cálculo de Anchos de Vialidad</h4>
+        <p>El principal reto metodológico ha sido calcular los anchos de vialidad para calcular los costos de reposición de pavimentos por superficie. La cartografía de calles típicamente solamente contiene líneas que indican la longitud, pero no reportan el ancho de la vialidad. En un principio, comenzamos utilizando la cartografía de INEGI como punto de referencia, así como su clasificación de tipos de vialidad. Sin embargo, la mejor aproximación a los anchos de vialidad la obtuvimos de la fuente Catastral de vialidades. Los archivos catastrales otorgaban mayor nivel de detalle que los de INEGI. Los archivos de planimetría catastral, así como la ubicación de los predios catastrales permitieron calcular los anchos de vialidad para la totalidad de las calles de la ZMM. La rutina para realizar este cálculo fue un script de Python disponible en Arcgis 10.8 que selecciona un punto intermedio en una línea de calle y traza una línea perpendicular hasta topar con una línea de banqueta o una línea de un polígono de predio catastral. De esta forma, se asigna un ancho de vialidad a partir del punto muestral para cada calle. El procesamiento de esta información fue intensivo computacionalmente y llevó dos semanas.</p>
+        <p>Posteriormente, se realizaron una serie de correcciones para ajustar las áreas de calle a su valor real. En primer lugar, se removieron los conteos dobles de las intersecciones de calles. En segundo lugar, se agregaron zonas periféricas de la ciudad que se identificaron en las imágenes de satélite y para las cuales no hubo un registro planimétrico.</p>
+        
+        <h4 style="color: white;">Tamaño de la Mancha Urbana</h4>
+        <p>El cálculo del tamaño de la mancha urbana de 1990 al 2019 fue realizado por Alejandro de Jesús Carpio Núñez como parte de su tesis titulada “Urban form, land use, and land cover change and their impact on carbon emissions in the Metropolitan Area of Monterrey”, para obtener el grado de maestro en ciencias en sistemas ambientales en el Tecnológico de Monterrey. La tesis fue defendida en junio del 2020 y se encuentra disponible en los acervos de la institución para consulta pública. El Dr. Fabián Lozano, responsable técnico de nuestra investigación, fungió como asesor de la tesis. La fuente de datos fueron las imágenes satelitales Landsat y el método fue de comparación visual.</p>
+        
+        <h4 style="color: white;">Exploración de Forma Urbana</h4>
+        <p>La principal fuente de información para identificar los subcentros de empleos es el Directorio Estadístico Nacional de Unidades Económicas (DENUE) de los años 2010 y 2019. Asimismo, se consultó la cartografía y resultados de los Censos nacionales de 1990, 2000, 2010 y el Inventario Nacional de Viviendas del 2016. Adicionalmente, se consultaron las finanzas públicas municipales de los ayuntamientos de la ZMM. La fuente de toda esta información es el Instituto Nacional de Estadística y Geografía (INEGI).</p>
+        <p>Los mapas de círculos concéntricos están trazados a 1 KM de distancia cada uno respecto al anterior a partir del centro de Monterrey (tomando la macroplaza como punto de referencia). Este mismo análisis de círculos concéntricos se replicó tomando como punto de referencia el centro de gravedad de la ciudad (en San Nicolás de los Garza, a un lado de la Universidad Autónoma de Nuevo León). A final de cuentas, se presenta el ejercicio dibujado a partir del centro de la ciudad por ilustrar con mayor claridad el cambio en forma urbana en la ciudad ocurrido en los últimos treinta años hacia una estructura policéntrica.</p>
+        <p>La información de las superficies de construcción por zona de la ciudad fue obtenida de Catastro del estado de Nuevo León.</p>
+        <p>La ubicación de los subcentros de actividad de la mancha urbana se determinó a partir de la ubicación del total de empleos reportados en el DENUE. El trazo de los limites de los subcentros identificados se realizó con el algoritmo DBSCAN de agrupamiento por densidad de puntos, empleando el software de estadística de R. Los parámetros de calibración del algoritmo fueron radios de 120 metros y un mínimo de 100 puntos por tipo de grupo. Se realizó un análisis de sensibilidad los parámetros seleccionando un amplio número de ellos y contrastando sus resultados contra nuestro conocimiento de campo de la ciudad.</p>
+    
+        <h4 style="color: white;">Morfología de Calles</h4>
+        <p>A partir de la cartografía de calles se generó una representación de redes de su topología: los nodos son las intersecciones de vialidades y la calle es el arco vinculando dos nodos. Se omitió la direccionalidad de las vialidades en la representación topológica de la red. Posteriormente, probamos varios algoritmos de comunidades para particionar grupos de vialidades con topologías comunes. El algoritmo que produjo los mejores resultados fue el de Modularidad de Louvain. Esto generó alrededor de 900 comunidades diferenciadas en la ciudad. Posteriormente, a partir de los puntos de intersección se construyeron polígonos cóncavos y cada uno de ellos fue caracterizado</p>
+        <p>Las variables para construir la caracterización fueron la proporción de nodos a ejes en la comunidad, el porcentaje de empleos en los sectores secundario y terciario, la proporción de viviendas a empleos y la densidad poblacional. Estas variables fueron estandarizadas y empleadas para realizar un agrupamiento de k-medias. El método del codo se utilizó para seleccionar el número adecuado de grupos. El resultado final fueron los 11 tipos de calles que son las topologías comunes que se encuentras repetidas y reproducidas en la ZMM.</p>
+        
+        
+        <h3 style="color: white; font-weight: bold;">Agradecimientos</h3>
+        <p>Esta investigación ha sido posible gracias al apoyo financiero de la Fundación FEMSA a través del Tecnológico de Monterrey. Los recursos fueron utilizados para la compra de equipo, licencias de software y el sostenimiento del equipo de investigación durante un año.</p>
+        <p>Agradecemos a la Secretaría de Infraestructura del gobierno del Estado de Nuevo León abrirnos las puertas para consultar los archivos cartográficos catastrales. Asimismo, agradecemos al personal y dirección del Instituto Registral y Catastral del Estado de Nuevo León las facilidades otorgadas durante nuestras visitas y compartirnos información crucial para el cálculo de anchos de vialidades.</p>
+        <p>Agradecemos y reconocemos la generosidad de Centro de Colaboración Geoespacial de la Secretaría de Desarrollo Sustentable del gobierno del estado de Nuevo León, que nos compartió información geográfica valiosa de sus acervos para guiar este trabajo.</p>
+        <p>Agradecemos el apoyo del Consejo de Nuevo Léon para abrirnos puertas con las administraciones de los municipios de la ZMM y poder gestionar las entrevistas a profundidad.</p>
+    </article>
+
+    <script>
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+    </script>
+
+</body>

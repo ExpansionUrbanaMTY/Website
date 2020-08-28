@@ -43,10 +43,17 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Habitantes'
+                        labelString: 'Número de Habitantes'
+                      }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
                       }
                 }]
             }
+
         }
     });
     //Densidad
@@ -121,7 +128,13 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Habitantes / Kilómetros Cuadrados'
+                        labelString: 'Número de habitantes / Kilómetros Cuadrados'
+                      }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
                       }
                 }]
             }
@@ -174,6 +187,12 @@ async function readData(){
                         display: true,
                         labelString: 'Kilómetros cuadrados'
                       }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
+                      }
                 }]
             }
         }
@@ -208,7 +227,13 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Pesos Mexicanos'
+                        labelString: 'Miles de millones de pesos mexicanos'
+                      }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
                       }
                 }]
             }
