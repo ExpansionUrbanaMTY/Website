@@ -47,21 +47,25 @@
 
     <div id="map-container">
         <div id="map"></div>
+        <div id="map-title">
+            <h1 id="title" style="font-weight: 600;">
+                Extensión Territorial de la Zona Metropolitana de Monterrey, 2019
+            </h1> 
+            <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;padding-top: 1rem;">
+                <span class="tooltip">1990</span>
+                <input id="slider" type="range" min="0" max="6" step="1" value="6" />
+                <span class="tooltip">2019</span>
+                <button id="autoplay" style="background-color: #D1426F; border:none; height: 30px; width: 30px;">
+                    <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
+                </button>
+            </div>
+        </div>
+
         <div id="offcanvas-overlay" uk-offcanvas="overlay: false" style="z-index: 0;" bg-close="false">
-            <div class="uk-offcanvas-bar" style=" width: 40vw!important;">
+            <div class="uk-offcanvas-bar">
 
                 <div style="margin-top: 0.5rem;">
-                    <h1 id="title" style="font-weight: bold; font-size: 24px;">
-                        Extensión Territorial de la Zona Metropolitana de Monterrey, 2019
-                    </h1> 
-                    <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;padding-top: 1rem;">
-                        <span class="tooltip">1990</span>
-                        <input id="slider" type="range" min="0" max="6" step="1" value="6" />
-                        <span class="tooltip">2019</span>
-                        <button id="autoplay" style="background-color: #D1426F; border:none; height: 30px; width: 30px;">
-                            <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
-                        </button>
-                    </div>
+                    
                     <div id="graphs" style="width: 100%; padding-top: 1rem">
                         <ul class="tabs">
                             <li class="active">Población</li>
@@ -118,8 +122,8 @@
                 <td>Población</td>
                 <td>Área total</td>
                 <td>Área urbanizada</td>
-                <td>m^2 per cápita</td>
-                <td>% de vialidades</td>
+                <td>m<sup>2</sup> de pavimento per cápita</td>
+                <td>% sperficies que son vialidades</td>
             </thead>
             <tbody>
                 <tr>
