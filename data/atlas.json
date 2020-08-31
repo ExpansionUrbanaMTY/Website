@@ -16,7 +16,7 @@
             "nombre": "2 Subcentros a desnivel",
             "descripcion": "Este cluster está compuesto por calles mayoritariamente radiales y con poco orden. Las comunidades que lo componen se encuentran en la periferia del AMM, y son zonas mayoritariamente residenciales, con viviendas de baja a media densidad, así como algunos polígonos de zonas mixtas con comercio y oficinas. La red de calles muestra una centralidad de grado nivel medio, con algunas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares. En este cluster se consume en promedio 107 m^2 de pavimentos per cápita.",
             "map":"./img/Mapas/1c_2.jpg",
-            "diagram":"../img/Diagramas/Cluster 2-100.png",
+            "diagram":"./img/Diagramas/Cluster 2-100.png",
             "video":"./videos/Cluster 2.mp4",
             "indicadores": [1.5, 2, 3.5,2, 2, 0.6],
             "indicador1":"Calles mayoritariamente radiales con poco orden",
