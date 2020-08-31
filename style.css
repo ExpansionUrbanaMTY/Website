@@ -855,3 +855,13 @@ hr.rounded {
     margin: 0px auto;
     flex-basis: 100%;
 }
+.pull-right{
+    float:right;
+    margin-top: -10 !important;
+    font-size: x-small;
+}
+.progress-label{
+    float:left;
+    margin-top: -10 !important;
+    font-size: x-small;
+}
