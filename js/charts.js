@@ -239,6 +239,88 @@ async function readData(){
             }
         }
     });
+    
+    //Reposicion de pavimientos
+    var repsocicionTendencialContainer = document.getElementById('reposicionTendencial');
+    var reposicionTendencial = new Chart(repsocicionTendencialContainer, {
+        type: 'line',
+        data: {
+            labels: Object.keys(extension[2]).filter(l=>l!=""),
+            datasets: [
+            {
+                fill: 'origin',
+                label: 'Total',
+                data: Object.values(extension[2]).filter(l=>l!="Total"),
+                backgroundColor: '#f3775e',
+            }]
+        },
+        options: {
+            scales: {
+                
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Miles de millones de pesos mexicanos'
+                      }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
+                      }
+                }]
+            }
+        }
+    });
+    var repsocicionOptimaContainer = document.getElementById('reposicionOptima');
+    var reposicionOptima = new Chart(repsocicionOptimaContainer, {
+        type: 'line',
+        data: {
+            labels: Object.keys(extension[2]).filter(l=>l!=""),
+            datasets: [
+            {
+                fill: 'origin',
+                label: 'Total',
+                data: Object.values(extension[2]).filter(l=>l!="Total").map((l,i)=>l-10*i**2),
+                backgroundColor: '#f3775e',
+            }]
+        },
+        options: {
+            scales: {
+                
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        userCallback: function(value, index, values) {
+                            value = value.toString();
+                            value = value.split(/(?=(?:...)*$)/);
+                            value = value.join(',');
+                            return value;
+                        }
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Miles de millones de pesos mexicanos'
+                      }
+                }],
+                xAxes:[{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Año'
+                      }
+                }]
+            }
+        }
+    });
 
     //----------------------------------Forma Urbana-------------------------------------------------------------
 

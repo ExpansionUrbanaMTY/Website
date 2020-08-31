@@ -49,7 +49,7 @@
         <div id="map"></div>
         <div id="map-title">
             <h1 id="title" style="font-weight: 600;">
-                Extensión Territorial de la Zona Metropolitana de Monterrey, 2019
+                Cobertura Territorial de la Zona Metropolitana de Monterrey, 2019
             </h1> 
             <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;padding-top: 1rem;">
                 <span class="tooltip">1990</span>
@@ -68,18 +68,15 @@
                     
                     <div id="graphs" style="width: 100%; padding-top: 1rem">
                         <ul class="tabs">
-                            <li class="active">Población</li>
+                            <li class="active">Densidad Poblacional</li>
                             <li>Superficies</li>
-                            <li>Densidad Poblacional</li>
+                            <li>Población</li>
                         </ul>
         
                         <ul class="tabs-content">
-                            <li class="active" style="height:275">
-                                <canvas id="populationChart" width="350" height="275"></canvas>
-                                <p class="uk-text-justify">La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2016. Pasó de albergar una población de 2,614,841 habitantes a 4,091,863, es decir que tuvo un crecimiento del 54% durante este periodo. En promedio, experimentó un crecimiento medio anual del 2.077%. Sin embargo, el crecimiento demográfico se desaceleró entre 2010 y 2016, cuando apenas tuvo un crecimiento medio anual del 0.19%.</p>
-                                <p></p>
-                                <p class="uk-text-justify">La zona núcleo de la mancha urbana ha tenido el crecimiento más importante, logrando un crecimiento del 63% a 2016 respecto a 1990. Sin embargo, esto podría ser explicado debido a la evolución de la urbanización que ha llenado los vacíos entre núcleos anteriores y zonas urbanizadas previamente desconectadas al centro de la ciudad.</p>
-            
+                            <li class="active"style="height:275">
+                                <canvas id="densityChart" width="350" height="275"></canvas>
+                                <p class="uk-text-justify">La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por kilómetro cuadrado en 1990 a 4,793.8 en 2016. Una reducción total del 38% en el periodo de 26 años. Esta disminución en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Entre 1990 y 2000 la ciudad perdió un 7% de densidad, entre 2000 y 2010 otro 19% y entre 2010 y 2016 otro 18%. Las áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y desconectado del resto de la ciudad. </p>
                             </li>
                             <li style="height:275">
                                 <canvas id="extensionsChart" width="350" height="275"></canvas>
@@ -90,9 +87,14 @@
                                 <p class="uk-text-justify">Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado de complemento a ser de 8.95.</p>
                             </li>
                             <li style="height:275">
-                                <canvas id="densityChart" width="350" height="275"></canvas>
-                                <p class="uk-text-justify">La densidad del Área Metropolitana de Monterrey ha caído drásticamente. Pasó de ser 7,746.5 habitantes por kilómetro cuadrado en 1990 a 4,793.8 en 2016. Una reducción total del 38% en el periodo de 26 años. Esta disminución en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Entre 1990 y 2000 la ciudad perdió un 7% de densidad, entre 2000 y 2010 otro 19% y entre 2010 y 2016 otro 18%. Las áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y desconectado del resto de la ciudad. </p>
+                                <canvas id="populationChart" width="350" height="275"></canvas>
+                                <p class="uk-text-justify">La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2016. Pasó de albergar una población de 2,614,841 habitantes a 4,091,863, es decir que tuvo un crecimiento del 54% durante este periodo. En promedio, experimentó un crecimiento medio anual del 2.077%. Sin embargo, el crecimiento demográfico se desaceleró entre 2010 y 2016, cuando apenas tuvo un crecimiento medio anual del 0.19%.</p>
+                                <p></p>
+                                <p class="uk-text-justify">La zona núcleo de la mancha urbana ha tenido el crecimiento más importante, logrando un crecimiento del 63% a 2016 respecto a 1990. Sin embargo, esto podría ser explicado debido a la evolución de la urbanización que ha llenado los vacíos entre núcleos anteriores y zonas urbanizadas previamente desconectadas al centro de la ciudad.</p>
+            
                             </li>
+                           
+                           
                         </ul>
         
                     </div>
@@ -103,9 +105,9 @@
         </div>
     </div>
     <div class="fullscreen-cont">
-        <h1 id="title" style="font-weight: bold;">Superficie de pavimentos por municipio en la Zona Metropolitana de Monterrey</h1> 
+        <h1 id="title" style="font-weight: bold;">Superficie de pavimentos por municipio en la ZMM</h1> 
         <p>
-            La tabla a continuación desglosa las superficies pavimentadas para los municipios que conforman la Zona Metropolitana de Monterrey y que se observan en el mapa de la expansión urbana correspondiente al año 2019. Los cálculos de superficie pavimentada no incluyen el área de banquetas, sino solamente de vialidades. Esta superficie fue obtenida a partir del procesamiento de los archivos de planimetría catastral. La población de 2019 se obtuvo de las proyecciones del Consejo Nacional de Población (CONAPO) y es el total municipal. El área total desglosa la superficie territorial del límite municipal reportado por el Instituto Nacional de Estadística y Geografía (INEGI). El área urbanizada corresponde a la superficie del municipio que se encuentra urbanizada y fue calculada a partir de las imágenes Landsat. Finalmente, las dos últimas columnas reportan el número de metros per cápita de superficie pavimentada por habitante en el municipio y el porcentaje de la superficie urbanizada que corresponde a las vialidades.
+            La tabla a continuación desglosa las superficies pavimentadas para los municipios que conforman la ZMM y que se observan en el mapa de la expansión urbana correspondiente al año 2019. Los cálculos de superficie pavimentada no incluyen el área de banquetas, sino solamente de vialidades. Esta superficie fue obtenida a partir del procesamiento de los archivos de planimetría catastral. La población de 2019 se obtuvo de las proyecciones del Consejo Nacional de Población (CONAPO) y es el total municipal. El área total desglosa la superficie territorial del límite municipal reportado por el Instituto Nacional de Estadística y Geografía (INEGI). El área urbanizada corresponde a la superficie del municipio que se encuentra urbanizada y fue calculada a partir de las imágenes Landsat. Finalmente, las dos últimas columnas reportan el número de metros per cápita de superficie pavimentada por habitante en el municipio y el porcentaje de la superficie urbanizada que corresponde a las vialidades.
         </p>
         <p>
             El municipio de Monterrey tiene un promedio de 39.8 metros cuadrados de calle por habitante. Guadalupe y San Nicolás de los Garza tienen 29 metros por habitante y Santiago 110 metros cuadrados. El caso de Santiago llama la atención: es un municipio con una amplia infraestructura vial para la relativa baja población con que cuenta. Respecto al porcentaje de calles, este fluctúa entre 20-25% del área en los municipios del área núcleo de la zona metropolitana. En promedio, los municipios en la periferia urbana como General Zuazua, Salinas Victoria y Garza García cuentan con un 10-19% de superficie urbanizada dedicada a las vialidades, un porcentaje menor que las zonas consolidadas de la ciudad. Esto significa que la periferia urbana se encuentra aún en proceso de consolidación. Seguramente, el área de vialidades se incrementará en los años subsecuentes.
@@ -121,9 +123,10 @@
                 <td>Área total</td>
                 <td>Área urbanizada</td>
                 <td>Superficie pavimentada</td>
-                <td>% sperficies que son vialidades</td>
+                <td>% superficies que son vialidades</td>
                 <td>m<sup>2</sup> de pavimento per cápita</td>
             </thead>
+    
             <tbody>
                 <tr>
                     <td>Monterrey</td>
@@ -324,14 +327,10 @@
 
         <ul class="tabs-content">
             <li class="active" >
-                <p class="uk-text-justify">
-                    Escenario tendencial
-                </p>
+                <canvas id="reposicionTendencial" ></canvas>
             </li>
             <li>
-                <p class="uk-text-justify">
-                    Escenario óptimo
-                </p>
+                <canvas id="reposicionOptima" ></canvas>
             </li>
         </ul>
    </div>
