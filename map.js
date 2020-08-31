@@ -1,4 +1,5 @@
 const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019];
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
 let map = new mapboxgl.Map({
     container: 'map',
@@ -9,7 +10,7 @@ let map = new mapboxgl.Map({
 
 let changeLayer = (value)=>{
     let year = years[value]; 
-    document.querySelector('#title').innerHTML = `Mancha urbana, ${year}`;
+    document.querySelector('#title').innerHTML = `Extensión Territorial de la Zona Metropolitana de Monterrey, ${year}`;
     map.setLayoutProperty(year.toString(), 'visibility', 'visible');
     setTimeout(()=>{
         years.filter(y=>y!=year).forEach(y=>{
@@ -56,13 +57,12 @@ let loadMap = async ()=>{
             'layout': {},
             'paint': {
                 'fill-color': expression,
-                // 'fill-color': '#088',
                 'fill-opacity': 0.8
             }
         });
         map.setLayoutProperty(year.toString(), 'visibility', 'none');
     });
-    map.setLayoutProperty(years[0].toString(), 'visibility', 'visible');
+    map.setLayoutProperty(years[6].toString(), 'visibility', 'visible');
 }
 
 loadMap()
@@ -78,8 +78,8 @@ document.querySelector('#autoplay').addEventListener('click', ()=>{
         promises.push( autoplay(i) );
     }
     Promise.all(promises).then(()=>{
-        document.querySelector("#slider").value = 0;
-        changeLayer(0);
+        document.querySelector("#slider").value = 6;
+        changeLayer(6);
         document.getElementById("autoplay").removeAttribute("disabled");
     })
     return;
