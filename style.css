@@ -322,10 +322,16 @@ hr.rounded {
     margin-left: auto;
     margin-right: auto;
 }
+
+.fullscreen-cont>table thead tr{
+    border-bottom: 2px solid;
+}
+
 .fullscreen-cont>table{
     /* margin: 8px; */
     font-size: 1.2rem;
     border-spacing: 0px;
+    border-collapse: collapse;
 }
 .fullscreen-cont>table td{
     border: none;
