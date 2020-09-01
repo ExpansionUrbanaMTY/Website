@@ -203,12 +203,12 @@ async function readData(){
     var costChart = new Chart(costContainer, {
         type: 'line',
         data: {
-            labels: Object.keys(extension[2]).filter(l=>l!=""),
+            labels: Object.keys(pavimentos.historicosTotales).filter(l=>l!=""),
             datasets: [
             {
                 fill: 'origin',
                 label: 'Total',
-                data: Object.values(extension[2]).filter(l=>l!="Total"),
+                data: Object.values(pavimentos.historicosTotales).filter(l=>l!="Total"),
                 backgroundColor: '#f3775e',
             }]
         },
