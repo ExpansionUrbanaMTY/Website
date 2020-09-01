@@ -520,7 +520,7 @@ progress:after {
     margin-left: -22px;
     margin-top: -22px;
     border-radius: 50%;
-    background: #dc717d url("../img/cd-arrows.svg") no-repeat center center;
+    background: #dc717d url("./img/cd-arrows.svg") no-repeat center center;
     cursor: e-resize;
     
     opacity: 0;
