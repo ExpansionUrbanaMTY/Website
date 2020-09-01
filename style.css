@@ -899,3 +899,8 @@ hr.rounded {
     margin-top: -10 !important;
     font-size: x-small;
 }
+
+.activeNav{
+    font-weight: 550;
+    color: rgb(210, 65, 111) !important;
+}
