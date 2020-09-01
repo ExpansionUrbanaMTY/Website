@@ -326,6 +326,10 @@ hr.rounded {
     /* margin: 8px; */
     font-size: 1.2rem;
     border-spacing: 0px;
+    border-collapse: collapse;
+}
+.fullscreen-cont>table thead{
+    border-bottom: 3px solid white;
 }
 .fullscreen-cont>table td{
     border: none;
