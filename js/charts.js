@@ -227,7 +227,7 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Miles de millones de pesos mexicanos'
+                        labelString: 'Costo anual en pesos mexicanos del 2019'
                       }
                 }],
                 xAxes:[{
@@ -241,16 +241,32 @@ async function readData(){
     });
     //Reposicion de pavimientos
     var repsocicionTendencialContainer = document.getElementById('reposicionTendencial');
+    var pavimentosTData = {
+        label: 'Escenario Tendencial',
+        data: [3582080933,1092159413,594911379,5269151724,19543818461,],
+        backgroundColor: [
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgb(153,43,129)'
+          ],
+          borderColor: [
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgb(153,43,129)'
+          ],
+          borderWidth: 2,
+          hoverBorderWidth: 0
+      };
     var reposicionTendencial = new Chart(repsocicionTendencialContainer, {
         type: 'bar',
         data: {
-            labels: ['Costos'],
-            datasets: Object.keys(pavimentos.tendencial).map(k=>({
-                data: [pavimentos.tendencial[k]], 
-                label: k, 
-                backgroundColor: '#f3775e'
-            }))
-        },
+            labels: ["Costo de vialidades primarias", "Costo de vialidades secundarias", "Costo de vialidades locales", "Costo Total", "Gasto Municipal ZMM"],
+            datasets: [pavimentosTData]
+          },
         options: {
             scales: {
                 
@@ -266,26 +282,45 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Miles de millones de pesos mexicanos'
+                        labelString: 'Costo anual en pesos mexicanos del 2019'
                     }
                 }],
             }
         }
     });
 
+
+
+
+    var pavimentosOData = {
+        label: 'Escenario Óptimo',
+        data: [4513630853,1365199266,991518965,6870349084,19543818461],
+        backgroundColor: [
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgb(153,43,129)'
+          ],
+          borderColor: [
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgba(210, 65, 111)',
+            'rgb(153,43,129)'
+          ],
+          borderWidth: 2,
+          hoverBorderWidth: 0
+      };
 
 
     var repsocicionOptimaContainer = document.getElementById('reposicionOptima');
     var reposicionOptima = new Chart(repsocicionOptimaContainer, {
         type: 'bar',
         data: {
-            labels: ['Costos'],
-            datasets: Object.keys(pavimentos.optimo).map(k=>({
-                data: [pavimentos.optimo[k]], 
-                label: k, 
-                backgroundColor: '#f3775e'
-            }))
-        },
+            labels: ["Costo de vialidades primarias", "Costo de vialidades secundarias", "Costo de vialidades locales", "Costo Total", "Gasto Municipal ZMM"],
+            datasets: [pavimentosOData]
+          },
         options: {
             scales: {
                 
@@ -301,12 +336,16 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Miles de millones de pesos mexicanos'
+                        labelString: 'Costo anual en pesos mexicanos del 2019'
                     }
                 }],
             }
         }
     });
+
+    // Gráficas Costos Pavimentación 
+
+
 
     //----------------------------------Forma Urbana-------------------------------------------------------------
 
