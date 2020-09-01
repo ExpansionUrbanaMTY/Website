@@ -524,7 +524,7 @@ progress:after {
     margin-left: -22px;
     margin-top: -22px;
     border-radius: 50%;
-    background: #dc717d url("../img/cd-arrows.svg") no-repeat center center;
+    background: #dc717d url("./img/cd-arrows.svg") no-repeat center center;
     cursor: e-resize;
     
     opacity: 0;
@@ -892,4 +892,19 @@ hr.rounded {
     padding: 0px calc( 50% - 400px );
     margin: 0px auto;
     flex-basis: 100%;
+}
+.pull-right{
+    float:right;
+    margin-top: -10 !important;
+    font-size: x-small;
+}
+.progress-label{
+    float:left;
+    margin-top: -10 !important;
+    font-size: x-small;
+}
+
+.activeNav{
+    font-weight: 550;
+    color: rgb(210, 65, 111) !important;
 }
