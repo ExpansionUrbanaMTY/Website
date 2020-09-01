@@ -243,7 +243,7 @@ async function readData(){
     //Reposicion de pavimientos
     var repsocicionTendencialContainer = document.getElementById('reposicionTendencial');
     var reposicionTendencial = new Chart(repsocicionTendencialContainer, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: Object.keys(extension[2]).filter(l=>l!=""),
             datasets: [
@@ -283,7 +283,7 @@ async function readData(){
     });
     var repsocicionOptimaContainer = document.getElementById('reposicionOptima');
     var reposicionOptima = new Chart(repsocicionOptimaContainer, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: Object.keys(extension[2]).filter(l=>l!=""),
             datasets: [
