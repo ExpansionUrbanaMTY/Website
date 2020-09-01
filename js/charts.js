@@ -3,7 +3,7 @@ async function readData(){
     let poblacion = await d3.csv('./data/Poblacion.csv');
     let densidad = await d3.csv('./data/DensidadPob.csv');
     let extension = await d3.csv('./data/Extensiones.csv');
-
+    let pavimentos = await d3.json('./data/pavimentos.json');
 
     // Poblacion
     var populationContainer = document.getElementById('populationChart');
@@ -239,20 +239,17 @@ async function readData(){
             }
         }
     });
-    
     //Reposicion de pavimientos
     var repsocicionTendencialContainer = document.getElementById('reposicionTendencial');
     var reposicionTendencial = new Chart(repsocicionTendencialContainer, {
         type: 'bar',
         data: {
-            labels: Object.keys(extension[2]).filter(l=>l!=""),
-            datasets: [
-            {
-                fill: 'origin',
-                label: 'Total',
-                data: Object.values(extension[2]).filter(l=>l!="Total"),
-                backgroundColor: '#f3775e',
-            }]
+            labels: ['Costos'],
+            datasets: Object.keys(pavimentos.tendencial).map(k=>({
+                data: [pavimentos.tendencial[k]], 
+                label: k, 
+                backgroundColor: '#f3775e'
+            }))
         },
         options: {
             scales: {
@@ -270,29 +267,24 @@ async function readData(){
                     scaleLabel: {
                         display: true,
                         labelString: 'Miles de millones de pesos mexicanos'
-                      }
+                    }
                 }],
-                xAxes:[{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Año'
-                      }
-                }]
             }
         }
     });
+
+
+
     var repsocicionOptimaContainer = document.getElementById('reposicionOptima');
     var reposicionOptima = new Chart(repsocicionOptimaContainer, {
         type: 'bar',
         data: {
-            labels: Object.keys(extension[2]).filter(l=>l!=""),
-            datasets: [
-            {
-                fill: 'origin',
-                label: 'Total',
-                data: Object.values(extension[2]).filter(l=>l!="Total").map((l,i)=>l-10*i**2),
-                backgroundColor: '#f3775e',
-            }]
+            labels: ['Costos'],
+            datasets: Object.keys(pavimentos.optimo).map(k=>({
+                data: [pavimentos.optimo[k]], 
+                label: k, 
+                backgroundColor: '#f3775e'
+            }))
         },
         options: {
             scales: {
@@ -310,14 +302,8 @@ async function readData(){
                     scaleLabel: {
                         display: true,
                         labelString: 'Miles de millones de pesos mexicanos'
-                      }
+                    }
                 }],
-                xAxes:[{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Año'
-                      }
-                }]
             }
         }
     });
