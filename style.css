@@ -178,6 +178,7 @@ p{
 }
 .tabs li.active{
     font-weight: 800;
+    background-color: white
 }
 .tabs-content{
     margin: 16px 0;

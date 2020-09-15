@@ -1,0 +1,307 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <!--MapBox-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- d3 -->
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- chartjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
+    
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <!--Carousel-->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+				
+</head>
+<body>
+    <div id="nav" style=" z-index: 1000;">
+        <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
+        <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="costos.html" class="activeNav">Costos de expansión</a></li>
+            <li><a href="formaurbana.html">Forma Urbana</a></li>
+            <li><a href="funcionurbana.html">Función Urbana</a></li>
+            <li><a href="egresos.html">Ingresos y Egresos</a></li>
+            <li><a href="atlas.html">Morfología de Calles</a></li>
+            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="fullscreen-cont uk-text-justify">
+        <h1 id="title" style="font-weight: bold;">Superficie de pavimentos por municipio en la ZMM</h1> 
+        <p>
+            La tabla a continuación desglosa las superficies pavimentadas para los municipios que conforman la ZMM y que se observan en el mapa de la expansión urbana correspondiente al año 2019. Los cálculos de superficie pavimentada no incluyen el área de banquetas, sino solamente de vialidades. Esta superficie fue obtenida a partir del procesamiento de los archivos de planimetría catastral. La población de 2019 se obtuvo de las proyecciones del Consejo Nacional de Población (CONAPO) y es el total municipal. El área total desglosa la superficie territorial del límite municipal reportado por el Instituto Nacional de Estadística y Geografía (INEGI). El área urbanizada corresponde a la superficie del municipio que se encuentra urbanizada y fue calculada a partir de las imágenes Landsat. Finalmente, las dos últimas columnas reportan el número de metros per cápita de superficie pavimentada por habitante en el municipio y el porcentaje de la superficie urbanizada que corresponde a las vialidades.
+        </p>
+        <p>
+            El municipio de Monterrey tiene un promedio de 39.8 metros cuadrados de calle por habitante. Guadalupe y San Nicolás de los Garza tienen 29 metros por habitante y Santiago 110 metros cuadrados. El caso de Santiago llama la atención: es un municipio con una amplia infraestructura vial para la relativa baja población con que cuenta. Respecto al porcentaje de calles, este fluctúa entre 20-25% del área en los municipios del área núcleo de la zona metropolitana. En promedio, los municipios en la periferia urbana como General Zuazua, Salinas Victoria y Garza García cuentan con un 10-19% de superficie urbanizada dedicada a las vialidades, un porcentaje menor que las zonas consolidadas de la ciudad. Esto significa que la periferia urbana se encuentra aún en proceso de consolidación. Seguramente, el área de vialidades se incrementará en los años subsecuentes.
+        </p> 
+        <p>
+            En general, el porcentaje total de área de pavimentos (sin incluir banquetas) en Monterrey es el 20% de la superficie urbanizada, lo cual involucra un total de 39 metros cuadrados per cápita.
+        </p>
+
+        <table>
+            <thead>
+                <td>Municipio</td>
+                <td>Proyección de población en 2020</td>
+                <td>Área total</td>
+                <td>Área urbanizada</td>
+                <td>Superficie pavimentada</td>
+                <td>% superficies que son vialidades</td>
+                <td>m<sup>2</sup> de pavimento per cápita</td>
+            </thead>
+    
+            <tbody>
+                <tr>
+                    <td>Monterrey</td>
+                    <td>1,124,835</td>
+                    <td>324,724,084</td>
+                    <td>186,424,677</td>
+                    <td>44,740,738</td>
+                    <td>24.0%</td>
+                    <td>39.8</td>
+                </tr>
+                <tr>
+                    <td>Apodaca</td>
+                    <td>665,734</td>
+                    <td>224,610,433</td>
+                    <td>123,101,173</td>
+                    <td>24,819,283</td>
+                    <td>20.2%</td>
+                    <td>37.3</td>
+                </tr>
+                <tr>
+                    <td>Guadalupe</td>
+                    <td>710,413</td>
+                    <td>117,643,418</td>
+                    <td>93,023,472</td>
+                    <td>20,569,186</td>
+                    <td>22.1%</td>
+                    <td>29.0</td>
+                </tr>
+                <tr>
+                    <td>General Escobedo</td>
+                    <td>466,325</td>
+                    <td>148,874,290</td>
+                    <td>88,488,166</td>
+                    <td>19,538,837</td>
+                    <td>22.1%</td>
+                    <td>41.9</td>
+                </tr>
+                <tr>
+                    <td>Juárez</td>
+                    <td>396,864</td>
+                    <td>247,176,240</td>
+                    <td>72,514,140</td>
+                    <td>17,335,631</td>
+                    <td>23.9%</td>
+                    <td>43.7</td>
+                </tr>
+                <tr>
+                    <td>García</td>
+                    <td>300,745</td>
+                    <td>1,031,895,332</td>
+                    <td>85,160,981</td>
+                    <td>14,870,878</td>
+                    <td>17.5%</td>
+                    <td>49.4</td>
+                </tr>
+                <tr>
+                    <td>San Nicolas de los Garza</td>
+                    <td>474,163</td>
+                    <td>60,146,050</td>
+                    <td>58,716,302</td>
+                    <td>14,069,699</td>
+                    <td>24.0%</td>
+                    <td>29.7</td>
+                </tr>
+                <tr>
+                    <td>Santa Catarina</td>
+                    <td>322,051</td>
+                    <td>915,570,986</td>
+                    <td>55,783,646</td>
+                    <td>10,039,115</td>
+                    <td>18.0%</td>
+                    <td>31.2</td>
+                </tr>
+                <tr>
+                    <td>San Pedro Garza García</td>
+                    <td>137,614</td>
+                    <td>70,758,947</td>
+                    <td>39,299,710</td>
+                    <td>7,434,341</td>
+                    <td>18.9%</td>
+                    <td>54.0</td>
+                </tr>
+                <tr>
+                    <td>Cadereyta</td>
+                    <td>105,145</td>
+                    <td>1,140,186,364</td>
+                    <td>33,763,556</td>
+                    <td>6,200,199</td>
+                    <td>18.4%</td>
+                    <td>59.0</td>
+                </tr>
+                <tr>
+                    <td>Salinas Victoria</td>
+                    <td>61,868</td>
+                    <td>1,666,704,252</td>
+                    <td>36,347,232</td>
+                    <td>5,527,245</td>
+                    <td>15.2%</td>
+                    <td>89.3</td>
+                </tr>
+                <tr>
+                    <td>Santiago</td>
+                    <td>46,955</td>
+                    <td>738,921,156</td>
+                    <td>39,135,435</td>
+                    <td>5,165,991</td>
+                    <td>13.2%</td>
+                    <td>110.0</td>
+                </tr>
+                <tr>
+                    <td>Pesquería</td>
+                    <td>112,583</td>
+                    <td>322,623,461</td>
+                    <td>20,166,064</td>
+                    <td>3,607,954</td>
+                    <td>17.9%</td>
+                    <td>32.0</td>
+                </tr>
+                <tr>
+                    <td>El Carmen</td>
+                    <td>47,326</td>
+                    <td>104,235,138</td>
+                    <td>10,724,499</td>
+                    <td>3,458,242</td>
+                    <td>32.2%</td>
+                    <td>73.1</td>
+                </tr>
+                <tr>
+                    <td>General Zuazua</td>
+                    <td>91,913</td>
+                    <td>184,405,729</td>
+                    <td>28,885,353</td>
+                    <td>2,805,085</td>
+                    <td>9.7%</td>
+                    <td>30.5</td>
+                </tr>
+                <tr>
+                    <td>Abasolo</td>
+                    <td>2,918</td>
+                    <td>46,863,758</td>
+                    <td>1,583,965</td>
+                    <td>204,884</td>
+                    <td>12.9%</td>
+                    <td>70.2</td>
+
+                </tr>
+            </tbody>
+            <tfoot>
+                <td>Totales	</td>
+                <td>5,067,452</td>	
+                <td>7,345,339,638</td>	
+                <td>973,118,373</td>	
+                <td>200,387,308</td>	
+                <td>13.2%</td>
+                <td>39.5</td> 
+            </tfoot>
+        </table>
+
+        <br>
+        <p>
+            Para referencia del lector o lectora, existe un estudio realizado por ONU Habitat en el año 2013, en el cual se realiza un comparativo del área dedicada a calles en ciudades alrededor del mundo. El documento puede ser consultado en esta <a href="https://unhabitat.org/sites/default/files/2020/08/streets_as_public_spaces_and_drivers_of_urban_prosperity.pdf" style="color:#7165c8 ;">liga.</a>
+        </p>
+
+        <p>
+            La página 108 de dicho reporte indica que el área de calles en las zonas núcleo de las ciudades ronda entre 23% (Los Angeles) y 33% (Toronto). El área dedicada en la periferia urbana ronda entre 8% (Calgary) y 13% (Barcelona). Dicho reporte incluye los cálculos para Guadalajara y la Ciudad de México, con un 21.8 y 23.4 para las áreas centrales, respectivamente, y con un 12% y 10% para las zonas de suburbio. De esta forma, el porcentaje de superficie dedicado a calles en Monterrey es similar al porcentaje en Ciudad de México y Guadalajara en las zonas núcleo de la ciudad, pero ligeramente superior en las zonas periféricas de la ciudad. En términos de porcentajes de superficie de pavimentos, el caso de Monterrey sería similar a la ciudad de Cape Town en Sudáfrica.
+        </p>
+
+
+    </div>
+    <div class="fullscreen-cont" id="costos">
+        <h1 id="title" style="font-weight: bold;">Costo de reposición de pavimentos</h1> 
+        <div style="display: block;" class="uk-text-justify">
+            <p>
+                La construcción de este escenario se realizó a partir de dos fuentes de información: el costo promedio de reposición de pavimentos por metro cuadrado y la superficie de pavimentos.
+            </p>
+            <p>
+                El costo promedio de reposición se aproximó a partir de entrevistas con expertos en el tema: desarrolladores privados, académicos y funcionarios públicos de obras públicas. Las entrevistas indagaron acerca del ciclo de vida de las vialidades en función del mantenimiento otorgado y sobre el costo promedio de los diferentes tipos de intervención. A partir de esta fuente de información, se aproximó el siguiente escenario genérico para estimar un costo de reposición promedio para la ciudad: a) el retiro y reposición de 6 centímetros de carpeta asfáltica en vialidades primarias cada 5 años; b) el retiro y reposición de 4 centímetros de carpeta asfáltica cada 10 años en las vialidades secundarias; c) el retiro y reposición de 4 centímetros de carpeta asfáltica cada 40 años para vialidades locales. Asimismo, contempla bacheo superficial en el 7% de la vialidad al momento de hacer el recarpeteo.
+            </p>
+            <p>
+                Los cálculos están precios del 2019. El costo promedio por a) es de $302 pesos por metro cuadrado. El costo promedio por b) y c) es de $190 pesos. El costo de bacheo superficial es de $320 pesos por metro cuadrado.
+            </p>
+            <p>
+                Este escenario base no contempla la reconstrucción de elementos de la base hidráulica, sub-base hidráulica o subrasante de la vialidad. El escenario contempla solamente la reposición de la carpeta asfáltica. Se tomó este escenario como punto de referencia porque de acuerdo con los entrevistados, éste es el tipo de tratamiento más común y extendido en la Zona Metropolitana de Monterrey para mantener las vialidades en buen estado.
+            </p>
+            <p>
+                La identificación de las vialidades por tipo se realizó a partir de los anchos de vialidad conforme con la Ley de Desarrollo Urbano del Estado de Nuevo León del 2009. Se consideran vialidades primarias aquéllas con más de 44 metros de ancho (sin incluir banquetas), secundarias entre 10 y 44 metros de ancho y locales con menos de 10 metros de ancho.
+            </p>
+
+        </div>
+
+        <canvas id="costChart" width="350" height="275"></canvas>
+   </div>
+   <div class="fullscreen-cont">
+        <h1 id="title" style="font-weight: bold;">Escenarios de costo de reposición de pavimientos</h1>
+        <ul class="tabs">
+            <li class="active">Escenario tendencial</li>
+            <li>Escenario óptimo</li>
+        </ul>
+
+        <ul class="tabs-content">
+            <li class="active" >
+                <canvas id="reposicionTendencial" ></canvas>
+            </li>
+            <li>
+                <canvas id="reposicionOptima" ></canvas>
+            </li>
+        </ul>
+   </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+        document.querySelectorAll('.tabs').forEach(tabs=>{
+            tabs.querySelectorAll('li').forEach((tabSelector, i)=>{
+                tabSelector.addEventListener('click', ()=>{
+                    tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l=>l.classList.remove('active'));
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l=>l.classList.remove('active'));
+                    tabSelector.classList.add('active');
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li')[i].classList.add('active')
+                })
+            })
+        });
+    </script>
+    <script src="./js/otherharts.js"></script>
+
+</body>
