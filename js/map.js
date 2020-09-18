@@ -11,7 +11,10 @@ function onChange(value){
         })
     }, 500)
 
-    
+    d3.csv('./data/Extensiones.csv').then(data=>{
+        alert('data')
+        document.querySelector("#superficie-año").innerHTML = data[year]
+    });
 }
 
 document.querySelector('#slider').addEventListener('change', (e)=>{

@@ -17,6 +17,10 @@ let changeLayer = (value)=>{
             map.setLayoutProperty(y.toString(), 'visibility', 'none');
         })
     }, 1000)
+    d3.csv('./data/Extensiones.csv').then(data=>{
+        console.log(data)
+        document.querySelector("#superficie-año").innerHTML = data[2][year]
+    });
 }
 
 let autoplay = (i)=>(
