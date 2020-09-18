@@ -69,12 +69,11 @@ async function readData(){
     var reposicionTendencial = new Chart(repsocicionTendencialContainer, {
         type: 'bar',
         data: {
-            labels: ["Costo de vialidades primarias", "Costo de vialidades secundarias", "Costo de vialidades locales", "Costo Total", "Gasto Municipal ZMM"],
+            labels: ["Vialidades primarias", "Vialidades secundarias", "Vialidades locales", "Costo Total", "Gasto Municipal ZMM"],
             datasets: [pavimentosTData]
         },
         options: {
             scales: {
-                
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
@@ -90,6 +89,13 @@ async function readData(){
                         labelString: 'Costo anual en pesos mexicanos del 2019'
                     }
                 }],
+                xAxes:[{
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+                }]
             }
         }
     });
@@ -123,12 +129,11 @@ async function readData(){
     var reposicionOptima = new Chart(repsocicionOptimaContainer, {
         type: 'bar',
         data: {
-            labels: ["Costo de vialidades primarias", "Costo de vialidades secundarias", "Costo de vialidades locales", "Costo Total", "Gasto Municipal ZMM"],
+            labels: ["Vialidades primarias", "Vialidades secundarias", "Vialidades locales", "Costo Total", "Gasto Municipal ZMM"],
             datasets: [pavimentosOData]
         },
         options: {
             scales: {
-                
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
@@ -144,6 +149,13 @@ async function readData(){
                         labelString: 'Costo anual en pesos mexicanos del 2019'
                     }
                 }],
+                xAxes:[{
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+                }]
             }
         }
     });
