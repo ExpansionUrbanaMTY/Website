@@ -12,7 +12,7 @@ async function readData(){
         data: {
             labels: Object.keys(poblacion[2]).filter(l=>l!=""),
             datasets: [{
-                label: 'Total',
+                label: 'Número de habitantes por año',
                 data: Object.values(poblacion[2]).filter(l=>l!="Total"),
                 backgroundColor: [
                     'rgba(210, 65, 111)',
@@ -109,7 +109,7 @@ async function readData(){
             //     borderWidth: 1
             // },
             {
-                label: 'Total',
+                label: 'Número de habitantes por kilómetro cuadrado',
                 data: Object.values(densidad[2]).filter(l=>l!="Total"),
                 backgroundColor: [
                     'rgba(210, 65, 111)',
@@ -171,7 +171,7 @@ async function readData(){
             labels: Object.keys(extension[2]).filter(l=>l!=""),
             datasets: [
                 {
-                label: 'Total',
+                label: 'Kilómetros cuadrados por año',
                 data: Object.values(extension[2]).filter(l=>l!="Total"),
                 backgroundColor: [
                     'rgba(210, 65, 111)',
