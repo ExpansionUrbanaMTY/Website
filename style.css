@@ -165,7 +165,7 @@ p{
     margin: 16px 0;
     padding: 8px;
     width: 100%;
-    align-items: center;
+    align-items: stretch;
     border-radius: 8px;
     background: rgba(255,255,255,0.5);
     backdrop-filter: blur(10px);
@@ -174,10 +174,16 @@ p{
 }
 .tabs li{
     flex: 1;
-    text-align: center
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    border-radius: 8px;
+    height: 100%;
 }
 .tabs li.active{
     font-weight: 800;
+    background-color: white
 }
 .tabs-content{
     margin: 16px 0;
