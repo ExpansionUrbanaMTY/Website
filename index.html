@@ -86,7 +86,7 @@
             <div class="uk-offcanvas-bar">
 
                 <div style="margin-top: 0.5rem;">
-                    
+                   
                     <div id="graphs" style="width: 100%; padding-top: 1rem">
                         <ul class="tabs">
                             <li class="active buttonHome">Densidad Poblacional</li>
@@ -95,24 +95,58 @@
                         </ul>
         
                         <ul class="tabs-content">
+                            <!-- Densidad -->
                             <li class="active"style="height:275">
                                 <canvas id="densityChart" width="350" height="275"></canvas>
-                                <p class="uk-text-justify">La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por kilómetro cuadrado en 1990 a 4,793.8 en 2016. Una reducción total del 38% en el periodo de 26 años. Esta disminución en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Entre 1990 y 2000 la ciudad perdió un 7% de densidad, entre 2000 y 2010 otro 19% y entre 2010 y 2016 otro 18%. Las áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y desconectado del resto de la ciudad. </p>
+                                <p class="uk-text-justify">
+                                    La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
+                                    kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
+                                    en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de 
+                                    las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las 
+                                    áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 
+                                    1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del 
+                                    núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes 
+                                    por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y 
+                                    desconectado del resto de la ciudad.</p>
+                                <p>
+                                    * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
+                                </p>
                             </li>
+                            <!-- Superficies -->
                             <li style="height:275">
                                 <canvas id="extensionsChart" width="350" height="275"></canvas>
-                                <p class="uk-text-justify">La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la población total de la ciudad creció en un 54% entre 1990 y 2016, la superficie creció en un 148%, pasó de abarcar 337.5 kilómetros cuadrados a 838.5 kilómetros cuadrados en el plazo de 26 años, es decir, cada año la ciudad añadía en promedio 19.27 kilómetros cuadrados.</p>
-                                <p></p>
-                                <p class="uk-text-justify">No obstante, esta expansión no ha sido proporcional a lo largo de los años, el principal periodo de expansión fue entre el 2000 y 2010, cuando la ciudad se expandió en 53% respecto al año 2000, esto fue un crecimiento mayor al sucedido entre 1990 y 2000, cuando la mancha urbana creció 32%. Entre el 2010 y 2016 la expansión de la mancha urbana parece desacelerarse, siendo el periodo con la menor expansión porcentual, de tan sólo el 23%, sin embargo, esto significó un crecimiento de 157 kilómetros cuadrados, así que, en números concretos, fue una expansión más grande que la sucedida entre 1990 y 2000 que fue de 109 kilómetros cuadrados.</p>
-                                <p></p>
-                                <p class="uk-text-justify">Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado de complemento a ser de 8.95.</p>
+                                <p class="uk-text-justify">
+                                    La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la 
+                                    población total se duplicó en 30 años, la huella territorial de la ciudad creció casi tres veces en el mismo período. 
+                                </p>
+                                <p class="uk-text-justify">
+                                    No obstante, esta expansión no ha sido proporcional a lo largo de los años, el principal periodo de expansión 
+                                    fue entre el 2000 y 2010, cuando la ciudad se expandió en 53% respecto al año 2000, esto fue un crecimiento mayor 
+                                    al sucedido entre 1990 y 2000, cuando la mancha urbana creció 32%. Entre el 2010 y 2016 la expansión de la mancha 
+                                    urbana parece desacelerarse, siendo el periodo con la menor expansión porcentual, de tan sólo el 23%, sin embargo, 
+                                    esto significó un crecimiento de 157 kilómetros cuadrados, así que, en números concretos, fue una expansión más 
+                                    grande que la sucedida entre 1990 y 2000 que fue de 109 kilómetros cuadrados.
+                                </p>
+                                <p class="uk-text-justify">
+                                    Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, 
+                                    aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento 
+                                    ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado 
+                                    de complemento a ser de 8.95.
+                                </p>
+                                <p>
+                                    * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
+                                </p>
                             </li>
+                            <!-- Población -->
                             <li style="height:275">
                                 <canvas id="populationChart" width="350" height="275"></canvas>
-                                <p class="uk-text-justify">La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2016. Pasó de albergar una población de 2,614,841 habitantes a 4,091,863, es decir que tuvo un crecimiento del 54% durante este periodo. En promedio, experimentó un crecimiento medio anual del 2.077%. Sin embargo, el crecimiento demográfico se desaceleró entre 2010 y 2016, cuando apenas tuvo un crecimiento medio anual del 0.19%.</p>
-                                <p></p>
-                                <p class="uk-text-justify">La zona núcleo de la mancha urbana ha tenido el crecimiento más importante, logrando un crecimiento del 63% a 2016 respecto a 1990. Sin embargo, esto podría ser explicado debido a la evolución de la urbanización que ha llenado los vacíos entre núcleos anteriores y zonas urbanizadas previamente desconectadas al centro de la ciudad.</p>
-            
+                                <p class="uk-text-justify">
+                                    La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
+                                </p>
+    
+                                <p>
+                                    * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
+                                </p>
                             </li>
                            
                            
