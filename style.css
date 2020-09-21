@@ -914,3 +914,7 @@ hr.rounded {
     font-weight: 550;
     color: rgb(210, 65, 111) !important;
 }
+.buttonHome{
+    padding: 10px;
+    display: block !important;
+}
