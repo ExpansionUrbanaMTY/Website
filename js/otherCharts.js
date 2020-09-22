@@ -38,7 +38,7 @@ async function readData(){
                 xAxes:[{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Vialidades del 2019 comprenidas en la mancha urbana por año'
                     }
                 }]
             }

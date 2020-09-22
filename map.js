@@ -10,16 +10,16 @@ let map = new mapboxgl.Map({
 
 let changeLayer = (value)=>{
     let year = years[value]; 
-    document.querySelector('#title').innerHTML = `Extensión Territorial de la Zona Metropolitana de Monterrey, ${year}`;
     map.setLayoutProperty(year.toString(), 'visibility', 'visible');
     setTimeout(()=>{
         years.filter(y=>y!=year).forEach(y=>{
             map.setLayoutProperty(y.toString(), 'visibility', 'none');
         })
     }, 1000)
+    document.querySelector("#texto-año").innerHTML = year + ":"
     d3.csv('./data/Extensiones.csv').then(data=>{
         console.log(data)
-        document.querySelector("#superficie-año").innerHTML = data[2][year]
+        document.querySelector("#superficie-año").innerHTML = data[2][year] || data[2]["2019*"]
     });
 }
 
