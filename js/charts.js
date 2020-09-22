@@ -12,19 +12,19 @@ async function readData(){
         data: {
             labels: Object.keys(poblacion[2]).filter(l=>l!=""),
             datasets: [{
-                label: 'Total',
+                label: 'Número de habitantes por año',
                 data: Object.values(poblacion[2]).filter(l=>l!="Total"),
                 backgroundColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)'
                 ],
                 borderColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)'
                 ],
                 borderWidth: 1
             }]
@@ -73,42 +73,43 @@ async function readData(){
         type: 'bar',
         data: {
             labels: Object.keys(densidad[2]).filter(l=>l!=""),
-            datasets: [{
-                label: 'Núcleo',
-                data: Object.values(densidad[0]).filter(l=>l!="Nucleo"),
-                backgroundColor: [
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)'
-                ],
-                borderColor: [
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)'
-                ],
-                borderWidth: 1
-            },
+            datasets: [
+            //     {
+            //     label: 'Núcleo',
+            //     data: Object.values(densidad[0]).filter(l=>l!="Nucleo"),
+            //     backgroundColor: [
+            //         'rgba(252, 186, 128)',
+            //         'rgba(252, 186, 128)',
+            //         'rgba(252, 186, 128)',
+            //         'rgba(252, 186, 128)'
+            //     ],
+            //     borderColor: [
+            //         'rgba(252, 186, 128)',
+            //         'rgba(252, 186, 128)',
+            //         'rgba(252, 186, 128)',
+            //         'rgba(252, 186, 128)'
+            //     ],
+            //     borderWidth: 1
+            // },
+            // {
+            //     label: 'Complemento',
+            //     data: Object.values(densidad[1]).filter(l=>l!="Complemento"),
+            //     backgroundColor: [
+            //         'rgba(243, 119, 94)',
+            //         'rgba(243, 119, 94)',
+            //         'rgba(243, 119, 94)',
+            //         'rgba(243, 119, 94)'
+            //     ],
+            //     borderColor: [
+            //         'rgba(243, 119, 94)',
+            //         'rgba(243, 119, 94)',
+            //         'rgba(243, 119, 94)',
+            //         'rgba(243, 119, 94)'
+            //     ],
+            //     borderWidth: 1
+            // },
             {
-                label: 'Complemento',
-                data: Object.values(densidad[1]).filter(l=>l!="Complemento"),
-                backgroundColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
-                ],
-                borderColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
-                ],
-                borderWidth: 1
-            },
-            {
-                label: 'Total',
+                label: 'Número de habitantes por kilómetro cuadrado',
                 data: Object.values(densidad[2]).filter(l=>l!="Total"),
                 backgroundColor: [
                     'rgba(210, 65, 111)',
@@ -168,8 +169,9 @@ async function readData(){
         type: 'bar',
         data: {
             labels: Object.keys(extension[2]).filter(l=>l!=""),
-            datasets: [{
-                label: 'Total',
+            datasets: [
+                {
+                label: 'Kilómetros cuadrados por año',
                 data: Object.values(extension[2]).filter(l=>l!="Total"),
                 backgroundColor: [
                     'rgba(210, 65, 111)',

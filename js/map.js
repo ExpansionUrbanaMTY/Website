@@ -2,7 +2,7 @@ const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019]
 
 function onChange(value){
     let year = years[value]
-    document.querySelector('#year').innerHTML = `Año seleccionado: ${year}`;
+    document.querySelector('#year').innerHTML = `Año seleccionado`;
     map2.setLayoutProperty(year.toString(), 'visibility', 'visible');
     
     setTimeout(()=>{

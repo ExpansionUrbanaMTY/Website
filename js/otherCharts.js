@@ -38,7 +38,7 @@ async function readData(){
                 xAxes:[{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Vialidades del 2019 comprenidas en la mancha urbana por año'
                     }
                 }]
             }
@@ -48,7 +48,7 @@ async function readData(){
     var repsocicionTendencialContainer = document.getElementById('reposicionTendencial');
     var pavimentosTData = {
         label: 'Escenario Tendencial',
-        data: [3582080933,1092159413,594911379,5269151724,19543818461,],
+        data: [4417876201, 818160248, 892766204, 6128802654, 19543818461],
         backgroundColor: [
             'rgba(210, 65, 111)',
             'rgba(210, 65, 111)',
@@ -116,7 +116,7 @@ async function readData(){
 
     var pavimentosOData = {
         label: 'Escenario Óptimo',
-        data: [4513630853,1365199266,991518965,6870349084,19543818461],
+        data: [3561522791, 1086228911, 2230665138, 6878416841, 19543818461],
         backgroundColor: [
             'rgba(210, 65, 111)',
             'rgba(210, 65, 111)',
