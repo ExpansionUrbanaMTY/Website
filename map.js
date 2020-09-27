@@ -26,28 +26,23 @@ let map = new mapboxgl.Map({
     zoom: 8.8
 });
 
-let changeLayer = (value)=>{
-    let year = years[value]; 
-    map.setLayoutProperty(year.toString(), 'visibility', 'visible');
-    map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
-    setTimeout(()=>{
-        years.filter(y=>y!=year).forEach(y=>{
-            map.setLayoutProperty(y.toString(), 'visibility', 'none');
-            map.setLayoutProperty(y.toString()+'-label', 'visibility', 'none');
-        })
-    }, 2000)
-}
-
-let autoplay = (i)=>(
+let changeLayer = (value)=>(
     new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            if(i<=7){
-                document.querySelector("#slider").value = i-1;
-                changeLayer(i-1);
-            }
-            resolve("Done")    
-            console.log(i-1);    
-        }, 1500*i)
+        let year = years[value]; 
+        map.setLayoutProperty(year.toString(), 'visibility', 'visible');
+        map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
+        function hideOthers(e,_year=year) {
+            setTimeout(()=>{
+                console.log('A render event occurred.', _year);
+                years.filter(y=>y!=_year).forEach(y=>{
+                    map.setLayoutProperty(y.toString(), 'visibility', 'none');
+                    map.setLayoutProperty(y.toString()+'-label', 'visibility', 'none');
+                    resolve();
+                })
+                map.off('idle',hideOthers)
+            }, 2500)
+        }
+        map.on('idle', hideOthers)
     })
 )
 
@@ -123,14 +118,20 @@ document.querySelector('#slider').addEventListener('change', (e)=>{
 
 document.querySelector('#autoplay').addEventListener('click', ()=>{
     document.getElementById("autoplay").setAttribute("disabled","true");
-    let promises = [];
-    for(let i=1;i<=8;i++){
-        promises.push( autoplay(i) );
-    }
-    Promise.all(promises).then(()=>{
-        document.querySelector("#slider").value = 6;
-        changeLayer(6);
-        document.getElementById("autoplay").removeAttribute("disabled");
-    })
+    
+    let is = [0,1,2,3,4,5,6];
+    is.reduce((prevPromise, i)=>{
+        return prevPromise.then(()=>{
+                document.querySelector("#slider").value = i;
+                return changeLayer(i)
+        })
+    }, Promise.resolve())
+
+    document.getElementById("autoplay").removeAttribute("disabled");
+    // Promise.all(promises).then(()=>{
+    //     console.log("resolve")
+    //     document.querySelector("#slider").value = 6;
+    //     // changeLayer(6);
+    // })
     return;
 })
