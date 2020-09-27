@@ -58,9 +58,10 @@ async function readData(){
                       }
                 }],
                 xAxes:[{
+                    maxBarThickness: 30, 
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Año', 
                       }
                 }]
             }
@@ -155,9 +156,10 @@ async function readData(){
                       }
                 }],
                 xAxes:[{
+                    maxBarThickness: 30, 
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Año', 
                       }
                 }]
             }
@@ -213,9 +215,10 @@ async function readData(){
                       }
                 }],
                 xAxes:[{
+                    maxBarThickness: 50,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Año', 
                       }
                 }]
             }
@@ -223,4 +226,4 @@ async function readData(){
     });
 }
 
-readData(); 
+readData();  
