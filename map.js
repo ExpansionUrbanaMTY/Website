@@ -1,5 +1,23 @@
 const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019];
 
+
+const places = {
+    'type': 'FeatureCollection',
+    'features': [
+        {
+            'type': 'Feature',
+            'properties': {
+                'description': "926 km²",
+            },
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [25.6714, -100.308611].reverse()
+            }
+        },
+    ]
+};
+
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
 let map = new mapboxgl.Map({
     container: 'map',
@@ -11,16 +29,13 @@ let map = new mapboxgl.Map({
 let changeLayer = (value)=>{
     let year = years[value]; 
     map.setLayoutProperty(year.toString(), 'visibility', 'visible');
+    map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
     setTimeout(()=>{
         years.filter(y=>y!=year).forEach(y=>{
             map.setLayoutProperty(y.toString(), 'visibility', 'none');
+            map.setLayoutProperty(y.toString()+'-label', 'visibility', 'none');
         })
-    }, 1000)
-    document.querySelector("#texto-año").innerHTML = year + ":"
-    d3.csv('./data/Extensiones.csv').then(data=>{
-        console.log(data)
-        document.querySelector("#superficie-año").innerHTML = data[2][year] || data[2]["2019*"]
-    });
+    }, 2000)
 }
 
 let autoplay = (i)=>(
@@ -40,20 +55,21 @@ let loadMap = async ()=>{
     map.resize();
     let rows = await d3.csv('./data/FishnetRecortado.csv');
     let geojson = await d3.json('./data/gridDef2.geojson');
+    let area = await d3.csv('./data/Extensiones.csv');
     map.addSource('expansion', {
         type: 'geojson',
         data: geojson
     });
     years.forEach((year)=>{
-        var expression = ['match', ['get', 'Id']];
+        var expression = ['match', ['get', 'Id']
+            // ...rows.map(row=>([Number(row['Id']), row['MU'+year]=='1' ? '#F3775D' : 'transparent' ])).flat()
+        ];
         rows.forEach(function(row) {
             if(row['MU'+year]=='1'){
                 expression.push(Number(row['Id']), '#F3775D');
-            } else {
-                expression.push(Number(row['Id']), 'transparent');
-            }
+            } 
         });
-        expression.push('#fff')
+        expression.push('transparent')
         map.addLayer({
             'id': year.toString(),
             'type': 'fill',
@@ -64,12 +80,42 @@ let loadMap = async ()=>{
                 'fill-opacity': 0.8
             }
         });
+        let label = {...places};
+        label.features[0].properties.description = (area[2][year] || area[2]["2019*"])+"km²";
+        map.addSource(year.toString()+'-value', {
+            'type': 'geojson',
+            'data': places
+        });
+
+        map.addLayer({
+            'id': year.toString()+'-label',
+            'type': 'symbol',
+            'source': year.toString()+'-value',
+            'layout': {
+                'text-field': [
+                    'format',
+                    year.toString(),
+                    { 'font-scale': 0.4 },
+                    '\n',
+                    {},
+                    ['get', 'description'],
+                    { 'font-scale': 0.8 }
+                ],
+                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                'text-variable-anchor': ['bottom'],
+                'text-justify': 'auto',
+                "text-size": 60,
+            },
+            'paint': {"text-color": "#ffffff"}
+        });
+        map.setLayoutProperty(year.toString()+"-label", 'visibility', 'none');
         map.setLayoutProperty(year.toString(), 'visibility', 'none');
     });
     map.setLayoutProperty(years[6].toString(), 'visibility', 'visible');
+    map.setLayoutProperty(years[6].toString()+"-label", 'visibility', 'visible');
 }
 
-loadMap()
+map.on('load', loadMap)
 
 document.querySelector('#slider').addEventListener('change', (e)=>{
     changeLayer(e.target.value)
