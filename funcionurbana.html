@@ -9,8 +9,9 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
     <!-- d3 -->
-    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -24,23 +25,18 @@
     gtag('config', 'G-QWNMHKJPW1');
     </script>		
 
-    <style>
-        body{
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        iframe{
-            flex: 1; /*hello there*/
-        }
 
-    </style>
+    <!--UIKit -->
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    
 
 </head>
-<body>
+<body class = 'uk-height-viewport'>
     <div id="nav">
-        <img src="img/logos/logo-final.png" height="50px">
-        <h4>Expansión Urbana de Monterrey</h4>
+        <img src="img/logos/logo-final.png" height="50px" style='height: 50! important;'>
+        <h4 style = 'all: revert;'>Expansión Urbana de Monterrey</h4>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="costos.html">Costos de expansión</a></li>
@@ -56,8 +52,181 @@
         </a>
     </div>
 
-    <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/denue" frameborder="0"></iframe> <!--Es una metapágina-->
+    <div class="uk-padding uk-light" style="padding-bottom: 0 !important;padding-top: 20px;padding-left: 40px; padding-bottom: 0px!important;">
+        <h1 style="font-weight: 650;font-size: 400%; margin-bottom: 0px!important">Función Urbana</h1>
+    </div>
 
+    <div class = 'uk-container uk-container-expand'>
+        <div class="uk-width-auto@m"> 
+            <ul class = 'uk-flex-right uk-tab' uk-tab='connect: #map_content; animation: uk-animation-fade'>
+                <li class = 'uk-active' onclick='displayLayer("dist_cbd")'><a href='#'>Dist. Centro</a></li>
+                <li onclick='displayLayer("Pop0_16")'><a href='#'>Población/Empleo</a></li>
+                <li onclick='displayLayer("CUS")'><a href='#'>Uso suelo</a></li>
+                <li onclick='displayLayer("Densidad16")'><a href='#'>Población joven</a></li>
+            </ul>
+        </div>
+
+        <div class = 'uk-grid uk-grid-small' uk-grid>
+            <div class = 'uk-first-column uk-width-expand'>
+                <div class = 'map_gradiente' id = 'map_dist'></div>
+            </div>
+
+            <div class="uk-width-2-5@m uk-flex uk-flex-middle uk-margin-remove-top">
+                <ul class="uk-switcher" id = 'map_content'> 
+                    <li>           
+                        <div>
+                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                                <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 190%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;'>
+                                    <option style = 'font-weight: lighter; font-size:0%;'>Distancia al centro de la ciudad</option>
+                                </select>
+                                <div class = 'uk-card-body'>
+                                    <p class = 'uk-text-justify'>
+                                        Esta sección realiza una exploración del cambio de la función urbana de monterrey considerando los cambios en la morfología policéntrica de la ciudad ocurridos en los últimos veinte y treinta años. En este análisis, se trazaron círculos concéntricos de 1 kilómetro a partir de la macroplaza hasta los 40 kilómetros de distancia del centro de la ciudad. Los círculos fueron cortados con el tamaño de la mancha urbana actual para generar una serie de métricas que exploran el cambio en la ubicación de viviendas y empleos en el período comprendido entre el 2000 y el 2020.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>         
+                    </li>
+                    <li>
+                        <div>
+                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                                <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 175%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;' 
+                                id = 'select-pob' onchange="displayLayer(this.value)">
+                                    <option value = 'Pop0_16' style = 'font-weight: lighter; font-size:95%;'>Diferencia de población 2016 - 2000</option>
+                                    <option value = 'Emp10_19' style = 'font-weight: lighter; font-size:95%;'>Diferencia de empleo 2019 - 2010</option>
+                                </select>
+                                <div class = 'uk-card-body'>
+                                    <p class = 'uk-text-justify emp-pob emp-pob2'>
+                                        Esta serie de mapas fueron construidos a partir de información disponible en INEGI. En el caso poblacional, se utilizó la cartografía de manzanas del Censo del año 2000 y del Inventario Nacional de Viviendas del 2016. En el caso del empleo, se utilizó el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del año 2000 y del 2019. Los colores oscuros del mapa de diferencia de población indican las zonas que perdieron población entre el 2000 y el 2016; los colores claros identifican las zonas que aumentaron población.
+                                    </p>
+                                    <p class = 'uk-text-justify emp-pob emp-pob2'>
+                                        En el caso del empleo, se puede apreciar una pérdida de empleos en el centro de la ciudad y en el periurbano, pero un incremento en los círculos ubicados entre 12 y 19 kilómetros de distancia del centro de la ciudad. Estos mapas muestran que en los últimos quince años ha ocurrido una migración residencial del centro de la ciudad hacia la periferia. Los empleos también han migrado hacia zonas no centrales, consolidando una morfología policéntrica de la ZMM.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                                <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 165%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;' 
+                                id = 'select-cus' onchange="displayLayer(this.value)">
+                                    <option value = 'CUS' style = 'font-weight: lighter; font-size:95%;'>Coeficiente de uso de suelo (CUS)</option>
+                                    <option value = 'AreaC' style = 'font-weight: lighter; font-size:95%;'>Área construida</option>
+                                    <option value = 'PropPC' style = 'font-weight: lighter; font-size:95%;'>Proporción pavimentos-construcción</option>
+                                    <option value = 'ConpP' style = 'font-weight: lighter; font-size:95%;'>Consumo per cápita de pavimentos</option>
+                                    <option value = 'PorPav' style = 'font-weight: lighter; font-size:95%;'>Porcentaje área pavimentada</option>
+                                </select>
+                                <div class = 'uk-card-body'>
+                                    <p class = 'uk-text-justify'>
+                                        A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. Los colores más claros indican una mayor proporción de área construida contra área del terreno. La zona central de la ciudad tiene el CUS más alto, el cual se reduce gradualmente conforme nos movemos del centro hacia la periferia. La excepción son algunas franjas claras ubicadas en García y Juárez, con un CUS muy alto y que corresponden a desarrollos de vivienda social.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                                <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 120%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;' 
+                                id = 'select-jov' onchange="displayLayer(this.value)">
+                                    <option value = 'Densidad16' style = 'font-weight: lighter; font-size:95%;'>Densidad población menor a quince años - 2016</option>
+                                    <option value = 'Densidad00' style = 'font-weight: lighter; font-size:95%;'>Densidad población menor a quince años - 2000</option>
+                                    <option value = 'Densidad90' style = 'font-weight: lighter; font-size:95%;'>Densidad población menor a quince años - 1990</option>
+                                    <option value = 'CambioPP90' style = 'font-weight: lighter; font-size:95%;'>Cambio población menor a quince años 2016 - 1990</option>
+                                </select>
+                                <div class = 'uk-card-body'>
+                                    <p class = 'uk-text-justify'>
+                                        Esta serie de mapas identifican los hogares jóvenes a partir de la información de INEGI de los años 1990, 2000, 2010 y del Inventario Nacional de Vivienda del 2016. En los censos nacionales se pregunta por el número de personas por hogar que son menores de 15 años. Dicha variable es un aproximado para identificar la ubicación residencial de aquellos hogares que se formaron en un periodo menor a los últimos 15 años.                                </p>
+                                    <p class = 'uk-text-justify'>
+                                        Observando los mapas de 1990, 2000 y 2016, encontramos que los hogares jóvenes no se ubican en las zonas centrales de la ciudad, sino en zonas consolidadas en la periferia urbana. Esto parece ser un indicador de la incapacidad de regeneración del suelo en la zona central de la ciudad para generar una oferta de vivienda asequible a las necesidades de los nuevos hogares. Pareciera que la oferta de vivienda para los nuevos hogares se concentra recurrentemente (al menos desde 1990) en el limite urbano en su momento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+    </div>
+    <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
+
+    <div class = 'uk-container uk-container-expand'>
+        <div class = 'uk-grid-small' uk-grid>
+            <div class = 'uk-width-3-5@m uk-first-column uk-flex uk-flex-middle uk-padding-small'>
+                <div class = 'grafica_container' id ='graph_censo'></div>
+            </div>
+
+            <div class = 'uk-width-2-5@m'>
+                <article class = 'uk-article uk-padding'>
+                    <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Poblacion y vivienda 2016 - 2000</h3>
+                    <p class = 'uk-text-justify'>
+                        En cuanto a población se nota una marcada tendencia entre 2000 y 2016. Los primeros 11 kilómetros de la ciudad han sido despoblados marcadamente, con una pérdida del 12% de la población respecto al año 2000, este sector de la ciudad comprende el centro histórico y se extiende hasta San Pedro Garza García, el inicio de Carretera Nacional, el centro de Guadalupe, el centro de San Nicolás de los Garza y Mitras Centro. Sin embargo, el número de viviendas en este sector incrementó en 11.7%, indicando que, aunque la población está deshabitando la zona, la construcción continúa, probablemente provocando una caída en la densidad de población de la mancha urbana.
+                    </p>
+                    <p class = 'uk-text-justify'>
+                        No obstante, la población total de la ciudad ha incrementado en 22%, pasando de 3,3332,000 habitantes en el año 2000 a 4,062,800 en el 2016. Esto significa que la población se ha ido a las periferias de la ciudad, más allá de los primeros 11 kilómetros, teniendo el kilómetro 15 un aumento de más de 100 mil habitantes. El incremento de población entre los 12 kilómetros y los 40 ha sido del 66%. De igual forma, hubo un incremento de más del 160% en número de viviendas. Mientras que en el año 2000 sólo el 43.5% de la población vivía a más de 11 kilómetros del centro histórico, en el 2016 fue el 59.1% quién habitó las periferias del área metropolitana.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </div>
+
+
+    <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
+
+    <div class = 'uk-container uk-container-expand'>
+        <div class = 'uk-grid-small' uk-grid>
+            <div class = 'uk-width-1-1'>
+                <div class = 'uk-align-left' uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
+                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
+                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2015'>2015</button>
+                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2010'>2010</button>
+                </div>
+            </div>
+            <div class = 'uk-width-expand uk-flex uk-flex-middle uk-padding-small'>
+                <div class = 'grafica_container' id ='graph_denue'></div>
+            </div>
+
+            <div class = 'uk-width-2-5@m'>
+                <ul class = 'uk-switcher' id = 'denue_content'>
+                    <li>
+                        <article class = 'uk-article uk-padding uk-padding-remove-top'>
+                            <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Actividades económicas 2019</h3>
+                            <p class = 'uk-text-justify'>
+                                Al 2019 el centro consolidado entre los 3 y 7 kilómetros de distancia vio un fuerte desarrollo de empleos. Esta zona correspondiente principalmente a San Pedro Garza García y al Tecnológico de Monterrey vio un crecimiento del 11%, sin embargo, ha perdido relevancia en cuanto a concentración de empleos. En este año concentró el 31.8% de los empleos del área metropolitana, a comparación del 35% y 33% que concentraba en el año 2010 y 2015 respectivamente. Se mantienen las tendencias de crecimiento que se observaron en el 2015. Se nota una fuerte consolidación de empleos a 12 kilómetros, coincidiendo con las zonas de Cumbres, Santa Catarina, San Nicolás de los Garza y Guadalupe, con un aumento del 18.5%, correspondiente a más de 12,000 empleos.
+                            </p>
+                            <p class = 'uk-text-justify'>
+                                En el centro previamente consolidado a 6 kilómetros existe de igual forma un fuerte incremento en empleos de comercio y de oficina, habiendo aumentado por 16% y 28% respectivamente a comparación del 2015. La industria cobró mayor importancia entre los 19 y 22 kilómetros del centro, correspondiente a Santa Catarina, Mitras, Juárez, Escobedo y Apodaca. En el aspecto global del área metropolitana, los empleos totales incrementaron por el 14%, siendo los empleos de oficina el sector con mayor crecimiento, del 20.7% respecto a 2015. La industria y el comercio tuvieron un crecimiento cercano, del 19.7% y 19.6% respectivamente.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class = 'uk-article uk-padding uk-padding-remove-top'>
+                            <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Actividades económicas 2015</h3>
+                            <p class = 'uk-text-justify'>
+                                Al año 2015 se nota un considerable incremento en los empleos del sector de oficinas y servicios dentro del núcleo establecido entre los 3 y 7 kilómetros de distancia, con los trabajos de oficina incluso superando aquellos de industria, ahora cada uno representando el 21.8% y 18.3% respectivamente. En 2010 estos dos juntos representaban el 27.5% del sector e incrementaron a representar el 32% del total de la zona. A los 12, 22 y 33 kilómetros de distancia, correspondiendo principalmente a las zonas de Guadalupe, San Nicolás de los Garza, Santa Catarina, Cumbres, Juárez y García, sucedió otro considerable incremento en empleos, particularmente en los ámbitos comerciales e industriales, con incrementos totales del 11.7%, 66% y 25.2% respectivamente.                        </p>
+                            <p class = 'uk-text-justify'>
+                                Se observa una consolidación de los sectores terciarios en el centro, así como el continuo crecimiento de otros núcleos a mayor distancia. La productividad de estos nuevos centros de empleos dependerá de la accesibilidad a ellos por parte de la población y la facilidad de movilidad en la ciudad. Es posible que los viajes entre subnúcleos se vuelvan cada vez más relevantes, sin la necesidad de pasar por el núcleo previamente consolidado. El centro histórico sufrió una pérdida de empleos del 10%.                        </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class = 'uk-article uk-padding uk-padding-remove-top'>
+                            <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Actividades económicas 2010</h3>
+                            <p class = 'uk-text-justify'>
+                                En el año 2010 el comercio fue la principal fuente de empleos en el Área Metropolitana de Monterrey, representando el 35.9% de los empleos totales, siendo la industria el segundo principal empleador con el 23.4% del total. Entre los 3 y 7 kilómetros de distancia del centro se aglomera el 35% de los empleos totales. Esta alta concentración de empleos delimita una zona funcional bastante monocéntrica que abarca principalmente las zonas de Valle Oriente, Centro de San Pedro Garza García y el Tecnológico de Monterrey.
+                            </p>
+                            <p class = 'uk-text-justify'>
+                                Adicionalmente, se puede observar una menor concentración de empleos entre los 11 y 14 kilómetros de distancia, que corresponden a zonas de Guadalupe, San Nicolás de los Garza, Santa Catarina y Cumbres. El 19% de los empleos del área metropolitana se concentran aquí, siendo el comercio el 38.7% y la industria el 25% de los empleos del sector. Esta concentración puede indicar el desarrollo de nuevos centros y marca la tendencia hacia mayor policentrismo en la ciudad.                        </p>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./js/funcion_urbana.js"></script>
     <script>
         function mobileNav() {
             var x = document.getElementById("nav");
@@ -69,6 +238,13 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
-    </script>
 
+        UIkit.util.on('#map_content', 'hidden', function() {
+              document.getElementById('select-pob').value = 'Pop0_16';
+              document.getElementById('select-cus').value = 'CUS';
+              document.getElementById('select-jov').value = 'Densidad16';
+
+        })
+
+    </script>
 </body>
