@@ -57,16 +57,17 @@
         </a>
     </div>
 
-    <div id="map-container">
+    <div id="map-container" style="padding-top: 16px !important;">
 
-        <h1 id="title" style="font-weight: 600;">
+        <h1 id="title" style="font-weight: 900; font-size: 1.30rem;">
             Cobertura Territorial de la Zona Metropolitana de Monterrey
         </h1> 
 
         <div id="map"></div>
 
-        <!-- <div style="position: absolute; background: red;">
-            llll
+        <!-- <div style="position: absolute; background:black; z-index: 99; right:24px; top: 4rem; font-size: 1.8rem; margin-top: 10%; border-radius: 25px;" id = "boxythingy">
+            <span style="font-weight: 600" id="texto-año">&nbsp;&nbsp; 2019:</span> &nbsp; <br>
+            <span style="white-space: nowrap;" id="superficie-año"> &nbsp;&nbsp; 926 </span> &nbsp;km<sup>2</sup> &nbsp;&nbsp; 
         </div> -->
 
         <div id="sidebar">
@@ -79,11 +80,8 @@
                 <button id="autoplay" style="background-color: #D1426F; border:none; height: 30px; width: 30px;">
                     <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
                 </button>
-                &nbsp;|&nbsp;
                 <div>
-                    <span style="font-weight: 600" id="texto-año">2019:</span> &nbsp;
-                    <!-- <div style="height: 30px; width: 30px; background-color: #cd6954; margin: 8px; padding: 0 !important;"></div> -->
-                    <span style="white-space: nowrap;" id="superficie-año">926 </span> &nbsp;km <sup>2</sup>
+                    
                 </div>
             </div>
 
@@ -97,7 +95,7 @@
     
                     <ul class="tabs-content">
                         <li class="active"style="height:275">
-                            <canvas id="densityChart" width="350" height="275"></canvas>
+                            <canvas id="densityChart" width="200" height="180"></canvas>
                             <p class="uk-text-justify">
                                 La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
                                 kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
@@ -113,7 +111,7 @@
                             </p>
                         </li>
                         <li style="height:275">
-                            <canvas id="extensionsChart" width="350" height="275"></canvas>
+                            <canvas id="extensionsChart" width="200" height="180"></canvas>
                             <p class="uk-text-justify">
                                 La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la 
                                 población total se duplicó en 30 años, la huella territorial de la ciudad creció casi tres veces en el mismo período. 
@@ -137,7 +135,7 @@
                             </p>
                         </li>
                         <li style="height:275">
-                            <canvas id="populationChart" width="350" height="275"></canvas>
+                            <canvas id="populationChart" width="200" height="180"></canvas>
                             <p class="uk-text-justify">
                                 La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
                             </p>
