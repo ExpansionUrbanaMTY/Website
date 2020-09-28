@@ -932,3 +932,17 @@ hr.rounded {
     display: block !important;
 }
 
+.range-wrap {
+    position: relative;
+    margin: 0 auto 3rem;
+  }
+  .range {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .bubble:active {
+    margin-top: 2px;
+    color: white;
+    position: absolute;
+    left: 50%;
+  }

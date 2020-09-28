@@ -278,25 +278,176 @@
 
         <canvas id="costChart" width="350" height="275"></canvas>
    </div>
-   <div class="fullscreen-cont">
-        <h1 id="title" style="font-weight: bold;">
+   
+   <div class="uk-light"style="padding:5%">
+        <h1 id="title" style="font-weight: bold; text-align: center;">
             Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (pesos mexicanos de 2019)
         </h1>
-        <ul class="tabs">
-            <li class="active buttonHome">Escenario tendencial</li>
-            <li class="buttonHome">Escenario óptimo</li>
-        </ul>
+        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid style="padding-top: 1rem;">
+            <div>
+                <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
+                    <ul class="tabs">
+                        <li class="active buttonHome">Escenario tendencial</li>
+                        <li class="buttonHome">Escenario óptimo</li>
+                    </ul>
+            
+                    <ul class="tabs-content">
+                        <li class="active" >
+                            <canvas id="reposicionTendencial" ></canvas>
+                        </li>
+                        <li>
+                            <canvas id="reposicionOptima" ></canvas>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
+                    <!--Totales calculo-->
+                    <div>
+                        <table class="uk-table uk-table-divider">
+                        </table>
+                    </div>
 
-        <ul class="tabs-content">
-            <li class="active" >
-                <canvas id="reposicionTendencial" ></canvas>
-            </li>
-            <li>
-                <canvas id="reposicionOptima" ></canvas>
-            </li>
-        </ul>
-   </div>
+                    <!--Sliders-->
+                    <div>
+                        <table class="uk-table uk-table-divider">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Primarias</th>
+                                    <th>Secundarias</th>
+                                    <th>Terciarias</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="uk-width-small">Grosor de carpeta (cm)</td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="uk-width-small">Bacheo superficial</td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="range-wrap">
+                                            <input type="range" class="range uk-range">
+                                            <output class="bubble"></output>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+        
+        
+
+        
+    </div>
     
+    <script>
+        //mover a un script propio
+        const allRanges = document.querySelectorAll(".range-wrap");
+        allRanges.forEach(wrap => {
+            const range = wrap.querySelector(".range");
+            const bubble = wrap.querySelector(".bubble");
+
+            range.addEventListener("input", () => {
+                    setBubble(range, bubble);
+            });
+            setBubble(range, bubble);
+        });
+
+        function setBubble(range, bubble) {
+            const val = range.value;
+            const min = range.min ? range.min : 0;
+            const max = range.max ? range.max : 100;
+            const newVal = Number(((val - min) * 100) / (max - min));
+            bubble.innerHTML = val;
+
+            // Sorta magic numbers based on size of the native UI thumb
+            bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+        }
+
+        
+    </script>
+
+
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
