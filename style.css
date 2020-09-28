@@ -936,6 +936,10 @@ hr.rounded {
     position: relative;
     margin: 0 auto 3rem;
   }
+  .range-wrap2 {
+    position: relative;
+    margin: 0 auto 3rem;
+  }
   .range {
     width: 100%;
     padding-bottom: 10px;

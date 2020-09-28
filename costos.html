@@ -287,16 +287,16 @@
             <div>
                 <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
                     <ul class="tabs">
-                        <li class="active buttonHome">Escenario tendencial</li>
-                        <li class="buttonHome">Escenario óptimo</li>
+                        <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
+                        <li class="buttonHome" onclick="lockSliders()">Costos por año</li>
                     </ul>
             
                     <ul class="tabs-content">
                         <li class="active" >
-                            <canvas id="reposicionTendencial" ></canvas>
+                            <canvas id="escenarios" ></canvas>
                         </li>
                         <li>
-                            <canvas id="reposicionOptima" ></canvas>
+                            <canvas id="costoAnual" ></canvas>
                         </li>
                     </ul>
                 </div>
@@ -325,19 +325,19 @@
                                     <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range"  value="5" min="0" max="100" step="5" id ="fMantPrim">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="15" min="0" max="100" step="5" id="fMantSec">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="50" min="0" max="100" step="5" id="fMantTer">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -346,19 +346,19 @@
                                     <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="6" min="0" max="10" step="2" id="GCarpPrim">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpSec">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpTer">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -367,19 +367,19 @@
                                     <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="0.07" min="0" max="0.10" step="0.01" id="bProfPrim">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="0.05" min="0" max="0.10" step="0.01" id="bProfSec">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="0.03" min="0" max="0.10" step="0.01" id="bProfTer">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -388,19 +388,19 @@
                                     <td class="uk-width-small">Bacheo superficial</td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupPrim">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupSec">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range">
+                                            <input type="range" class="range uk-range" value="0.01" min="0" max="0.10" step="0.01" id="bSupTer">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -422,6 +422,386 @@
     
     <script>
         //mover a un script propio
+
+        let cFinPrim = 10;
+        let cFinSec = 20;
+        let cFinTer = 30;
+        let costoTotal = 40;
+
+        function sliderReset(){
+            //
+            document.getElementById("fMantPrim").value = 5;
+            document.getElementById("fMantSec").value = 15;
+            document.getElementById("fMantTer").value = 50;
+
+            document.getElementById("GCarpPrim").value = 6;
+            document.getElementById("GCarpSec").value = 4;
+            document.getElementById("GCarpTer").value = 4;
+            
+            document.getElementById("bProfPrim").value = 0.07;
+            document.getElementById("bProfSec").value = 0.05;
+            document.getElementById("bProfTer").value = 0.03;
+
+            document.getElementById("bSupPrim").value = 0.02;
+            document.getElementById("bSupSec").value = 0.02;
+            document.getElementById("bSupTer").value = 0.01;
+        }
+
+        function enableSliders(){
+            //enable sliders
+            document.getElementById("fMantPrim").disabled = false;
+            document.getElementById("fMantSec").disabled = false;
+            document.getElementById("fMantTer").disabled = false;
+
+            document.getElementById("GCarpPrim").disabled = false;
+            document.getElementById("GCarpSec").disabled = false;
+            document.getElementById("GCarpTer").disabled = false;
+            
+            document.getElementById("bProfPrim").disabled = false;
+            document.getElementById("bProfSec").disabled = false;
+            document.getElementById("bProfTer").disabled = false;
+
+            document.getElementById("bSupPrim").disabled = false;
+            document.getElementById("bSupSec").disabled = false;
+            document.getElementById("bSupTer").disabled = false;
+        }
+
+        function calculateCostosEscenario(){
+            let area = [31582743.1658497,36331975.2749692,127911345.271943,195826064]
+            let costo = 5300;
+            let costoBachP = 750;
+            let costoBachS = 170;
+
+            //get data from input
+            let fMantPrim = document.getElementById("fMantPrim").value;
+            let fMantSec = document.getElementById("fMantSec").value;
+            let fMantTer = document.getElementById("fMantTer").value;
+
+            let GCarpPrim = document.getElementById("GCarpPrim").value;
+            let GCarpSec = document.getElementById("GCarpSec").value;
+            let GCarpTer = document.getElementById("GCarpTer").value;
+            
+            let bProfPrim = document.getElementById("bProfPrim").value;
+            let bProfSec = document.getElementById("bProfSec").value;
+            let bProfTer = document.getElementById("bProfTer").value;
+
+            let bSupPrim = document.getElementById("bSupPrim").value;
+            let bSupSec = document.getElementById("bSupSec").value;
+            let bSupTer = document.getElementById("bSupTer").value;
+
+            //Costos Finales
+            cFinPrim = (area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS);
+            cFinSec = (area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS);
+            cFinTer = (area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS);
+            costoTotal = cFinPrim+cFinSec+cFinTer;
+
+            //console.log(cFinPrim);
+            //console.log(cFinSec);
+            //console.log(cFinTer)
+            
+            let costo2 =[320,190,190];
+            let costoBachP2 = 750;
+            let costoBachS2 = 170;
+
+            //Costos Anuales
+            let primarias = [18234806.1762869,19766071.5549363,21158227.0244389,24341160.437591,26294034.8989525,29284327.3060617,31582743.1658497];
+            let secundarias = [11265632.9142413,14352345.1188317,15966692.222525,22150017.9062825,27548366.0303522,33081500.998636,36331975.2749692];
+            let terciarias = [46407721.4074635,56544631.7883364,62745778.073591,79908868.0204406,97077561.340456,116000002.278598,127911345.271943];
+            let totalHist = [75908160.50, 90663048.46, 99870697.32, 126400046.36, 150919962.27, 178365830.58, 195826063.71];
+
+            //Orden Vial
+            let primariasVial = [18211291.16,19724442.89,20915426.8,23961896.87,25703992.48,28344300.12,29875128.39];
+            let carreteraUno = [23515.02015,41628.66436,242800.2251,379263.5651,590042.4176,940027.1829,1707614.774];
+            let carreteraDos = [18234806.18,19766071.55,21158227.02,24341160.44,26294034.9,29284327.31,31582743.17];
+            let secundariasVial = [11255703.22,14352345.12,15966692.22,21969416.07,27351950,32696959.1,35675175.95];
+            let ruralesVial = [9929.698505,0,0,180601.8344,196416.0295,384541.8944,656799.3221];
+            let ruralesVialDos = [11265632.91,14352345.12,15966692.22,22150017.91,27548366.03,33081501,36331975.27];
+            let terciariaVial = [46407721.41,56544631.79,62745778.07,79908868.02,97077561.34,116000002.3,127911345.3];
+
+            //1990
+            let primNov = (primarias[0]/fMantPrim*costo2[0]) + (primarias[0]/fMantPrim*bProfPrim*costoBachP2) + (primarias[0]*bSupPrim*costoBachS2);
+            let secNov = (secundarias[0]/fMantSec*costo2[1]) + (secundarias[0]/fMantSec*bProfSec*costoBachP2) + (secundarias[0]*bSupSec*costoBachS2);
+            let terNov = (terciarias[0]/fMantTer*costo2[2]) + (terciarias[0]/fMantTer*bProfTer*costoBachP2) + (terciarias[0]*bSupTer*costoBachS2);
+            let totalNov = primNov+secNov+terNov;
+
+            //1995
+            let primNovCinc = (primarias[1]/fMantPrim*costo2[0]) + (primarias[1]/fMantPrim*bProfPrim*costoBachP2) + (primarias[1]*bSupPrim*costoBachS2);
+            let secNovCinc = (secundarias[1]/fMantSec*costo2[1]) + (secundarias[1]/fMantSec*bProfSec*costoBachP2) + (secundarias[1]*bSupSec*costoBachS2);
+            let terNovCinc = (terciarias[1]/fMantTer*costo2[2]) + (terciarias[1]/fMantTer*bProfTer*costoBachP2) + (terciarias[1]*bSupTer*costoBachS2);
+            let totalNovCinc = primNovCinc+secNovCinc+terNovCinc;
+
+            //2000
+            let primDos = (primarias[2]/fMantPrim*costo2[0]) + (primarias[2]/fMantPrim*bProfPrim*costoBachP2) + (primarias[2]*bSupPrim*costoBachS2);
+            let secDos = (secundarias[2]/fMantSec*costo2[1]) + (secundarias[2]/fMantSec*bProfSec*costoBachP2) + (secundarias[2]*bSupSec*costoBachS2);
+            let terDos = (terciarias[2]/fMantTer*costo2[2]) + (terciarias[2]/fMantTer*bProfTer*costoBachP2) + (terciarias[2]*bSupTer*costoBachS2);
+            let totalDos = primDos+secDos+terDos;
+
+            //2005
+            let primDosCinc = (primarias[3]/fMantPrim*costo2[0]) + (primarias[3]/fMantPrim*bProfPrim*costoBachP2) + (primarias[3]*bSupPrim*costoBachS2);
+            let secDosCinc = (secundarias[3]/fMantSec*costo2[1]) + (secundarias[3]/fMantSec*bProfSec*costoBachP2) + (secundarias[3]*bSupSec*costoBachS2);
+            let terDosCinc = (terciarias[3]/fMantTer*costo2[2]) + (terciarias[3]/fMantTer*bProfTer*costoBachP2) + (terciarias[3]*bSupTer*costoBachS2);
+            let totalDosCinc = primDosCinc+secDosCinc+terDosCinc;
+
+            //2010
+            let primDosDiez = (primarias[4]/fMantPrim*costo2[0]) + (primarias[4]/fMantPrim*bProfPrim*costoBachP2) + (primarias[4]*bSupPrim*costoBachS2);
+            let secDosDiez= (secundarias[4]/fMantSec*costo2[1]) + (secundarias[4]/fMantSec*bProfSec*costoBachP2) + (secundarias[4]*bSupSec*costoBachS2);
+            let terDosDiez = (terciarias[4]/fMantTer*costo2[2]) + (terciarias[4]/fMantTer*bProfTer*costoBachP2) + (terciarias[4]*bSupTer*costoBachS2);
+            let totalDosDiez = primDosDiez+secDosDiez+terDosDiez;
+
+            //2015
+            let primDDiezCinc = (primarias[5]/fMantPrim*costo2[0]) + (primarias[5]/fMantPrim*bProfPrim*costoBachP2) + (primarias[5]*bSupPrim*costoBachS2);
+            let secDDiezCinc = (secundarias[5]/fMantSec*costo2[1]) + (secundarias[5]/fMantSec*bProfSec*costoBachP2) + (secundarias[5]*bSupSec*costoBachS2);
+            let terDDiezCinc = (terciarias[5]/fMantTer*costo2[2]) + (terciarias[5]/fMantTer*bProfTer*costoBachP2) + (terciarias[5]*bSupTer*costoBachS2);
+            let totalDDiezCinc = primDDiezCinc+secDDiezCinc+terDDiezCinc;
+
+            //2019
+            let primDDiezNuev = (primarias[6]/fMantPrim*costo2[0]) + (primarias[6]/fMantPrim*bProfPrim*costoBachP2) + (primarias[6]*bSupPrim*costoBachS2);
+            let secDDiezNuev = (secundarias[6]/fMantSec*costo2[1]) + (secundarias[6]/fMantSec*bProfSec*costoBachP2) + (secundarias[6]*bSupSec*costoBachS2);
+            let terDDiezNuev = (terciarias[6]/fMantTer*costo2[2]) + (terciarias[6]/fMantTer*bProfTer*costoBachP2) + (terciarias[6]*bSupTer*costoBachS2);
+            let totalDDiezNuev = primDDiezNuev+secDDiezNuev+terDDiezNuev;
+
+            var escenariosData = {
+                label: 'Escenario',
+                data: [cFinPrim, cFinSec, cFinTer,costoTotal],
+                backgroundColor: [
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgb(153,43,129)'
+                ],
+                borderColor: [
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgb(153,43,129)'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 0
+            };
+
+            var escenariosChart = new Chart(escenarios, {
+                type: 'bar',
+                data: {
+                    labels: ["Vialidades primarias", "Vialidades secundarias", "Vialidades locales", "Costo Total"],
+                    datasets: [escenariosData]
+                },
+                options: {
+                    tooltips: {
+                        callbacks: {
+                            /*
+                            label: function(tooltipItem, data) {
+                                var value = data.datasets[0].data[tooltipItem.index];
+                                value = value.toString();
+                                value = value.split(/(?=(?:...)*$)/);
+                                value = value.join(',');
+                                return value;
+                            }
+                            */
+                            label: function(tooltipItem, data) {
+                                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                if(parseInt(value) >= 1000){
+                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        } else {
+                                        return '$' + value;
+                                        }
+                            }
+                        } // end callbacks:
+                    }, //end tooltips
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                callback: function(value, index, values) {
+                                    if(parseInt(value) >= 1000){
+                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    } else {
+                                    return '$' + value;
+                                    }
+                                }    
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Costo por año por tipo de vialidad'
+                            }
+                        }],
+                        xAxes:[{
+                            ticks: {
+                                autoSkip: false,
+                                maxRotation: 0,
+                                minRotation: 0
+                            },
+                        }]
+                    }
+                }
+            });
+
+            var primAnual = {
+                label: 'Primaria',
+                data: [primNov, primNovCinc, primDos,primDosCinc,primDosDiez,primDDiezCinc,primDDiezNuev],
+                backgroundColor: [
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1'
+                ],
+                borderColor: [
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1',
+                    '#F9F8C1'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 0
+            };
+
+            var secAnual = {
+                label: 'Secundaria',
+                data: [secNov, secNovCinc, secDos,secDosCinc,secDosDiez,secDDiezCinc,secDDiezNuev],
+                backgroundColor: [
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80'
+                ],
+                borderColor: [
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80',
+                    '#FCBA80'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 0
+            }
+
+            var terAnual = {
+                label: 'Local',
+                data: [terNov, terNovCinc, terDos,terDosCinc,terDosDiez,terDDiezCinc,terDDiezNuev],
+                backgroundColor: [
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E'
+                ],
+                borderColor: [
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E',
+                    '#F3775E'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 0
+            }
+
+            var totalAnual= {
+                label: 'Total',
+                data: [totalNov, totalNovCinc, totalDos,totalDosCinc,totalDosDiez,totalDDiezCinc,totalDDiezNuev],
+                backgroundColor: [
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F'
+                ],
+                borderColor: [
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F',
+                    '#D2416F'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 0
+            }
+
+
+            var costoAnualChart = new Chart(costoAnual, {
+                type: 'bar',
+                data: {
+                    labels: ["1990", "1995", "2000", "2010","2015","2019"],
+                    datasets: [primAnual,secAnual,terAnual,totalAnual]
+                },
+                options: {
+                    tooltips: {
+                        callbacks: {
+                            /*
+                            label: function(tooltipItem, data) {
+                                var value = data.datasets[0].data[tooltipItem.index];
+                                value = value.toString();
+                                value = value.split(/(?=(?:...)*$)/);
+                                value = value.join(',');
+                                return value;
+                            }
+                            */
+                            label: function(tooltipItem, data) {
+                                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                if(parseInt(value) >= 1000){
+                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        } else {
+                                        return '$' + value;
+                                        }
+                            }
+                        } // end callbacks:
+                    }, //end tooltips
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                callback: function(value, index, values) {
+                                    if(parseInt(value) >= 1000){
+                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    } else {
+                                    return '$' + value;
+                                    }
+                                }    
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Costo por año por tipo de vialidad'
+                            }
+                        }],
+                        xAxes:[{
+                            ticks: {
+                                autoSkip: false,
+                                maxRotation: 0,
+                                minRotation: 0
+                            },
+                        }]
+                    }
+                }
+            });
+
+        }
+
+        calculateCostosEscenario();
+
+        function lockSliders(){
+            
+            
+
+
+            
+            
+
+        }
+
+        function mainTab(){
+            calculateCostosEscenario();
+        }
+
         const allRanges = document.querySelectorAll(".range-wrap");
         allRanges.forEach(wrap => {
             const range = wrap.querySelector(".range");
@@ -429,8 +809,10 @@
 
             range.addEventListener("input", () => {
                     setBubble(range, bubble);
+                    calculateCostosEscenario();
             });
             setBubble(range, bubble);
+            calculateCostosEscenario();
         });
 
         function setBubble(range, bubble) {
@@ -443,8 +825,8 @@
             // Sorta magic numbers based on size of the native UI thumb
             bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
         }
-
         
+
     </script>
 
 
