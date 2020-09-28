@@ -15,10 +15,10 @@ body{
     background-color: #121212;
     color: white;
     /* padding-bottom: 16px; */
-    overflow-x: visible !important;
+    overflow-x: hidden !important;
 }
 body.uk-offcanvas-container, body.uk-offcanvas-page{
-    overflow-x: visible !important;
+    overflow-x: hidden !important;
 }
 
 p{
@@ -596,22 +596,7 @@ progress:after {
 #982B80
 #1F184E Azul-Morado
 */
-body{
-    margin: 0;
-    padding: 0; 
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    padding-bottom: 16px;
-    overflow-x: visible !important;
-}
-body.uk-offcanvas-container, body.uk-offcanvas-page{
-    overflow-x: visible !important;
-}
-/*
-img{
-   height: 50px !important
-}
-*/
+
 
 
 
