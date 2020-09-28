@@ -23,6 +23,7 @@ p{
     font-size: 16px;
 }
 
+<<<<<<< HEAD
 ::-webkit-scrollbar {
     width: 10px;
   }
@@ -41,6 +42,8 @@ p{
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+=======
+>>>>>>> FuncionUrbana
 
 #nav{
     background: #1a1a1a;
@@ -639,6 +642,33 @@ progress:after {
     transition: transform 0.3s 0.7s, opacity 0s 0.7s;
   }
   
+<<<<<<< HEAD
+=======
+/* Paleta de Colores: 
+#F9F8C1 Beige
+#FCBA81
+#F3775D
+#D1426F
+#982B80
+#1F184E Azul-Morado
+*/
+body{
+    margin: 0;
+    padding: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding-bottom: 16px;
+    overflow-x: visible !important;
+}
+body.uk-offcanvas-container, body.uk-offcanvas-page{
+    overflow-x: visible !important;
+}
+/*
+img{
+   height: 50px !important
+}
+*/
+>>>>>>> FuncionUrbana
 
 
 
@@ -950,3 +980,19 @@ hr.rounded {
     position: absolute;
     left: 50%;
   }
+/*Función urbana stuff*/
+
+.map_gradiente {
+    top:0;
+    bottom:0; 
+    width:100%;
+    height:540px; 
+    
+}
+
+.grafica_container{
+    top:0;
+    bottom:0; 
+    width:100%;
+    height:540px;    
+}
