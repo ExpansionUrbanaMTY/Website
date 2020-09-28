@@ -182,6 +182,14 @@ async function readData(){
         }
     });
 
+    var reposicionTendencialPorcentaje = new Chart(document.getElementById("porcentajeReposicionTendencial"), {
+        data: {
+            datasets: [{
+                data: [pavimentosTData.data[3], pavimentosTData.data[4]]
+            }]
+        }
+    });
+
     // Gráficas Costos Pavimentación 
 
 
