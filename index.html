@@ -88,24 +88,18 @@
             <div style="flex: 1;" id="sidebar-graphs">
                 <div id="graphs">
                     <ul class="tabs">
-                        <li class="active buttonHome">Densidad Poblacional</li>
-                        <li class="buttonHome">Superficies</li>
                         <li class="buttonHome">Población</li>
+                        <li class="buttonHome">Superficies</li>
+                        <li class="active buttonHome">Densidad Poblacional</li>
                     </ul>
     
                     <ul class="tabs-content">
-                        <li class="active"style="height:275">
-                            <canvas id="densityChart" width="200" height="180"></canvas>
+                        <li style="height:275">
+                            <canvas id="populationChart" width="200" height="180"></canvas>
                             <p class="uk-text-justify">
-                                La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
-                                kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
-                                en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de 
-                                las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las 
-                                áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 
-                                1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del 
-                                núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes 
-                                por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y 
-                                desconectado del resto de la ciudad.</p>
+                                La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
+                            </p>
+    
                             <p>
                                 * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
                             </p>
@@ -134,17 +128,23 @@
                                 * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
                             </p>
                         </li>
-                        <li style="height:275">
-                            <canvas id="populationChart" width="200" height="180"></canvas>
+                        
+                        <li class="active"style="height:275">
+                            <canvas id="densityChart" width="200" height="180"></canvas>
                             <p class="uk-text-justify">
-                                La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
-                            </p>
-    
+                                La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
+                                kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
+                                en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de 
+                                las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las 
+                                áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 
+                                1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del 
+                                núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes 
+                                por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y 
+                                desconectado del resto de la ciudad.</p>
                             <p>
                                 * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
                             </p>
                         </li>
-                        
                         
                     </ul>
                 </div>
