@@ -427,6 +427,25 @@
         let cFinTer = 30;
         let costoTotal = 40;
 
+        let escenariosData = {
+                label: 'Escenario',
+                data: [cFinPrim, cFinSec, cFinTer,costoTotal],
+                backgroundColor: [
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgb(153,43,129)'
+                ],
+                borderColor: [
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgba(210, 65, 111)',
+                    'rgb(153,43,129)'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 0
+        };
+
         function sliderReset(){
             //
             document.getElementById("fMantPrim").value = 5;
@@ -464,6 +483,69 @@
             document.getElementById("bSupSec").disabled = false;
             document.getElementById("bSupTer").disabled = false;
         }
+
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.update();
+        }
+
+        function removeData(chart) {
+            chart.data.labels.pop();
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.pop();
+            });
+            chart.update();
+        }
+
+        var escenariosChart = new Chart(escenarios, {
+            type: 'bar',
+            data: {
+                labels: ["Vialidades primarias", "Vialidades secundarias", "Vialidades locales", "Costo Total"],
+                datasets: [escenariosData]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            if(parseInt(value) >= 1000){
+                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            } else {
+                                return '$' + value;
+                            }
+                        }
+                    } // end callbacks:
+                }, //end tooltips
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            callback: function(value, index, values) {
+                                if(parseInt(value) >= 1000){
+                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                } else {
+                                return '$' + value;
+                                }
+                            }    
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Costo por año por tipo de vialidad'
+                        }
+                    }],
+                    xAxes:[{
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 0,
+                            minRotation: 0
+                        },
+                    }]
+                }
+            }
+        });
 
         function calculateCostosEscenario(){
             let area = [31582743.1658497,36331975.2749692,127911345.271943,195826064]
@@ -559,7 +641,9 @@
             let terDDiezNuev = (terciarias[6]/fMantTer*costo2[2]) + (terciarias[6]/fMantTer*bProfTer*costoBachP2) + (terciarias[6]*bSupTer*costoBachS2);
             let totalDDiezNuev = primDDiezNuev+secDDiezNuev+terDDiezNuev;
 
-            var escenariosData = {
+            //UPDATES!
+            //data: [cFinPrim, cFinSec, cFinTer,costoTotal],
+            let escenariosDatas = {
                 label: 'Escenario',
                 data: [cFinPrim, cFinSec, cFinTer,costoTotal],
                 backgroundColor: [
@@ -578,52 +662,10 @@
                 hoverBorderWidth: 0
             };
 
-            var escenariosChart = new Chart(escenarios, {
-                type: 'bar',
-                data: {
-                    labels: ["Vialidades primarias", "Vialidades secundarias", "Vialidades locales", "Costo Total"],
-                    datasets: [escenariosData]
-                },
-                options: {
-                    tooltips: {
-                        callbacks: {
-                            label: function(tooltipItem, data) {
-                                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                                if(parseInt(value) >= 1000){
-                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                } else {
-                                    return '$' + value;
-                                }
-                            }
-                        } // end callbacks:
-                    }, //end tooltips
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true,
-                                callback: function(value, index, values) {
-                                    if(parseInt(value) >= 1000){
-                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                    } else {
-                                    return '$' + value;
-                                    }
-                                }    
-                            },
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Costo por año por tipo de vialidad'
-                            }
-                        }],
-                        xAxes:[{
-                            ticks: {
-                                autoSkip: false,
-                                maxRotation: 0,
-                                minRotation: 0
-                            },
-                        }]
-                    }
-                }
-            });
+            escenariosChart.data.datasets[0] =escenariosDatas;
+
+            escenariosChart.update();
+
 
             var primAnual = {
                 label: 'Primaria',
