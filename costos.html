@@ -33,11 +33,11 @@
         <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="costos.html" class="activeNav">Costos de expansión</a></li>
-            <li><a href="formaurbana.html">Forma Urbana</a></li>
-            <li><a href="funcionurbana.html">Función Urbana</a></li>
-            <li><a href="egresos.html">Ingresos y Egresos</a></li>
-            <li><a href="atlas.html">Morfología de Calles</a></li>
+            <li><a href="costos.html" class="activeNav">Costos</a></li>
+            <li><a href="formaurbana.html">Forma</a></li>
+            <li><a href="funcionurbana.html">Función</a></li>
+            <li><a href="egresos.html">Finanzas</a></li>
+            <li><a href="atlas.html">Calles</a></li>
             <li><a href="metodologia.html">Metodología</a></li>
             <li><a href="equipo.html">Equipo</a></li>
         </ul>
@@ -287,7 +287,7 @@
                 <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
                     <ul class="tabs">
                         <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
-                        <li class="buttonHome" onclick="lockSliders()">Costos por año</li>
+                        <li class="buttonHome" >Presupuesto</li>
                     </ul>
             
                     <ul class="tabs-content">
@@ -324,19 +324,19 @@
                                     <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range"  value="5" min="0" max="100" step="5" id ="fMantPrim">
+                                            <input type="range" class="range uk-range"  value="5" min="0" max="100" step="5" id ="fMantPrim" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="15" min="0" max="100" step="5" id="fMantSec">
+                                            <input type="range" class="range uk-range" value="15" min="0" max="100" step="5" id="fMantSec" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="50" min="0" max="100" step="5" id="fMantTer">
+                                            <input type="range" class="range uk-range" value="50" min="0" max="100" step="5" id="fMantTer" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -345,19 +345,19 @@
                                     <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="6" min="0" max="10" step="2" id="GCarpPrim">
+                                            <input type="range" class="range uk-range" value="6" min="0" max="10" step="2" id="GCarpPrim" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpSec">
+                                            <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpSec" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpTer">
+                                            <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpTer" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -366,40 +366,40 @@
                                     <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="0.07" min="0" max="0.10" step="0.01" id="bProfPrim">
+                                            <input type="range" class="range uk-range" value="0.07" min="0" max="0.10" step="0.01" id="bProfPrim" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="0.05" min="0" max="0.10" step="0.01" id="bProfSec">
+                                            <input type="range" class="range uk-range" value="0.05" min="0" max="0.10" step="0.01" id="bProfSec" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="0.03" min="0" max="0.10" step="0.01" id="bProfTer">
+                                            <input type="range" class="range uk-range" value="0.03" min="0" max="0.10" step="0.01" id="bProfTer" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="uk-width-small">Bacheo superficial</td>
+                                    <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las que se realiza bacheo)</td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupPrim">
+                                            <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupPrim" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupSec">
+                                            <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupSec" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="range-wrap">
-                                            <input type="range" class="range uk-range" value="0.01" min="0" max="0.10" step="0.01" id="bSupTer">
+                                            <input type="range" class="range uk-range" value="0.01" min="0" max="0.10" step="0.01" id="bSupTer" onchange="calculateCostosEscenario()">
                                             <output class="bubble"></output>
                                         </div>
                                     </td>
@@ -489,9 +489,9 @@
             let bSupTer = document.getElementById("bSupTer").value;
 
             //Costos Finales
-            cFinPrim = (area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS);
-            cFinSec = (area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS);
-            cFinTer = (area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS);
+            cFinPrim = +((area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS)).toFixed(4);
+            cFinSec = +((area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS)).toFixed(4);
+            cFinTer = +((area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS)).toFixed(4);
             costoTotal = cFinPrim+cFinSec+cFinTer;
 
             //console.log(cFinPrim);
@@ -587,22 +587,13 @@
                 options: {
                     tooltips: {
                         callbacks: {
-                            /*
-                            label: function(tooltipItem, data) {
-                                var value = data.datasets[0].data[tooltipItem.index];
-                                value = value.toString();
-                                value = value.split(/(?=(?:...)*$)/);
-                                value = value.join(',');
-                                return value;
-                            }
-                            */
                             label: function(tooltipItem, data) {
                                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                                 if(parseInt(value) >= 1000){
-                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                        } else {
-                                        return '$' + value;
-                                        }
+                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                } else {
+                                    return '$' + value;
+                                }
                             }
                         } // end callbacks:
                     }, //end tooltips
@@ -736,23 +727,8 @@
                 options: {
                     tooltips: {
                         callbacks: {
-                            /*
-                            label: function(tooltipItem, data) {
-                                var value = data.datasets[0].data[tooltipItem.index];
-                                value = value.toString();
-                                value = value.split(/(?=(?:...)*$)/);
-                                value = value.join(',');
-                                return value;
-                            }
-                            */
-                            label: function(tooltipItem, data) {
-                                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                                if(parseInt(value) >= 1000){
-                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                        } else {
-                                        return '$' + value;
-                                        }
-                            }
+
+                            
                         } // end callbacks:
                     }, //end tooltips
                     scales: {
@@ -788,8 +764,7 @@
         calculateCostosEscenario();
 
         function lockSliders(){
-            
-
+        
         }
 
         function mainTab(){
@@ -803,10 +778,10 @@
 
             range.addEventListener("input", () => {
                     setBubble(range, bubble);
-                    calculateCostosEscenario();
+                    //calculateCostosEscenario();
             });
             setBubble(range, bubble);
-            calculateCostosEscenario();
+            //calculateCostosEscenario();
         });
 
         function setBubble(range, bubble) {
