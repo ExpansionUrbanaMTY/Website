@@ -8,28 +8,20 @@ async function readData(){
     // // Poblacion
     var populationContainer = document.getElementById('populationChart');
     var populationChart = new Chart(populationContainer, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: Object.keys(poblacion[2]).filter(l=>l!=""),
             datasets: [{
-                label: 'Total',
+                label: 'Número de habitantes por año',
                 data: Object.values(poblacion[2]).filter(l=>l!="Total"),
-                backgroundColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
-                ],
-                borderColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
-                ],
-                borderWidth: 1
+                backgroundColor: 'rgba(210, 65, 111)',
+                borderColor: '#f3719a',
+                borderWidth: 2
             }]
         },
         options: {
+            overlayText: 'x 1.8 veces',
+            overlayTextColor: 'white',
             tooltips: {
                 callbacks: {
                       label: function(tooltipItem, data) {
@@ -58,9 +50,10 @@ async function readData(){
                       }
                 }],
                 xAxes:[{
+                    maxBarThickness: 30, 
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Año', 
                       }
                 }]
             }
@@ -70,62 +63,21 @@ async function readData(){
     //Densidad
     var densityContainer = document.getElementById('densityChart');
     var densityChart = new Chart(densityContainer, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: Object.keys(densidad[2]).filter(l=>l!=""),
-            datasets: [{
-                label: 'Núcleo',
-                data: Object.values(densidad[0]).filter(l=>l!="Nucleo"),
-                backgroundColor: [
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)'
-                ],
-                borderColor: [
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)',
-                    'rgba(252, 186, 128)'
-                ],
-                borderWidth: 1
-            },
+            datasets: [
             {
-                label: 'Complemento',
-                data: Object.values(densidad[1]).filter(l=>l!="Complemento"),
-                backgroundColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
-                ],
-                borderColor: [
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)',
-                    'rgba(243, 119, 94)'
-                ],
-                borderWidth: 1
-            },
-            {
-                label: 'Total',
+                label: 'Número de habitantes por kilómetro cuadrado',
                 data: Object.values(densidad[2]).filter(l=>l!="Total"),
-                backgroundColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)'
-                ],
-                borderColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)'
-                ],
-                borderWidth: 1
+                backgroundColor: 'rgba(210, 65, 111)',
+                borderColor: '#f3719a',
+                borderWidth: 2
             }]
         },
         options: {
+            overlayText: '-32%',
+            overlayTextColor: 'white',
             tooltips: {
                 callbacks: {
                       label: function(tooltipItem, data) {
@@ -154,9 +106,10 @@ async function readData(){
                       }
                 }],
                 xAxes:[{
+                    maxBarThickness: 30, 
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Año', 
                       }
                 }]
             }
@@ -165,34 +118,21 @@ async function readData(){
     //Extensiones
     var extensionsContainer = document.getElementById('extensionsChart');
     var extensionsChart = new Chart(extensionsContainer, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: Object.keys(extension[2]).filter(l=>l!=""),
-            datasets: [{
-                label: 'Total',
+            datasets: [
+                {
+                label: 'Kilómetros cuadrados por año',
                 data: Object.values(extension[2]).filter(l=>l!="Total"),
-                backgroundColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)'
-                ],
-                borderColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)'
-                ],
-                borderWidth: 1
+                backgroundColor: 'rgba(210, 65, 111)',
+                borderColor: '#f3719a',
+                borderWidth: 2
             }]
         },
         options: {
+            overlayText: "x 2.7 veces",
+            overlayTextColor: 'white',
             scales: {
                 
                 yAxes: [{
@@ -211,9 +151,10 @@ async function readData(){
                       }
                 }],
                 xAxes:[{
+                    maxBarThickness: 50,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Año'
+                        labelString: 'Año', 
                       }
                 }]
             }
@@ -221,4 +162,27 @@ async function readData(){
     });
 }
 
-readData(); 
+Chart.pluginService.register({
+    afterDraw: function(chart) {
+      var width = chart.chart.width,
+          height = chart.chart.height,
+          ctx = chart.chart.ctx,
+          opts = chart.options;
+        let text = opts.overlayText || "";
+        ctx.fillStyle = opts.overlayTextColor || 'black';
+        ctx.restore();
+        var fontSize = (height / 200).toFixed(2);
+        ctx.font = fontSize + "em sans-serif";
+        ctx.textBaseline = "middle";
+
+        var textX = Math.round((chart.chartArea.left + chart.chartArea.right - ctx.measureText(text).width) / 2),
+            textY = height/1.5;
+            
+        ctx.fillText(text, textX, textY);
+        ctx.save();
+    }
+});
+
+
+
+readData();  
