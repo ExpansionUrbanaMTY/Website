@@ -47,6 +47,169 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
+    <div class=" uk-light"style="padding:5%;border-bottom: 2px solid rgb(80, 80, 80);">
+        <h1 id="title" style="font-weight: bold; text-align: center;">
+            Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (pesos mexicanos de 2019)
+        </h1>
+        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid style="padding-top: 1rem;">
+            <div>
+                <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
+                    <div>
+                        <ul class="tabs">
+                            <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
+                            <li class="buttonHome" >Presupuesto</li>
+                        </ul>
+                
+                        <ul class="tabs-content">
+                            <li class="active" >
+                                <canvas id="escenarios" width="350" height="275"></canvas>
+                            </li>
+                            <li>
+                                <canvas id="costoAnual" width="350" height="275"></canvas>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!--Total y reset-->
+                
+
+                <table class="uk-table uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th style="vertical-align: middle;"><h2 style="margin:0"><strong id="totalCostText">Costo Total: $3000 MDP</strong></h2></th>
+                            <th>
+                                <div style="float: right;">
+                                    <button class="uk-button uk-button-danger" style="background-color: #D2416F;
+                                    border: none;
+                                    color: white;
+                                    padding: 12px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    display: block;
+                                    font-size: 12px;
+                                    margin: 4px 2px;border-radius: 50%;" onclick="sliderReset()">
+                                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <div class="uk-card uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;padding: 0 !important;">
+                    <!--Sliders-->
+                    <div>
+                        <div class="uk-overflow-auto">
+                            <table class="uk-table uk-table-divider">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <!--
+                                        <th>Primarias (31,582,743.17 Km&#13217;)</th>
+                                        <th>Secundarias (36,331,975.27 Km&#13217;)</th>
+                                        <th>Terciarias (127,911,345.27 Km&#13217;)</th>
+                                        -->
+                                        <th><b>Primarias</b> (31,582,743.17 Km<sup>2</sup>)</th>
+                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36,331,975.27 Km<sup>2</sup>)</th>
+                                        <th><b>Terciarias</b> (127,911,345.27 Km<sup>2</sup>)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range"  value="5" min="0" max="100" step="5" id ="fMantPrim" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="15" min="0" max="100" step="5" id="fMantSec" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="50" min="0" max="100" step="5" id="fMantTer" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="uk-width-small">Grosor de carpeta (cm)</td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="6" min="0" max="10" step="2" id="GCarpPrim" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpSec" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpTer" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
+                                        <td>
+                                            <div class="range-wrap2">
+                                                <input type="range" class="range uk-range" value="0.07" min="0" max="0.10" step="0.01" id="bProfPrim" onchange="calculateCostosEscenario()">
+                                                <output class="bubble2"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap2">
+                                                <input type="range" class="range uk-range" value="0.05" min="0" max="0.10" step="0.01" id="bProfSec" onchange="calculateCostosEscenario()">
+                                                <output class="bubble2"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap2">
+                                                <input type="range" class="range uk-range" value="0.03" min="0" max="0.10" step="0.01" id="bProfTer" onchange="calculateCostosEscenario()">
+                                                <output class="bubble2"></output>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las que se realiza bacheo)</td>
+                                        <td>
+                                            <div class="range-wrap2">
+                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupPrim" onchange="calculateCostosEscenario()">
+                                                <output class="bubble2"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap2">
+                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupSec" onchange="calculateCostosEscenario()">
+                                                <output class="bubble2"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap2">
+                                                <input type="range" class="range uk-range" value="0.01" min="0" max="0.10" step="0.01" id="bSupTer" onchange="calculateCostosEscenario()">
+                                                <output class="bubble2"></output>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="fullscreen-cont uk-text-justify">
         <h1 id="title" style="font-weight: bold;">Superficie de pavimentos por municipio en la ZMM</h1> 
         <p>
@@ -280,153 +443,7 @@
         <canvas id="costChart" width="350" height="275"></canvas>
     </div>
    
-   <div class="uk-light"style="padding:5%">
-        <h1 id="title" style="font-weight: bold; text-align: center;">
-            Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (pesos mexicanos de 2019)
-        </h1>
-        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid style="padding-top: 1rem;">
-            <div>
-                <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
-                    <ul class="tabs">
-                        <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
-                        <li class="buttonHome" >Presupuesto</li>
-                    </ul>
-            
-                    <ul class="tabs-content">
-                        <li class="active" >
-                            <canvas id="escenarios" ></canvas>
-                        </li>
-                        <li>
-                            <canvas id="costoAnual" ></canvas>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
-                    <!--Totales calculo-->
-                    <div style="float: right;">
-                        <button class="uk-button uk-button-danger" style="background-color: #D2416F;
-                        border: none;
-                        color: white;
-                        padding: 12px;
-                        text-align: center;
-                        text-decoration: none;
-                        display: inline-block;
-                        font-size: 12px;
-                        margin: 4px 2px;border-radius: 50%;" onclick="sliderReset()">
-                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                        </button>
-                    </div>
-
-                    <!--Sliders-->
-                    <div>
-                        <div class="uk-overflow-auto">
-                            <table class="uk-table uk-table-divider">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Primarias</th>
-                                        <th>Secundarias</th>
-                                        <th>Terciarias</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range"  value="5" min="0" max="100" step="5" id ="fMantPrim" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="15" min="0" max="100" step="5" id="fMantSec" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="50" min="0" max="100" step="5" id="fMantTer" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="uk-width-small">Grosor de carpeta (cm)</td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="6" min="0" max="10" step="2" id="GCarpPrim" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpSec" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpTer" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
-                                        <td>
-                                            <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.07" min="0" max="0.10" step="0.01" id="bProfPrim" onchange="calculateCostosEscenario()">
-                                                <output class="bubble2"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.05" min="0" max="0.10" step="0.01" id="bProfSec" onchange="calculateCostosEscenario()">
-                                                <output class="bubble2"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.03" min="0" max="0.10" step="0.01" id="bProfTer" onchange="calculateCostosEscenario()">
-                                                <output class="bubble2"></output>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las que se realiza bacheo)</td>
-                                        <td>
-                                            <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupPrim" onchange="calculateCostosEscenario()">
-                                                <output class="bubble2"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupSec" onchange="calculateCostosEscenario()">
-                                                <output class="bubble2"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.01" min="0" max="0.10" step="0.01" id="bSupTer" onchange="calculateCostosEscenario()">
-                                                <output class="bubble2"></output>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        
-   </div>
+   
     
     <script>
         //mover a un script propio
@@ -454,6 +471,15 @@
                 borderWidth: 2,
                 hoverBorderWidth: 0
         };
+
+        var formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+
+            // These options are needed to round to whole numbers if that's what you want.
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 1,
+        });
 
         function sliderReset(){
             //
@@ -538,6 +564,11 @@
         }];
 
         var optionsPie = {
+            title: {
+                display: true,
+                fontsize: 20,
+                text: 'Egresos de los municipios de la ZMM (pesos del 2019)'
+            },
             tooltips: {
                 enabled: true
             },
@@ -568,7 +599,7 @@
         var escenariosChart = new Chart(escenarios, {
             type: 'bar',
             data: {
-                labels: ["Vialidades primarias", "Vialidades secundarias", "Vialidades locales", "Costo Total"],
+                labels: ["Primarias", "Secundarias", "Locales", "Costo Total"],
                 datasets: [escenariosData]
             },
             options: {
@@ -711,11 +742,15 @@
             let terDDiezNuev = (terciarias[6]/fMantTer*costo2[2]) + (terciarias[6]/fMantTer*bProfTer*costoBachP2) + (terciarias[6]*bSupTer*costoBachS2);
             let totalDDiezNuev = primDDiezNuev+secDDiezNuev+terDDiezNuev;
 
+            let costoString = formatter.format(costoTotal);
+
+            document.getElementById("totalCostText").innerHTML  = "Costo Total: "+costoString;
+
             //UPDATES!
             //data: [cFinPrim, cFinSec, cFinTer,costoTotal],
             let escenariosDatas = {
                 label: 'Escenario',
-                data: [cFinPrim, cFinSec, cFinTer,costoTotal],
+                data: [Math.floor(cFinPrim), Math.floor(cFinSec), Math.floor(cFinTer),Math.floor(costoTotal)],
                 backgroundColor: [
                     'rgba(210, 65, 111)',
                     'rgba(210, 65, 111)',
