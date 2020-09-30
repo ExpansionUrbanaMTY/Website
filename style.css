@@ -265,16 +265,12 @@ hr.rounded {
 
 /*
 #complex-title:hover{
-
 }
-
 .carousel-atlas-container{
    
 }
-
 .altas-carousel{
 }
-
 */
 
 .uk-transition-toggle:hover{
@@ -653,7 +649,6 @@ progress:after {
     
 }
 .atlas-media-contianer{
-
 }
 */
 
@@ -669,15 +664,11 @@ hr.rounded {
 }
 
 /*
-
 #complex-title:hover{
-
 }
-
 .carousel-atlas-container{
    
 }
-
 .altas-carousel{
 }
 */
@@ -899,6 +890,8 @@ hr.rounded {
     height: 10px;
     margin-right: 8px;
     width: 30px;
+
+}
 @media screen and (max-width: 1000px) {
     /* Hace que se vea el hamburger menu */
     #nav a.icon {
