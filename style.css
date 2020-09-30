@@ -6,17 +6,19 @@
 #982B80
 #1F184E Azul-Morado
 */
+
+
 body{
     margin: 0;
     padding: 0; 
     font-family: Arial, Helvetica, sans-serif;
     background-color: #121212;
     color: white;
-    padding-bottom: 16px;
-    overflow-x: visible !important;
+    /* padding-bottom: 16px; */
+    overflow-x: hidden !important;
 }
 body.uk-offcanvas-container, body.uk-offcanvas-page{
-    overflow-x: visible !important;
+    overflow-x: hidden !important;
 }
 
 p{
@@ -32,7 +34,9 @@ p{
     height: 80px;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 99999;
+    width: 100vw;
+    box-sizing: border-box;
 }
 #nav ul{
     margin-left: auto;
@@ -62,61 +66,83 @@ p{
     margin-left: auto;
     display: none;
 }
-@media screen and (max-width: 1000px) {
-    #nav.responsive {position: relative;}
-    /* Hace que no se vean los */
-    #nav ul{
-        display: none
-    }
-    
-    #nav.responsive ul{
-        z-index: 1000;
-        position: absolute; 
-        background: #d1426fe7; 
-        backdrop-filter: blur(10px);
-        display: block;
-        top: 80px;
-        margin: 0;
-        right: 0;
-        left: 0;
-    }
-    /* Hace que se vea el hamburger menu */
-    #nav a.icon {
-      display: block;
-    }
-    #nav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-    #map-overlay{
-        margin-top: 60vh !important;
-        max-width: 100% !important;
-    }
-    #maps-container1{
-        padding-left: 40px !important;
-    }
-    #maps-container{
-        padding-right: 40px !important;
-    }
-    #atlas-title{
-        font-size: 300% !important;
-    }
-}
+
 
 #map-container{
     height: calc(100vh - 80px);
     position: relative;
     padding: 16px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
-#map-container>*{
-    position: absolute !important;
-} 
+#map-container h1{
+    width: 100%;
+    /* text-shadow: 1px 1px 5px rgba(0,0,0,1); */
+    -webkit-text-stroke: 0.5px black;
+    z-index: 1000;
+    text-align: center;
+    background: -webkit-linear-gradient(0deg, #F9F8C1,#FCBA81, #F3775D, #D1426F );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#map-container>#sidebar{
+    width: 100%;
+    max-width: 400px;
+    z-index: 99;
+    flex: 1;
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+}
+
+#map-container>#sidebar>*{
+    /* flex: 1; */
+    margin: 4px 0px;
+    padding: 16px;
+    overflow: auto;
+    border-radius: 16px;
+    background: rgba(100,100,100,0.3);
+    backdrop-filter: blur(20px);
+    border: 0.5px solid rgb(100, 100, 100)
+}
+#map-container>#sidebar>#sidebar-graphs{
+    flex:1;
+}
+#map-container>#sidebar>#sidebar-slider{
+    display: flex;
+    align-items: center;
+}
+#map-container>#sidebar>#sidebar-slider>*{
+    margin: 0px 4px;
+}
+#map-container>#sidebar>#sidebar-slider>div{
+    display: flex;
+    align-items: center;
+}
+#map-container>#sidebar>#sidebar-slider>div>input{
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #982B80 !important;
+    height:16px;
+    border-radius: 16px
+}
+
 #map-container #map{
-    position: fixed;
+    z-index: 1;
+    position: fixed !important;
     top: 0; left: 0; right: 0; bottom: 0;
+    height: 100vh;
+    width: 100vw;
 }
+
+
+
+
+
+
 #map-container #offcanvas-overlay{
     left: 0;
 }
@@ -135,7 +161,7 @@ p{
     padding: 16px 32px;
 }
 #map-container #map-title h1{
-    color: white;
+   color: white; 
 }
 #map-container #map-title div{
     display: flex;
@@ -147,9 +173,17 @@ p{
 #map-container #map-title div>*{
     margin: 4px
 }
-#map-container #map-title div>input{
-    flex: 1
+
+
+
+#map-container #map-title div>input[type="range"]::-webkit-slider-thumb{
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white !important;
+    height: 20px; width: 20px;
+    border-radius: 10px;
 }
+
 /* #map-overlay{
     max-width: 500px;
     position: absolute;
@@ -161,12 +195,12 @@ p{
 .tabs{
     display: flex;
     list-style: none;
-    margin: 16px 0;
-    padding: 8px;
+    margin: 8px 0;
+    padding: 2px;
     width: 100%;
-    align-items: stretch;
+    align-items: center;
     border-radius: 8px;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.2);
     backdrop-filter: blur(10px);
     color: black;
     box-sizing: border-box;
@@ -176,9 +210,9 @@ p{
     text-align: center;
     display: flex;
     align-items: center;
-    margin: 8px;
+    margin: 2px;
     border-radius: 8px;
-    height: 100%;
+    /* height: 100%; */
 }
 .tabs li.active{
     font-weight: 800;
@@ -562,145 +596,18 @@ progress:after {
 #982B80
 #1F184E Azul-Morado
 */
-body{
-    margin: 0;
-    padding: 0; 
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    padding-bottom: 16px;
-    overflow-x: visible !important;
-}
-body.uk-offcanvas-container, body.uk-offcanvas-page{
-    overflow-x: visible !important;
-}
-/*
-img{
-   height: 50px !important
-}
-*/
 
-.tabs{
-    display: flex;
-    list-style: none;
-    margin: 16px 0;
-    padding: 8px;
-    width: 100%;
-    align-items: center;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.5);
-    backdrop-filter: blur(10px);
-    color: black;
-    box-sizing: border-box;
-}
-.tabs li{
-    flex: 1;
-    text-align: center
-}
-.tabs li.active{
-    font-weight: 800;
-}
-.tabs-content{
-    margin: 16px 0;
-    padding: 0;
-    list-style: none;
-}
-.tabs-content li{
-    display:none;
-}
-.tabs-content li.active{
-    display: block;
-}
+
+
+
 
 .nav-toggle{
     color: #982B80;
     font-size: 1.2rem;
 }
 
-#nav{
-    background: #1a1a1a;
-    display: flex;
-    align-items: center;
-    padding: 0px 16px;
-    height: 80px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-#nav ul{
-    margin-left: auto;
-    padding: 0 !important;
-    display: flex;
-    align-items: center;
-    list-style: none;
-    box-sizing: border-box;
-    list-style-position: inside !important;
-}
-#nav ul li{
-    flex: 1;
-    display: flex; 
-}
-#nav ul li a{
-    color: inherit;
-    text-decoration: none;
-    text-align: center;
-    padding: 12px;
-    width: 100%
-}
 
-/* Hide the link that should open and close the topnav on small screens */
-#nav .icon {
-    margin-left: auto;
-    display: none;
-}
-
-@media screen and (max-width: 1000px) {
-    /* Hace que se vea el hamburger menu */
-    #nav a.icon {
-      display: block;
-    }
-    /* Hace que no se vean los */
-    #nav ul{
-        display: none
-    }
-
-    #nav.responsive ul{
-        z-index: 1000;
-        position: absolute; 
-        background: #d1426fe7; 
-        backdrop-filter: blur(10px);
-        display: block;
-        top: 80px;
-        margin: 0;
-        right: 0;
-        left: 0;
-    }
-
-
-    #nav.responsive {position: relative;}
-
-    #nav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-
-    #map-overlay{
-        margin-top: 60vh !important;
-        max-width: 100% !important;
-    }
-    #maps-container1{
-        padding-left: 40px !important;
-    }
-    #maps-container{
-        padding-right: 40px !important;
-    }
-    #atlas-title{
-        font-size: 300% !important;
-    }
-}
-
-
-#map-container{
+/* #map-container{
     height: calc(100vh - 80px);
     position: relative;
     padding: 16px;
@@ -719,7 +626,7 @@ img{
     z-index: 2;
     padding: 16px;
     box-sizing: border-box;
-}
+} */
 .mapboxgl-ctrl-bottom-right{
     visibility: hidden;
 }
@@ -800,24 +707,7 @@ hr.rounded {
 }
 
 
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+
 
 .tabs>li:hover{
     cursor: pointer;
@@ -912,6 +802,47 @@ hr.rounded {
     font-weight: 550;
     color: rgb(210, 65, 111) !important;
 }
+.buttonHome{
+    padding: 10px;
+    display: block !important;
+}
+
+.range-wrap {
+    position: relative;
+    margin: 0 auto 3rem;
+  }
+  .range-wrap2 {
+    position: relative;
+    margin: 0 auto 3rem;
+  }
+  .range {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .bubble:active {
+    margin-top: 2px;
+    color: white;
+    position: absolute;
+    left: 50%;
+  }
+
+/*Porcentaje*/
+.range-wrap2 {
+    position: relative;
+    margin: 0 auto 3rem;
+  }
+
+  .range2 {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .bubble2:active {
+    margin-top: 2px;
+    color: white;
+    position: absolute;
+    left: 50%;
+  }
+
 /*Función urbana stuff*/
 
 .map_gradiente {
@@ -968,4 +899,107 @@ hr.rounded {
     height: 10px;
     margin-right: 8px;
     width: 30px;
+@media screen and (max-width: 1000px) {
+    /* Hace que se vea el hamburger menu */
+    #nav a.icon {
+      display: block;
+    }
+    /* Hace que no se vean los */
+    #nav ul{
+        display: none
+    }
+
+    #nav.responsive ul{
+        z-index: 9999;
+        position: absolute; 
+        background: #F3775D; 
+        backdrop-filter: blur(10px);
+        display: block;
+        top: 80px;
+        margin: 0;
+        right: 0;
+        left: 0;
+    }
+    /* Hace que no se vean los */
+    #nav ul{
+        display: none
+    }
+    
+    #nav.responsive ul{
+        z-index: 1000;
+        position: absolute; 
+        background: #F3775D; 
+        backdrop-filter: blur(10px);
+        display: block;
+        top: 80px;
+        margin: 0;
+        right: 0;
+        left: 0;
+    }
+    /* Hace que se vea el hamburger menu */
+    #nav a.icon {
+      display: block;
+    }
+    #nav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    #map-overlay{
+        margin-top: 60vh !important;
+        max-width: 100% !important;
+    }
+    #maps-container1{
+        padding-left: 40px !important;
+    }
+    #maps-container{
+        padding-right: 40px !important;
+    }
+    #atlas-title{
+        font-size: 300% !important;
+    }
+
+    #nav.responsive {position: relative;}
+
+    #nav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    #map-container h1{
+        position: fixed;
+        z-index: 999;
+    }
+}
+@media only screen and (max-width: 800px){
+    #nav img{
+        width: 80px !important;
+        height: auto !important;
+    }
+    #map-container{
+        display: block;
+        padding: 8px;
+        overflow: scroll;
+    }
+    
+    #map-container>#sidebar{
+        max-width: 100% !important;
+        position: absolute;
+        top: 40vh;
+        min-height: 50vh;
+        height: auto;
+        overflow: visible
+    }
+    #map-container>#sidebar>*{
+        /* overflow: visible; */
+        overflow: hidden;
+        flex: 0;
+        height: auto;
+        background: black !important;
+        /* backdrop-filter: unset; */
+    }
+    #map-container>#sidebar-graphs{
+        display: block;
+        overflow: visible;
+    }
 }
