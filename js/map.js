@@ -2,7 +2,7 @@ const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019]
 
 function onChange(value){
     let year = years[value]
-    document.querySelector('#year').innerHTML = `Año seleccionado: ${year}`;
+    document.querySelector('#year').innerHTML = `Año seleccionado`;
     map2.setLayoutProperty(year.toString(), 'visibility', 'visible');
     
     setTimeout(()=>{
@@ -68,13 +68,8 @@ async function loadMap(){
         years.forEach((year)=>{
             var expression = ['match', ['get', 'Id']];
             rows.forEach(function(row) {
-                if(row['MU'+year]=='1'){
-                    expression.push(Number(row['Id']), '#992B81');
-                } else {
-                    expression.push(Number(row['Id']), 'transparent');
-                }
+                if(row['MU'+year]=='1') expression.push(Number(row['Id']), '#992B81');
             });
-            expression.push('#fff')
             map2.addLayer({
                 'id': year.toString(),
                 'type': 'fill',
@@ -87,9 +82,36 @@ async function loadMap(){
                     'fill-opacity': 0.9
                 }
             });
+            map2.addSource(year.toString()+"-text-source", {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [
+                        {
+                            'type': 'Feature',
+                            'properties': {'description': "Ford's Theater"},
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [25.6031389,-100.3714064]
+                            }
+                        },
+                    ]
+                }
+            });
+            map2.addLayer({
+                'id': year.toString()+"-text",
+                'type': 'symbol',
+                'source': year.toString()+"-text-source",
+                'layout': {
+                    'text-field': ['get', 'description'],
+                    'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+                    'text-radial-offset': 0.5,
+                    'text-justify': 'auto',
+                }
+            })
             map2.setLayoutProperty(year.toString(), 'visibility', 'none');
         })
-        map2.setLayoutProperty(years[0].toString(), 'visibility', 'visible');
+        // map2.setLayoutProperty(years[0].toString(), 'visibility', 'visible');
     })
 }
 
