@@ -55,14 +55,33 @@
 
         <div class = 'uk-grid uk-grid-small' uk-grid>
             <div class = 'uk-first-column uk-width-expand'>
-                <div class = 'map_gradiente' id = 'map_dist'></div>
+                <div class = 'uk-inline uk-width-expand'>
+                    <div class = 'map_gradiente' id = 'map_dist'></div>
+                    <div class = 'uk-overlay uk-position-right'>
+                        <div class="legend">
+                            <h4 id= 'leg-title'>Distancia</h4>
+                            <div id = 'leg10'><span style="background-color: #000004"></span>40</div>
+                            <div id = 'leg9'><span style="background-color: #180f3d"></span>36</div>
+                            <div id = 'leg8'><span style="background-color: #440f76"></span>32</div>
+                            <div id = 'leg7'><span style="background-color: #721f81"></span>28</div>
+                            <div id = 'leg6'><span style="background-color: #9e2f7f"></span>24</div>
+                            <div id = 'leg5'><span style="background-color: #cd4071"></span>20</div>
+                            <div id = 'leg4'><span style="background-color: #f1605d"></span>16</div>
+                            <div id = 'leg3'><span style="background-color: #fd9668"></span>12</div>
+                            <div id = 'leg2'><span style="background-color: #feca8d"></span>8</div>
+                            <div id = 'leg1' ><span style="background-color: #fcfdbf"></span>4</div>
+                            </div>
+                    </div>
+                </div>
+              
+
             </div>
 
             <div class="uk-width-2-5@m uk-flex uk-flex-middle uk-margin-remove-top">
                 <ul class="uk-switcher" id = 'map_content'> 
                     <li>           
                         <div>
-                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                            <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #141414;'>
                                 <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 190%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;'>
                                     <option style = 'font-weight: lighter; font-size:0%;'>Distancia al centro de la ciudad</option>
                                 </select>
@@ -76,15 +95,15 @@
                     </li>
                     <li>
                         <div>
-                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                            <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #141414;'>
                                 <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 175%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;' 
-                                id = 'select-pob' onchange="displayLayer(this.value)">
-                                    <option value = 'Pop0_16' style = 'font-weight: lighter; font-size:95%;'>Diferencia de población 2016 - 2000</option>
+                                id = 'select-pob' onchange="displayLayer(this.value) ">
+                                    <option value = 'Pop0_16' style = 'font-weight: lighter; font-size:95%;'>Diferencia de población 2012 - 2000</option>
                                     <option value = 'Emp10_19' style = 'font-weight: lighter; font-size:95%;'>Diferencia de empleo 2019 - 2010</option>
                                 </select>
                                 <div class = 'uk-card-body'>
                                     <p class = 'uk-text-justify emp-pob emp-pob2'>
-                                        Esta serie de mapas fueron construidos a partir de información disponible en INEGI. En el caso poblacional, se utilizó la cartografía de manzanas del Censo del año 2000 y del Inventario Nacional de Viviendas del 2016. En el caso del empleo, se utilizó el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del año 2000 y del 2019. Los colores oscuros del mapa de diferencia de población indican las zonas que perdieron población entre el 2000 y el 2016; los colores claros identifican las zonas que aumentaron población.
+                                        Esta serie de mapas fueron construidos a partir de información disponible en INEGI. En el caso poblacional, se utilizó la cartografía de manzanas del Censo del año 2000 y del Inventario Nacional de Viviendas del 2016. En el caso del empleo, se utilizó el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del año 2000 y del 2019. Los colores oscuros del mapa de diferencia de población indican las zonas que ganaron mayor población entre el 1990 y el 2012; los colores claros identifican las zonas que incluso perdieron población.
                                     </p>
                                     <p class = 'uk-text-justify emp-pob emp-pob2'>
                                         En el caso del empleo, se puede apreciar una pérdida de empleos en el centro de la ciudad y en el periurbano, pero un incremento en los círculos ubicados entre 12 y 19 kilómetros de distancia del centro de la ciudad. Estos mapas muestran que en los últimos quince años ha ocurrido una migración residencial del centro de la ciudad hacia la periferia. Los empleos también han migrado hacia zonas no centrales, consolidando una morfología policéntrica de la ZMM.
@@ -95,17 +114,17 @@
                     </li>
                     <li>
                         <div>
-                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                            <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #141414;'>
                                 <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 165%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;' 
-                                id = 'select-cus' onchange="displayLayer(this.value)">
+                                id = 'select-cus' onchange="displayLayer(this.value); changeText(this.value)">
                                     <option value = 'CUS' style = 'font-weight: lighter; font-size:95%;'>Coeficiente de uso de suelo (CUS)</option>
-                                    <option value = 'AreaC' style = 'font-weight: lighter; font-size:95%;'>Área construida</option>
+                                    <option value = 'AreaC' style = 'font-weight: lighter; font-size:95%;'>Densidad de área construida</option>
                                     <option value = 'PropPC' style = 'font-weight: lighter; font-size:95%;'>Proporción pavimentos-construcción</option>
                                     <option value = 'ConpP' style = 'font-weight: lighter; font-size:95%;'>Consumo per cápita de pavimentos</option>
                                     <option value = 'PorPav' style = 'font-weight: lighter; font-size:95%;'>Porcentaje área pavimentada</option>
                                 </select>
                                 <div class = 'uk-card-body'>
-                                    <p class = 'uk-text-justify'>
+                                    <p class = 'uk-text-justify' id = 'cus_text'>
                                         A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. Los colores más claros indican una mayor proporción de área construida contra área del terreno. La zona central de la ciudad tiene el CUS más alto, el cual se reduce gradualmente conforme nos movemos del centro hacia la periferia. La excepción son algunas franjas claras ubicadas en García y Juárez, con un CUS muy alto y que corresponden a desarrollos de vivienda social.
                                     </p>
                                 </div>
@@ -114,7 +133,7 @@
                     </li>
                     <li>
                         <div>
-                            <div class = 'uk-card uk-card-secondary uk-card-hover uk-card-small' style = 'background-color: #141414;'>
+                            <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #141414;'>
                                 <select class = 'uk-select uk-form-large' style= 'color:white; font-size: 120%; background-color: #141414; border-width: 0px 0px 0px 10px; font-weight: bold;' 
                                 id = 'select-jov' onchange="displayLayer(this.value)">
                                     <option value = 'Densidad16' style = 'font-weight: lighter; font-size:95%;'>Densidad población menor a quince años - 2016</option>
@@ -141,6 +160,8 @@
 
     <div class = 'uk-container uk-container-expand'>
         <div class = 'uk-grid-small' uk-grid>
+            
+            
             <div class = 'uk-width-3-5@m uk-first-column uk-flex uk-flex-middle uk-padding-small'>
                 <div class = 'grafica_container' id ='graph_censo'></div>
             </div>
@@ -164,15 +185,20 @@
 
     <div class = 'uk-container uk-container-expand'>
         <div class = 'uk-grid-small' uk-grid>
-            <div class = 'uk-width-1-1'>
-                <div class = 'uk-align-left' uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
-                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
-                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2015'>2015</button>
-                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2010'>2010</button>
+   
+            <div class = 'uk-width-3-5@m uk-flex uk-flex-middle uk-padding-small'>
+                <div class = 'uk-width-expand'>
+                    <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #121212;'>
+                        <div uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
+                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
+                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2015'>2015</button>
+                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2010'>2010</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class = 'grafica_container' id ='graph_denue'></div>   
+                    </div>
                 </div>
-            </div>
-            <div class = 'uk-width-expand uk-flex uk-flex-middle uk-padding-small'>
-                <div class = 'grafica_container' id ='graph_denue'></div>
             </div>
 
             <div class = 'uk-width-2-5@m'>
@@ -232,6 +258,9 @@
               document.getElementById('select-jov').value = 'Densidad16';
 
         })
+
+
+
 
     </script>
 </body>

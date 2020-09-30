@@ -10,9 +10,13 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
     <!-- d3 -->
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!--UIKit -->
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
 
     <style>
         body{
@@ -20,17 +24,14 @@
             display: flex;
             flex-direction: column;
         }
-        iframe{
-            flex: 1; /*hello there*/
-        }
 
     </style>
 
 </head>
-<body>
+<body class = 'uk-height-viewport'>
     <div id="nav">
-        <img src="img/logos/logo-final.png" height="50px">
-        <h4>Expansión Urbana de Monterrey</h4>
+        <img src="img/logos/logo-final.png" height="50px" style='height: 50! important;'>
+        <h4 style = 'all: revert;'>Expansión Urbana de Monterrey</h4>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="costos.html">Costos de expansión</a></li>
@@ -46,7 +47,16 @@
         </a>
     </div>
 
-    <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/egresos" frameborder="0"></iframe> <!--Es una metapágina-->
+    <div class="uk-padding uk-light" style="padding-bottom: 0 !important;padding-top: 20px;padding-left: 40px; padding-bottom: 0px!important;">
+        <h1 style="font-weight: 650;font-size: 400%; margin-bottom: 0px!important">Ingresos y egresos</h1>
+    </div>
+
+    <div class = 'uk-container uk-container-expand'>
+        <article class = 'uk-article uk-padding'>
+            <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Relación de ingresos/inversión por municipio</h3>
+        </article>
+
+    </div>
 
     <script>
         function mobileNav() {
