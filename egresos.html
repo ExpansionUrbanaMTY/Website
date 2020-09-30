@@ -10,8 +10,13 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
     <!-- d3 -->
     <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
-
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--UIKit -->
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -30,17 +35,19 @@
             display: flex;
             flex-direction: column;
         }
+
         iframe{
             flex: 1; /*hello there*/
         }
 
+
     </style>
 
 </head>
-<body>
+<body class = 'uk-height-viewport'>
     <div id="nav">
-        <img src="img/logos/logo-final.png" height="50px">
-        <h4>Expansión Urbana de Monterrey</h4>
+        <img src="img/logos/logo-final.png" height="50px" style='height: 50! important;'>
+        <h4 style = 'all: revert;'>Expansión Urbana de Monterrey</h4>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="costos.html">Costos</a></li>
@@ -55,6 +62,7 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
+
 
     <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/egresos" frameborder="0"></iframe> <!--Es una metapágina-->
 
