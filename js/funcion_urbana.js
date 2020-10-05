@@ -13,8 +13,8 @@ const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
 'PorPav':[10.988, 12.596, 14.204, 15.812, 17.42, 19.028, 20.636, 22.244, 23.852, 25.46],
 'CambioPP90':[-4.97, -3.858, -2.747, -1.636, -0.525, 0.586, 1.697, 2.808, 3.919, 5.03]};
 const layerLegends = {
-'dist_cbd':'Distancia', 'Emp10_19':'Dif. Empleos', 'Pop0_16':'Dif. Población', 'AreaC':'Área const.', 'CUS':'CUS', 'Densidad90':'Jov. 90',
-'Densidad00':'Jov. 00', 'Densidad16':'Jov. 16', 'PropPC':'Pav/Const.', 'ConpP':'Cons. Pav.', 'PorPav':'Porc. Pav', 'CambioPP90':'Dif. Jov.'
+'dist_cbd':['Distancia','km.'], 'Emp10_19':['Dif. Empleos','empleos'], 'Pop0_16':['Dif. Población','personas'], 'AreaC':['Área const.','porcentaje'], 'CUS':['CUS','metros'], 'Densidad90':['Jov. 90','personas/m2'],
+'Densidad00':['Jov. 00','personas/m2'], 'Densidad16':['Jov. 16','personas/m2'], 'PropPC':['Pav/Const.','pav/m2'], 'ConpP':['Cons. Pav.','m2/personas'], 'PorPav':['Porc. Pav','%'], 'CambioPP90':['Dif. Jov.','cambio']
 }
 const cardcontent = {
     'CUS': 'A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. El CUS se refiere a la proporción de superficie construida respecto a la superficie del predio. Los colores más oscuros indican una mayor proporción de área construida contra área del terreno. La zona central de la ciudad tiene el CUS más alto, el cual se reduce gradualmente conforme nos movemos del centro hacia la periferia. La excepción son algunas franjas oscuras ubicadas en García y Juárez, con un CUS muy alto y que corresponden a desarrollos de vivienda social.',
@@ -42,7 +42,8 @@ function changeText(s) {
 }
 
 function changeLegend(s) {
-    document.getElementById('leg-title').textContent = layerLegends[s];
+    document.getElementById('leg-title').textContent = layerLegends[s][0];
+    document.getElementById('leg-unit').textContent = '('+layerLegends[s][1]+')';
     for (var i = 0; i < 10; i++) {
         document.getElementById('leg'+String(i+1)).childNodes[1].textContent = numberWithCommas(thresholds[s][i]);
     }
@@ -401,12 +402,13 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
         xaxis: {
             title: {
               text: 'Distancia a centro de la ciudad (km).',
-            }
+            },
         },
         yaxis: {
             title: {
               text: 'Densidad de personas por km. cuadrado.',
-            }
+            },
+            hoverformat:'.2f'
         },
         plot_bgcolor: '#212121',
         paper_bgcolor:'#141414',
@@ -460,7 +462,8 @@ function renderDenue() {
             yaxis: {
                 title: {
                   text: 'Densidad de empleos por km. cuadrado.',
-                }
+                },
+                hoverformat:'.2f'
             },
             plot_bgcolor: '#212121',
             paper_bgcolor:'#141414',
@@ -476,9 +479,7 @@ function renderDenue() {
         var distancia = Array.from({length: 40}, (_, i) => i + 1); 
 
         function setDenue() {
-            var initData = processRows(2019);
-            var distancia = initData[4]
-   
+            var initData = processRows(2019);   
             var trace_com = {
                 x: distancia,
                 y: initData[0],
@@ -564,15 +565,15 @@ function renderDenue() {
 
         btn2019.addEventListener('click', function () {
             updateDenue(2019);
-        }, false)
+        }, false);
 
         btn2015.addEventListener('click', function () {
             updateDenue(2015);
-        }, false)
+        }, false);
 
         btn2010.addEventListener('click', function () {
             updateDenue(2010); 
-        }, false)
+        }, false);
 
 
 

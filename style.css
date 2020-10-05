@@ -851,6 +851,14 @@ hr.rounded {
     height:540px;    
 }
 
+.grafica_container2{
+    top:0;
+    bottom:0; 
+    width:100% !important;
+    height:600px;    
+}
+
+
 .mapboxgl-popup {
     color: #fff; 
 }
@@ -873,7 +881,7 @@ hr.rounded {
     font-size: 80%;
     padding: 10px;
     position: relative;
-    top: 260px;
+    top: 250px;
     left: 20px;
 
 }
@@ -882,9 +890,18 @@ hr.rounded {
     color: rgb(233, 232, 232);
     font-weight: bolder;
     font-size: 100%;
-    margin: 0 0 10px;
+    margin: 0 0 0px;
+    text-align: center;
 }
-     
+ 
+.legend h5 {
+    color: rgb(233, 232, 232);
+    font-weight: bold;
+    font-size: 80%;
+    margin: 0 0 6px;
+    text-align: center;
+}
+
 .legend div span {
     display: inline-block;
     height: 10px;
