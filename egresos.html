@@ -17,31 +17,8 @@
     <link rel="stylesheet" href="css/uikit.min.css" />
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWNMHKJPW1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-QWNMHKJPW1');
-    </script>		
-
-    <style>
-        body{
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        iframe{
-            flex: 1; /*hello there*/
-        }
-
-
-    </style>
 
 </head>
 <body class = 'uk-height-viewport'>
@@ -63,9 +40,109 @@
         </a>
     </div>
 
+    <div class="uk-padding uk-light" style="padding-bottom: 0 !important;padding-top: 20px;padding-left: 40px; padding-bottom: 0px!important;">
+        <h1 style="font-weight: 650;font-size: 400%; margin-bottom: 0px!important">Ingresos y egresos de la ZMM</h1>
+    </div>
+    <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
+    <div class = 'uk-container uk-container-expand'>
+        <div class = 'uk-grid-small' uk-grid>
+            <div class = 'uk-width-2-5@m'>
+                <article class = 'uk-article uk-padding'>
+                    <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Relación de ingresos/inversión por municipio</h3>
+                    <hr></hr>
+                    <div class = 'uk-width-1-1'>
+                        <div class="uk-button-group uk-width-expand uk-flex uk-flex-center" uk-switcher ='connect: #cont_parrafo; animation: uk-animation-fade; toggle: > *'> 
+                            <button class="uk-button uk-button-secondary uk-width-1-2" id = 'recBtn' type = 'button'>Rec. incorporación</button>
+                            <button class="uk-button uk-button-secondary uk-width-1-2" id = 'histBtn' type = 'button'>Históricos</button>
+                        </div>
+                    </div>
+                    <hr style = 'border-color:transparent;'></hr>
+                    <ul class = 'uk-switcher' id = 'cont_parrafo'>
+                        <li>
+                            <p class = 'uk-text-justify'>
+                                El objetivo de esta sección es identificar las fuentes de financiamiento del crecimiento territorial de la mancha urbana (participaciones federales o ingresos propios) y cómo se ha gastado (gasto corriente o inversión). Asimismo, identificar los municipios con el mayor gasto en inversión per cápita. Los municipios de la periferia urbana como García, General Zuazua, Juárez o Cadereyta han tenido un crecimiento habitacional importante en los últimos 15 años, principalmente a través de vivienda social tipo INFONAVIT.</p>
+                        </li>
+                        <li>
+                            <p class = 'uk-text-justify'>
+                                La pregunta es: ¿en qué medida este desarrollo territorial ha estado financiado a través de participaciones federales versus ingresos propios? La fuente de información para estos comparativos procede de los reportes de Finanzas públicas estatales y municipales de INEGI. Los ingresos y egresos se reportan en cantidades brutas de cada año, sin actualización por la inflación.</p>
+                        </li>
+                    </ul>     
+                </article>
+            </div>
+            <div class = 'uk-width-3-5@m uk-padding-small'>
 
-    <iframe src="https://forma-urbana-egresos.herokuapp.com/apps/egresos" frameborder="0"></iframe> <!--Es una metapágina-->
+                <div class = 'uk-card uk-card-hover uk-card-small'>
+                    <select class = 'uk-select uk-light' style = 'background-color: #222222'id = 'select-bubbles'>
+                        <option value = 2018>2018</option>
+                        <option value = 2015>2015</option>
+                        <option value = 2010>2010</option>
+                        <option value = 2000>2000</option>
+                        <option value = 1990>1990</option>
+                    </select>                
+                </div>
+                <div>
+                    <div class = 'grafica_container2' id ='graph_bubbles'></div>   
+                </div>
+        
+            </div>
 
+        </div>
+    </div>
+    <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
+    <div class = 'uk-container uk-container-expand'>
+        <div class = 'uk-child-width-1-2@l uk-flex uk-flex-center' uk-grid>
+            <div class = 'uk-first-column'>
+                <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Ingresos y egresos históricos por municipio: 2018 - 1990</h3>
+            </div>
+            <div class = 'uk-expand uk-padding'>
+                <select class = 'uk-select  uk-light' style = 'background-color: #222222'id = 'select-mun'>
+                </select>           
+            </div>
+        </div>
+        <div class = 'uk-grid-small uk-child-width-1-2@l' uk-grid>
+            <div class = 'uk-first-column'>
+                <div class = 'grafica_container2' id = 'historico_1'></div>
+            </div>
+
+            <divå>
+                <div class = 'grafica_container2' id = 'historico_2'></div>
+            </div>
+        </div>
+    </div>
+   <!--  <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
+    <div class = 'uk-container uk-container-expand'>
+        <div class = 'uk-child-width-1-2@l uk-flex uk-flex-center' uk-grid>
+            <div class = 'uk-first-column'>
+                <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Distribución de ingresos y egresos</h3>
+            </div>
+            <div class = 'uk-expand uk-padding'>
+                <select class = 'uk-select  uk-light' style = 'background-color: #222222'id = 'select-tree'>
+                    <option value = 2018>2018</option>
+                    <option value = 2015>2015</option>
+                    <option value = 2010>2010</option>
+                    <option value = 2000>2000</option>
+                    <option value = 1990>1990</option>
+                </select>    
+            </div>
+        </div>
+        <div class = 'uk-grid-small uk-child-width-1-2@l' uk-grid>
+            <div class = 'uk-first-column uk-width-auto@m uk-align-middle'>
+                <ul class="uk-tab-left" uk-tab>
+                    <li><a href="#">Ingresos</a></li>
+                    <li><a href="#">Egresos</a></li>
+                </ul>
+            </div>
+
+            <div class = 'uk-first-column'>
+                <div class = 'grafica_container2 uk-width-2-5@m' id = 'treemap_hist'></div>
+            </div>
+
+            <divå>
+                <div class = 'grafica_container2 uk-width-2-5@m' id = 'treemap_des'></div>
+            </div>
+        </div>
+    </div>-->
+    <script src='./js/egresos.js'></script>
     <script>
         function mobileNav() {
             var x = document.getElementById("nav");
