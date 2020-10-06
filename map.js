@@ -76,7 +76,7 @@ let loadMap = async ()=>{
             }
         });
         let label = {...places};
-        label.features[0].properties.description = (area[2][year] || area[2]["2019*"])+"km²";
+        label.features[0].properties.description = (area[2][year] || area[2]["2019*"])+" km²";
         map.addSource(year.toString()+'-value', {
             'type': 'geojson',
             'data': places
@@ -94,7 +94,7 @@ let loadMap = async ()=>{
                     '\n',
                     {},
                     ['get', 'description'],
-                    { 'font-scale': 0.8 }
+                    { 'font-scale': 0.4 }
                 ],
                 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                 'text-variable-anchor': ['bottom'],
