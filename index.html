@@ -57,19 +57,20 @@
         </a>
     </div>
 
-    <div id="map-container" style="padding-top: 16px !important;">
+    <section id="abstract">
+        <span id="animated-text" style="display: none;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero expedita natus optio, impedit placeat magni dolores molestiae culpa porro recusandae amet repudiandae nihil sed voluptatibus sit maxime repellendus enim!
+        </span>
+        <h1>
+        </h1>
+    </section>
 
+
+    <div id="map-container" style="padding-top: 16px !important;">
         <h1 id="title" style="font-weight: 900; font-size: 1.30rem;">
             Cobertura Territorial de la Zona Metropolitana de Monterrey
         </h1> 
-
         <div id="map"></div>
-
-        <!-- <div style="position: absolute; background:black; z-index: 99; right:24px; top: 4rem; font-size: 1.8rem; margin-top: 10%; border-radius: 25px;" id = "boxythingy">
-            <span style="font-weight: 600" id="texto-año">&nbsp;&nbsp; 2019:</span> &nbsp; <br>
-            <span style="white-space: nowrap;" id="superficie-año"> &nbsp;&nbsp; 926 </span> &nbsp;km<sup>2</sup> &nbsp;&nbsp; 
-        </div> -->
-
         <div id="sidebar">
             <div id="sidebar-slider">
                 <div style="flex: 1;">
@@ -80,9 +81,6 @@
                 <button id="autoplay" style="background-color: #D1426F; border:none; height: 30px; width: 30px;">
                     <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
                 </button>
-                <div>
-                    
-                </div>
             </div>
 
             <div style="flex: 1;" id="sidebar-graphs">
@@ -181,7 +179,49 @@
             })
         })
 
-        UIkit.offcanvas('#offcanvas-overlay').toggle();
+        // UIkit.offcanvas('#offcanvas-overlay').toggle();
+
+        let animate = {};
+        animate.type = (word, length=word.length)=>{
+            let accumulated = "";
+            let arr = [];
+            let density = Math.round(length/word.length);
+
+            [...word].forEach(l=>{
+                accumulated+=l;
+                for (let i = 0; i < density; i++) {
+                    arr.push(accumulated)   
+                }
+            });
+            return arr;
+        }
+
+
+        function animateAbstract(){
+            let element = document.querySelector('#abstract');
+            let scroll = (window.scrollY - element.offsetTop)/element.offsetHeight;
+            let content = element.querySelector('#animated-text').innerHTML;
+            let title = animate.type(content, Math.floor(element.offsetHeight/2));
+            console.log(scroll)
+            let t = scroll*element.offsetHeight*2;
+            if(t>title.length){
+                element.querySelector("h1").innerHTML = content;
+                return
+            }
+            if(t<0){
+                element.querySelector("h1").innerHTML = "";
+                return
+            }
+            if(title[t]==undefined) return;
+            element.querySelector("h1").innerHTML = title[t] || "";
+        }
+
+
+        window.addEventListener('scroll', ()=>{
+            window.requestAnimationFrame(animateAbstract)
+        })
+
+
     </script>
     <script src="./map.js?a"></script>
     <script src="./js/charts.js"></script>

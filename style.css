@@ -88,6 +88,27 @@ p{
     display: none;
 }
 
+#abstract{
+    height: 200vh;
+    max-height: 100vh;
+    background: black;
+    position: relative;
+    box-sizing: border-box;
+    padding: 24px;
+    z-index: 10;
+    display: flex;
+    align-items: center
+}
+#abstract h1{
+    text-align: center;
+    font-weight: 600;
+    background: -webkit-linear-gradient(45deg, #F9F8C1, #F3775D, #D1426F );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* position: absolute; */
+    /* top: 0; */
+    /* bottom: 0; */
+}
 
 #map-container{
     height: calc(100vh - 80px);
