@@ -58,11 +58,10 @@
     </div>
 
     <section id="abstract">
-        <span id="animated-text" style="display: none;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero expedita natus optio, impedit placeat magni dolores molestiae culpa porro recusandae amet repudiandae nihil sed voluptatibus sit maxime repellendus enim!
-        </span>
-        <h1>
-        </h1>
+        <span id="animated-text" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero expedita natus optio, impedit placeat magni dolores molestiae culpa porro recusandae amet repudiandae nihil sed voluptatibus sit maxime repellendus enim!</span>
+        <div id="abstract-content">
+            <h1></h1>
+        </div>
     </section>
 
 
@@ -197,21 +196,19 @@
         }
 
 
+        let content = document.querySelector('#animated-text').innerHTML;
         function animateAbstract(){
             let element = document.querySelector('#abstract');
-            let scroll = (window.scrollY - element.offsetTop)/element.offsetHeight;
-            let content = element.querySelector('#animated-text').innerHTML;
+            let scroll = 2*(window.scrollY - element.offsetTop)/element.offsetHeight;
             let title = animate.type(content, Math.floor(element.offsetHeight/2));
-            console.log(scroll)
-            let t = scroll*element.offsetHeight*2;
-            if(t>title.length){
-                element.querySelector("h1").innerHTML = content;
-                return
+            if(scroll<0 || scroll>=0.8){
+                element.querySelector("h1").innerHTML = scroll<0 ? title[20] : content;
+                // element.classList.remove('active')
+                return;
             }
-            if(t<0){
-                element.querySelector("h1").innerHTML = "";
-                return
-            }
+            // element.classList.add('active');
+            console.log(title)
+            let t = Math.floor(scroll*element.offsetHeight + 120);
             if(title[t]==undefined) return;
             element.querySelector("h1").innerHTML = title[t] || "";
         }
