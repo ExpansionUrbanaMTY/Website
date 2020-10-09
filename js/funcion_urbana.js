@@ -3,19 +3,28 @@ const colors = ['#fcfdbf', '#feca8d', '#fd9668', '#f1605d', '#cd4071', '#9e2f7f'
 const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
 'Emp10_19':[-1999, 383, 2765, 5147, 7529, 9911, 12293, 14675, 17057, 19439],
 'Pop0_16':[-17405, -1855, 13695, 29245, 44795, 60345, 75895, 91445, 106995, 122545],
-'AreaC':[1371722, 2638261, 3904800, 5171339, 6437878, 7704417, 8970956, 10237495, 11504034, 12770573],
+'AreaC':[0.1, 0.172, 0.243, 0.314, 0.385, 0.456, 0.527, 0.598, 0.669, 0.74],
 'CUS':[0.17, 0.31, 0.45, 0.59, 0.73, 0.87, 1.01, 1.15, 1.29, 1.43],
 'Densidad90':[338, 676, 1014, 1352, 1690, 2028, 2366, 2704, 3042, 3380],
-'Densidad00':[319.98499999999996, 630.3199999999999, 940.65, 1250.99, 1561.325, 1871.65, 2181.995, 2492.33, 2802.665, 3113.0],
+'Densidad00':[319.985, 630.32, 940.65, 1250.99, 1561.325, 1871.65, 2181.995, 2492.33, 2802.665, 3113.0],
 'Densidad16':[340.698, 537.586, 734.473, 931.362, 1128.25, 1325.138, 1522.026, 1718.914, 1915.802, 2112.69],
 'PropPC':[1.378, 2.196, 3.014, 3.832, 4.65, 5.468, 6.286, 7.104, 7.922, 8.74],
 'ConpP':[96.679, 145.128, 193.577, 242.025, 290.475, 338.924, 387.373, 435.822, 484.271, 532.72],
 'PorPav':[10.988, 12.596, 14.204, 15.812, 17.42, 19.028, 20.636, 22.244, 23.852, 25.46],
-'CambioPP90':[-4.97, -3.858, -2.747, -1.636, -0.525, 0.586, 1.697, 2.808, 3.9190000000000005, 5.03]};
-
+'CambioPP90':[-4.97, -3.858, -2.747, -1.636, -0.525, 0.586, 1.697, 2.808, 3.919, 5.03]};
+const layerLegends = {
+'dist_cbd':'Distancia', 'Emp10_19':'Dif. Empleos', 'Pop0_16':'Dif. Población', 'AreaC':'Área const.', 'CUS':'CUS', 'Densidad90':'Jov. 90',
+'Densidad00':'Jov. 00', 'Densidad16':'Jov. 16', 'PropPC':'Pav/Const.', 'ConpP':'Cons. Pav.', 'PorPav':'Porc. Pav', 'CambioPP90':'Dif. Jov.'
+}
+const cardcontent = {
+    'CUS': 'A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. El CUS se refiere a la proporción de superficie construida respecto a la superficie del predio. Los colores más oscuros indican una mayor proporción de área construida contra área del terreno. La zona central de la ciudad tiene el CUS más alto, el cual se reduce gradualmente conforme nos movemos del centro hacia la periferia. La excepción son algunas franjas oscuras ubicadas en García y Juárez, con un CUS muy alto y que corresponden a desarrollos de vivienda social.',
+    'AreaC':'Este mapa se elaboró utilizando la información catastral de los predios. En este caso, se muestra el Área Construida dividida entre la superficie total del anillo concéntrico. Se hace esto debido a que es natural que a mayor área tenga el anillo, mayor superficie construida habría. Podemos observar que la proporción de Área Construida con Área Total es mayor en el centro de la ciudad, con valores arriba de 0.7. Sin embargo, mientras más se aleja uno del centro, la proporción disminuye constantemente, excepto por un pequeño incremento entre los 30 y 35 kilómetros de distancia que corresponden a centros históricos en García, Juárez y Santiago.',
+    'PropPC':'Este mapa fue elaborado utilizando tanto los datos catastrales, como las superficies calculadas de vialidades. El propósito del mapa es ilustrar cuántos metros cuadrados de vialidad sirven a cada metro cuadrado construido. Un valor menor, ilustra una mayor densidad de construcción, mientras que valores mayores indican que se necesita mantener más superficie pavimentada. En promedio, cada metro cuadrado construido del Área Metropolitana requiere de 1.6 metros cuadrados de pavimentos. Sin embargo, el valor difiere mientras uno se aleja del centro, donde se ubica el menor valor de 0.31. Las periferias tienden a necesitar mayor cantidad de superficie pavimentada para atender a las construcciones, posiblemente debido a la necesidad de grandes carreteras para conectar a los desarrollos urbanos con el centro.',
+    'ConpP':'Utilizando los datos del Inventario Nacional de Viviendas 2016 y las superficies calculadas de vialidades, se determinó el consumo per cápita de superficie pavimentada. Es decir, se divide la población total ubicada en el anillo concéntrico entre la superficie de vialidades del mismo anillo. Un valor mayor indica un mayor consumo, y, por lo tanto, el costo de manutención de vialidades recaería en menos personas. Podemos observar que el centro de Monterrey tiene un valor mayor que los anillos que van de 2 a 18 kilómetros, donde el consumo vuelve a aumentar, hasta un máximo de 300 metros cuadrados por habitante a 25 kilómetros de distancia. Esta tendencia puede verse explicada en parte por el abandono del centro, dejando las calles hechas a menos habitantes y por la menor densidad de construcción y habitantes que ocurre en las periferias.',
+    'PorPav':'Este mapa muestra el porcentaje del anillo concéntrico que se encuentra pavimentado. Es decir, se dividió la superficie de vialidades entre el área total del anillo y se multiplicó por cien. Un valor mayor indica que un porcentaje mayor del área total disponible se dispone a vialidades. En promedio el 19.6% del área disponible de los anillos se dedica a infraestructuras viales. Este valor es relativamente constante a través del Área Metropolitana, a excepción de unas caídas drásticas entre los 24 y 31 kilómetros de distancia.'
+}
 var activeLayer = '';
 var loadFiles = [d3.json('./data/MapaGradientes.json'), d3.csv('./data/gradiente.csv')];
-   
 
 var map_dist = new mapboxgl.Map({
     container: 'map_dist',
@@ -24,6 +33,20 @@ var map_dist = new mapboxgl.Map({
     zoom: 8.8
 });
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function changeText(s) {
+    document.getElementById('cus_text').textContent = cardcontent[s];
+}
+
+function changeLegend(s) {
+    document.getElementById('leg-title').textContent = layerLegends[s];
+    for (var i = 0; i < 10; i++) {
+        document.getElementById('leg'+String(i+1)).childNodes[1].textContent = numberWithCommas(thresholds[s][i]);
+    }
+}
 
 
 function forceHide() {
@@ -40,6 +63,7 @@ function displayLayer(s) {
         map_dist.setLayoutProperty(s, 'visibility','visible');
         activeLayer = s; 
     }
+    changeLegend(s); 
 }
 
 Promise.all(loadFiles).then(function (data){
@@ -94,7 +118,7 @@ Promise.all(loadFiles).then(function (data){
             }
         });
 
-        activeLayer = 'dist_cbd'
+        activeLayer = 'dist_cbd' 
 
         rows.slice(1).forEach(header => {
 
@@ -122,6 +146,176 @@ Promise.all(loadFiles).then(function (data){
                 }
             });
         });
+        var distPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+        map_dist.on('click', 'dist_cbd', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            distPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'dist_cbd', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            distPointer.remove(); 
+        });
+
+        var empPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'Emp10_19', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            empPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + e.features[0].properties.Emp10_19).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'Emp10_19', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            empPointer.remove(); 
+        });
+
+        var popPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'Pop0_16', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            popPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + e.features[0].properties.Pop0_16).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'Pop0_16', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            popPointer.remove(); 
+        });
+
+        var acPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'AreaC', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            acPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + e.features[0].properties.AreaC).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'AreaC', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            acPointer.remove(); 
+        });
+
+        var cusPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+        
+        map_dist.on('click', 'CUS', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+           cusPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>CUS.: </b>' + e.features[0].properties.CUS).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'CUS', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            cusPointer.remove(); 
+        });
+
+        var den9Pointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+
+        map_dist.on('click', 'Densidad90', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            den9Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.Densidad90).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'Densidad90', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            den9Pointer.remove(); 
+        });
+
+        var den0Pointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'Densidad00', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            den0Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.Densidad00).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'Densidad00', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            den0Pointer.remove(); 
+        });
+
+        var den6Pointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+
+        map_dist.on('click', 'Densidad16', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            den6Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.Densidad16).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'Densidad16', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            den6Pointer.remove(); 
+        });
+
+        var propPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        })
+
+        map_dist.on('click', 'PropPC', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            propPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.PropPC).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'PropPC', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            propPointer.remove(); 
+        });
+
+
+        var consPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'ConpP', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            consPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.ConpP).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'ConpP', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            consPointer.remove(); 
+        });
+
+        var pavPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'PorPav', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + e.features[0].properties.PorPav).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'PorPav', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            pavPointer.remove(); 
+        });
+        
+        var cambioPointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_dist.on('click', 'CambioPP90', function(e) {
+            map_dist.getCanvas().style.cursor = 'pointer'; 
+            cambioPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + e.features[0].properties.CambioPP90).addTo(map_dist);
+        });
+
+        map_dist.on('mouseleave', 'CambioPP90', function(e) {
+            map_dist.getCanvas().style.cursor = '';
+            cambioPointer.remove(); 
+        });
+  
     });
 }); 
 

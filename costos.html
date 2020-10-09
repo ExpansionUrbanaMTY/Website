@@ -78,7 +78,7 @@
                 <table class="uk-table uk-table-divider">
                     <thead>
                         <tr>
-                            <th style="vertical-align: middle;"><h2 style="margin:0"><strong id="totalCostText">Costo Total: $3000 MDP</strong></h2></th>
+                            <th style="vertical-align: middle;"><h2 style="margin:0;"><strong id="totalCostText">Costo Total: $3000 MDP</strong></h2></th>
                             <th>
                                 <div style="float: right;">
                                     <button class="uk-button uk-button-danger" style="background-color: #D2416F;
@@ -91,6 +91,21 @@
                                     font-size: 12px;
                                     margin: 4px 2px;border-radius: 50%;" onclick="sliderReset()">
                                         <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                <div style="float: right;">
+                                    <button class="uk-button uk-button-danger" style="background-color: #D2416F;
+                                    border: none;
+                                    color: white;
+                                    padding: 12px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    display: block;
+                                    font-size: 12px;
+                                    margin: 4px 2px;border-radius: 50%;" uk-toggle="target: #helpModal">
+                                        <i class="fa fa-question" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </th>
@@ -111,9 +126,9 @@
                                         <th>Secundarias (36,331,975.27 Km&#13217;)</th>
                                         <th>Terciarias (127,911,345.27 Km&#13217;)</th>
                                         -->
-                                        <th><b>Primarias</b> (31,582,743.17 Km<sup>2</sup>)</th>
-                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36,331,975.27 Km<sup>2</sup>)</th>
-                                        <th><b>Terciarias</b> (127,911,345.27 Km<sup>2</sup>)</th>
+                                        <th><b>Primarias</b> (31,582,743.17 m<sup>2</sup>)</th>
+                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36,331,975.27 m<sup>2</sup>)</th>
+                                        <th><b>Terciarias</b> (127,911,345.27 m<sup>2</sup>)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,19 +136,19 @@
                                         <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range"  value="5" min="0" max="100" step="5" id ="fMantPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range"  value="5" min="1" max="50" step="1" id ="fMantPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="15" min="0" max="100" step="5" id="fMantSec" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="15" min="1" max="50" step="1" id="fMantSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="50" min="0" max="100" step="5" id="fMantTer" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="50" min="1" max="100" step="1" id="fMantTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
@@ -142,19 +157,19 @@
                                         <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="6" min="0" max="10" step="2" id="GCarpPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="6" min="1" max="10" step="1" id="GCarpPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpSec" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="4" min="1" max="4" step="1" id="GCarpSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="4" min="0" max="10" step="2" id="GCarpTer" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="4" min="1" max="4" step="1" id="GCarpTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
@@ -443,10 +458,22 @@
         <canvas id="costChart" width="350" height="275"></canvas>
     </div>
    
+        <!-- This is the modal -->
+    <div id="helpModal"  class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="color:black !important">
+    
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            
+            <h2 class="uk-modal-title">Outside</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+        </div>
+    </div>
    
     
     <script>
         //mover a un script propio
+        Chart.defaults.global.defaultFontColor = "#fff";
 
         let cFinPrim = 10;
         let cFinSec = 20;
@@ -564,10 +591,17 @@
         }];
 
         var optionsPie = {
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: 'white'
+                }
+            },
             title: {
                 display: true,
                 fontsize: 20,
-                text: 'Egresos de los municipios de la ZMM (pesos del 2019)'
+                text: 'Egresos de los municipios de la ZMM (pesos del 2019)',
+                fontColor: 'white'
             },
             tooltips: {
                 enabled: true
@@ -583,14 +617,14 @@
 
                 },
                 color: '#fff',
-                }
+                },
             }
         };
 
         var costoAnualChart = new Chart(costoAnual, {
             type: 'pie',
             data: {
-            labels: ['Pavimentos', 'El Resto'],
+            labels: ['Pavimentos', 'El resto del gasto público'],
                 datasets: dataPie
             },
             options: optionsPie
@@ -599,10 +633,16 @@
         var escenariosChart = new Chart(escenarios, {
             type: 'bar',
             data: {
-                labels: ["Primarias", "Secundarias", "Locales", "Costo Total"],
+                labels: ["Primarias", "Secundarias", "Terciarias", "Costo Total"],
                 datasets: [escenariosData]
             },
             options: {
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        fontColor: 'white'
+                    }
+                },
                 tooltips: {
                     callbacks: {
                         label: function(tooltipItem, data) {
@@ -625,11 +665,13 @@
                                 } else {
                                 return '$' + value;
                                 }
-                            }    
+                            },
+                            fontColor: 'white'    
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Costo por año por tipo de vialidad'
+                            labelString: 'Costo por año por tipo de vialidad',
+                            fontColor: 'white'
                         }
                     }],
                     xAxes:[{
@@ -638,11 +680,15 @@
                             maxRotation: 0,
                             minRotation: 0
                         },
+                        scaleLabel: {
+                            fontColor: 'white'
+                        }
                     }]
                 },
                 plugins: {
                     datalabels: {
                         display: false,
+                        fontColor: 'white'
                     },
                 }
             }

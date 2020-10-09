@@ -856,7 +856,7 @@ hr.rounded {
 .grafica_container{
     top:0;
     bottom:0; 
-    width:100%;
+    width:100% !important;
     height:540px;    
 }
 @media screen and (max-width: 1000px) {
@@ -872,7 +872,7 @@ hr.rounded {
     #nav.responsive ul{
         z-index: 9999;
         position: absolute; 
-        background: #d1426fe7; 
+        background: #F3775D; 
         backdrop-filter: blur(10px);
         display: block;
         top: 80px;
@@ -888,7 +888,7 @@ hr.rounded {
     #nav.responsive ul{
         z-index: 1000;
         position: absolute; 
-        background: #d1426fe7; 
+        background: #F3775D; 
         backdrop-filter: blur(10px);
         display: block;
         top: 80px;
@@ -962,4 +962,44 @@ hr.rounded {
         display: block;
         overflow: visible;
     }
+}
+.mapboxgl-popup {
+    color: #fff; 
+}
+
+.mapboxgl-popup > .mapboxgl-popup-content {
+    max-height:50px !important; 
+    background-color: #292929;
+    padding: 5px 5px 5px 5px; 
+}
+
+.mapboxgl-popup-tip {
+    border-top-color:#292929 !important;
+   }
+
+.legend {
+    background-color: #292929;
+    max-width: fit-content;
+    display:inline-block;
+    color: rgb(233, 232, 232);
+    font-size: 80%;
+    padding: 10px;
+    position: relative;
+    top: 260px;
+    left: 20px;
+
+}
+     
+.legend h4 {
+    color: rgb(233, 232, 232);
+    font-weight: bolder;
+    font-size: 100%;
+    margin: 0 0 10px;
+}
+     
+.legend div span {
+    display: inline-block;
+    height: 10px;
+    margin-right: 8px;
+    width: 30px;
 }

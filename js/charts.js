@@ -20,7 +20,7 @@ async function readData(){
             }]
         },
         options: {
-            overlayText: '+86%',
+            overlayText: 'x 1.8 veces',
             overlayTextColor: 'white',
             tooltips: {
                 callbacks: {
@@ -131,7 +131,7 @@ async function readData(){
             }]
         },
         options: {
-            overlayText: '+274%',
+            overlayText: "x 2.7 veces",
             overlayTextColor: 'white',
             scales: {
                 
@@ -171,12 +171,12 @@ Chart.pluginService.register({
         let text = opts.overlayText || "";
         ctx.fillStyle = opts.overlayTextColor || 'black';
         ctx.restore();
-        var fontSize = (height / 114).toFixed(2);
+        var fontSize = (height / 200).toFixed(2);
         ctx.font = fontSize + "em sans-serif";
         ctx.textBaseline = "middle";
 
         var textX = Math.round((chart.chartArea.left + chart.chartArea.right - ctx.measureText(text).width) / 2),
-            textY = height / 2;
+            textY = height/1.5;
             
         ctx.fillText(text, textX, textY);
         ctx.save();
