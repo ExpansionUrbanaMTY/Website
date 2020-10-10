@@ -49,7 +49,7 @@
     </div>
     <div class=" uk-light"style="padding:5%;border-bottom: 2px solid rgb(80, 80, 80);">
         <h1 id="title" style="font-weight: bold; text-align: center;">
-            Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (pesos mexicanos de 2019)
+            Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (millones de pesos mexicanos de 2019)
         </h1>
         <div class="uk-child-width-1-2@s uk-grid-match" uk-grid style="padding-top: 1rem;">
             <div>
@@ -126,33 +126,12 @@
                                         <th>Secundarias (36,331,975.27 Km&#13217;)</th>
                                         <th>Terciarias (127,911,345.27 Km&#13217;)</th>
                                         -->
-                                        <th><b>Primarias</b> (31,582,743.17 m<sup>2</sup>)</th>
-                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36,331,975.27 m<sup>2</sup>)</th>
-                                        <th><b>Terciarias</b> (127,911,345.27 m<sup>2</sup>)</th>
+                                        <th><b>Primarias</b> (31.58 millones de m<sup>2</sup>)</th>
+                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36.33 millones de m<sup>2</sup>)</th>
+                                        <th><b>Terciarias</b> (127.91 millones de m<sup>2</sup>)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range"  value="5" min="1" max="50" step="1" id ="fMantPrim" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="15" min="1" max="50" step="1" id="fMantSec" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="50" min="1" max="100" step="1" id="fMantTer" onchange="calculateCostosEscenario()">
-                                                <output class="bubble"></output>
-                                            </div>
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                         <td>
@@ -170,6 +149,27 @@
                                         <td>
                                             <div class="range-wrap">
                                                 <input type="range" class="range uk-range" value="4" min="1" max="4" step="1" id="GCarpTer" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range"  value="5" min="1" max="50" step="1" id ="fMantPrim" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="15" min="1" max="50" step="1" id="fMantSec" onchange="calculateCostosEscenario()">
+                                                <output class="bubble"></output>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="range-wrap">
+                                                <input type="range" class="range uk-range" value="50" min="1" max="100" step="1" id="fMantTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
@@ -648,9 +648,9 @@
                         label: function(tooltipItem, data) {
                             var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                             if(parseInt(value) >= 1000){
-                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Millones de pesos";
                             } else {
-                                return '$' + value;
+                                return '$' + value+" Millones de pesos";
                             }
                         }
                     } // end callbacks:
@@ -670,7 +670,7 @@
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Costo por año por tipo de vialidad',
+                            labelString: 'Costo por año por tipo de vialidad (Millones de pesos mexicanos)',
                             fontColor: 'white'
                         }
                     }],
@@ -721,7 +721,13 @@
             cFinPrim = +((area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS)).toFixed(4);
             cFinSec = +((area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS)).toFixed(4);
             cFinTer = +((area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS)).toFixed(4);
-            costoTotal = cFinPrim+cFinSec+cFinTer;
+            costoTotal = (cFinPrim+cFinSec+cFinTer);
+
+            //1000000
+            var cFinPrim2 = +((area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS)).toFixed(4)/1000000;
+            var cFinSec2 = +((area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS)).toFixed(4)/1000000;
+            var cFinTer2 = +((area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS)).toFixed(4)/1000000;
+            var costoTotal2 = (cFinPrim2+cFinSec2+cFinTer2);
 
             //console.log(cFinPrim);
             //console.log(cFinSec);
@@ -796,7 +802,7 @@
             //data: [cFinPrim, cFinSec, cFinTer,costoTotal],
             let escenariosDatas = {
                 label: 'Escenario',
-                data: [Math.floor(cFinPrim), Math.floor(cFinSec), Math.floor(cFinTer),Math.floor(costoTotal)],
+                data: [ Math.floor(cFinPrim2), Math.floor(cFinSec2), Math.floor(cFinTer2),Math.floor(costoTotal2)],
                 backgroundColor: [
                     'rgba(210, 65, 111)',
                     'rgba(210, 65, 111)',
