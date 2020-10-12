@@ -13,7 +13,6 @@
     <!-- Plotly -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWNMHKJPW1"></script>
@@ -57,7 +56,7 @@
     </div>
 
     <div class = 'uk-container uk-container-expand'>
-        <div class="uk-width-auto@m"> 
+        <div class="uk-width-expand@m"> 
             <ul class = 'uk-flex-right uk-tab' uk-tab='connect: #map_content; animation: uk-animation-fade'>
                 <li class = 'uk-active' onclick='displayLayer("dist_cbd")'><a href='#'>Dist. Centro</a></li>
                 <li onclick='displayLayer("Pop0_16")'><a href='#'>Población/Empleo</a></li>
@@ -73,6 +72,7 @@
                     <div class = 'uk-overlay uk-position-right'>
                         <div class="legend">
                             <h4 id= 'leg-title'>Distancia</h4>
+                            <h5 id= 'leg-unit'>(km.)</h5>
                             <div id = 'leg10'><span style="background-color: #000004"></span>40</div>
                             <div id = 'leg9'><span style="background-color: #180f3d"></span>36</div>
                             <div id = 'leg8'><span style="background-color: #440f76"></span>32</div>
@@ -198,7 +198,7 @@
 
     <div class = 'uk-container uk-container-expand'>
         <div class = 'uk-grid-small' uk-grid>
-<<<<<<< HEAD
+
             <div class = 'uk-width-1-1'>
                 <div class = 'uk-align-left' uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
                     <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
@@ -209,23 +209,6 @@
             <div class = 'uk-width-expand uk-flex uk-flex-middle uk-padding-small'>
                 <div class = 'grafica_container' id ='graph_denue'></div>
             </div>
-=======
-   
-            <div class = 'uk-width-3-5@m uk-flex uk-flex-middle uk-padding-small'>
-                <div class = 'uk-width-expand'>
-                    <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #121212;'>
-                        <div uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
-                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
-                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2015'>2015</button>
-                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2010'>2010</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class = 'grafica_container' id ='graph_denue'></div>   
-                    </div>
-                </div>
-            </div>
->>>>>>> master
 
             <div class = 'uk-width-2-5@m'>
                 <ul class = 'uk-switcher' id = 'denue_content'>
@@ -283,7 +266,7 @@
               document.getElementById('select-cus').value = 'CUS';
               document.getElementById('select-jov').value = 'Densidad16';
 
-        })
+        });
 
 
 

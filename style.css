@@ -859,6 +859,65 @@ hr.rounded {
     width:100% !important;
     height:540px;    
 }
+
+.grafica_container2{
+    top:0;
+    bottom:0; 
+    width:100% !important;
+    height:600px;    
+}
+
+
+.mapboxgl-popup {
+    color: #fff; 
+}
+
+.mapboxgl-popup > .mapboxgl-popup-content {
+    max-height:50px !important; 
+    background-color: #292929;
+    padding: 5px 5px 5px 5px; 
+}
+
+.mapboxgl-popup-tip {
+    border-top-color:#292929 !important;
+   }
+
+.legend {
+    background-color: #292929;
+    max-width: fit-content;
+    display:inline-block;
+    color: rgb(233, 232, 232);
+    font-size: 80%;
+    padding: 10px;
+    position: relative;
+    top: 250px;
+    left: 20px;
+
+}
+     
+.legend h4 {
+    color: rgb(233, 232, 232);
+    font-weight: bolder;
+    font-size: 100%;
+    margin: 0 0 0px;
+    text-align: center;
+}
+ 
+.legend h5 {
+    color: rgb(233, 232, 232);
+    font-weight: bold;
+    font-size: 80%;
+    margin: 0 0 6px;
+    text-align: center;
+}
+
+.legend div span {
+    display: inline-block;
+    height: 10px;
+    margin-right: 8px;
+    width: 30px;
+
+}
 @media screen and (max-width: 1000px) {
     /* Hace que se vea el hamburger menu */
     #nav a.icon {
