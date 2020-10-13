@@ -844,6 +844,13 @@ hr.rounded {
     
 }
 
+#map_mun {
+    top:0;
+    bottom:0; 
+    width:100%;
+    height:590px;     
+}
+
 .grafica_container{
     top:0;
     bottom:0; 
@@ -858,6 +865,12 @@ hr.rounded {
     height:600px;    
 }
 
+.grafica_sidemap {
+    top:0;
+    bottom:0; 
+    width:100% !important;
+    height:250px;    
+}
 
 .mapboxgl-popup {
     color: #fff; 

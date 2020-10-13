@@ -25,6 +25,9 @@ const cardcontent = {
 }
 var activeLayer = '';
 var loadFiles = [d3.json('./data/MapaGradientes.json'), d3.csv('./data/gradiente.csv')];
+var commaValues = d3.format(',');
+var formatFloat = d3.format('.4f');
+var commaFloat = d3.format(',.4f');
 
 var map_dist = new mapboxgl.Map({
     container: 'map_dist',
@@ -32,10 +35,6 @@ var map_dist = new mapboxgl.Map({
     center: [-100.310015, 25.668289],
     zoom: 8.8
 });
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 function changeText(s) {
     document.getElementById('cus_text').textContent = cardcontent[s];
@@ -45,7 +44,7 @@ function changeLegend(s) {
     document.getElementById('leg-title').textContent = layerLegends[s][0];
     document.getElementById('leg-unit').textContent = '('+layerLegends[s][1]+')';
     for (var i = 0; i < 10; i++) {
-        document.getElementById('leg'+String(i+1)).childNodes[1].textContent = numberWithCommas(thresholds[s][i]);
+        document.getElementById('leg'+String(i+1)).childNodes[1].textContent = commaValues(thresholds[s][i]);
     }
 }
 
@@ -92,8 +91,10 @@ Promise.all(loadFiles).then(function (data){
     var stepsList = thresholds['dist_cbd'].map((num,i) => {
         return[num,colors[i]]; 
     });
+    console.log(stepsList); 
 
     map_dist.on('load', function() {
+
         map_dist.addSource('gradiente', {
             type:'geojson',
             data:margedGeoJSON
@@ -147,6 +148,7 @@ Promise.all(loadFiles).then(function (data){
                 }
             });
         });
+
         var distPointer =  new mapboxgl.Popup({
             closeButton: false,
         });
@@ -166,7 +168,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'Emp10_19', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            empPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + e.features[0].properties.Emp10_19).addTo(map_dist);
+            empPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Emp10_19)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'Emp10_19', function(e) {
@@ -180,7 +182,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'Pop0_16', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            popPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + e.features[0].properties.Pop0_16).addTo(map_dist);
+            popPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Pop0_16)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'Pop0_16', function(e) {
@@ -194,7 +196,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'AreaC', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            acPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + e.features[0].properties.AreaC).addTo(map_dist);
+            acPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + formatFloat(e.features[0].properties.AreaC)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'AreaC', function(e) {
@@ -208,7 +210,7 @@ Promise.all(loadFiles).then(function (data){
         
         map_dist.on('click', 'CUS', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-           cusPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>CUS.: </b>' + e.features[0].properties.CUS).addTo(map_dist);
+           cusPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>CUS.: </b>' + formatFloat(e.features[0].properties.CUS)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'CUS', function(e) {
@@ -223,7 +225,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'Densidad90', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            den9Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.Densidad90).addTo(map_dist);
+            den9Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad90)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'Densidad90', function(e) {
@@ -237,7 +239,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'Densidad00', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            den0Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.Densidad00).addTo(map_dist);
+            den0Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad00)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'Densidad00', function(e) {
@@ -252,7 +254,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'Densidad16', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            den6Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.Densidad16).addTo(map_dist);
+            den6Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad16)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'Densidad16', function(e) {
@@ -266,7 +268,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'PropPC', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            propPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.PropPC).addTo(map_dist);
+            propPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + formatFloat(e.features[0].properties.PropPC)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'PropPC', function(e) {
@@ -281,7 +283,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'ConpP', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            consPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + e.features[0].properties.ConpP).addTo(map_dist);
+            consPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + formatFloat(e.features[0].properties.ConpP)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'ConpP', function(e) {
@@ -295,7 +297,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'PorPav', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + e.features[0].properties.PorPav).addTo(map_dist);
+            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: %</b>' + formatFloat(e.features[0].properties.PorPav)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'PorPav', function(e) {
@@ -309,7 +311,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_dist.on('click', 'CambioPP90', function(e) {
             map_dist.getCanvas().style.cursor = 'pointer'; 
-            cambioPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + e.features[0].properties.CambioPP90).addTo(map_dist);
+            cambioPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaFloat(e.features[0].properties.CambioPP90)).addTo(map_dist);
         });
 
         map_dist.on('mouseleave', 'CambioPP90', function(e) {
@@ -408,7 +410,7 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
             title: {
               text: 'Densidad de personas por km. cuadrado.',
             },
-            hoverformat:'.2f'
+            hoverformat:',.2f'
         },
         plot_bgcolor: '#212121',
         paper_bgcolor:'#141414',
@@ -463,7 +465,7 @@ function renderDenue() {
                 title: {
                   text: 'Densidad de empleos por km. cuadrado.',
                 },
-                hoverformat:'.2f'
+                hoverformat:',.2f'
             },
             plot_bgcolor: '#212121',
             paper_bgcolor:'#141414',

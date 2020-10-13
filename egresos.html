@@ -43,6 +43,43 @@
     <div class="uk-padding uk-light" style="padding-bottom: 0 !important;padding-top: 20px;padding-left: 40px; padding-bottom: 0px!important;">
         <h1 style="font-weight: 650;font-size: 400%; margin-bottom: 0px!important">Ingresos y egresos de la ZMM</h1>
     </div>
+    <hr style = 'margin: 20px 0px 0px 20px; border-color:transparent;'></hr>
+    <div class = 'uk-container uk-container-expand'>
+        <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
+            <div class = 'uk-first-column'>
+                <div class = 'uk-inline uk-width-expand'>
+                    <div id = 'map_mun'></div>
+                </div>
+            </div>
+            <div>
+                <div class = 'uk-width-1-1'>
+                    <div class = 'uk-grid-small uk-flex uk-flex-middle' uk-grid>
+                        <div class = 'uk-width-auto@m uk-width-4-5@s'>
+                            <div class="uk-tile uk-tile-secondary uk-padding-small">
+                                <p class = 'uk-h4 uk-text-bold' id ='state-label'>Monterrey</p>
+                            </div>
+                        </div>
+                        <div class = 'uk-width-auto@m uk-width-1-5@s'>
+                            <div class="uk-tile uk-tile-secondary uk-padding-small">
+                                <p class = 'uk-text-emphasis' id ='year-label'></p>
+                            </div>
+                        </div>
+                        <div class = 'uk-width-expand@m'>
+                            <div class="uk-tile uk-tile-secondary uk-padding-small">
+                                <input class = 'uk-range' id = 'slider-years'type = 'range' value = '5' min = '1' max = '5' step = '1'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'uk-width-1-1'>
+                    <div class = 'grafica_sidemap' id = 'bars1'></div>
+                    <hr style = 'margin: 30px 0px 0px 30px; border-color:transparent;'></hr>
+                    <div class = 'grafica_sidemap' id = 'bars2'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
     <div class = 'uk-container uk-container-expand'>
         <div class = 'uk-grid-small' uk-grid>
@@ -99,7 +136,7 @@
                 </select>           
             </div>
         </div>
-        <div class = 'uk-grid-small uk-child-width-1-2@l' uk-grid>
+        <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
             <div class = 'uk-first-column'>
                 <div class = 'grafica_container2' id = 'historico_1'></div>
             </div>
@@ -109,39 +146,6 @@
             </div>
         </div>
     </div>
-   <!--  <hr style = 'margin: 40px 0px 0px 40px; border-color:transparent;'></hr>
-    <div class = 'uk-container uk-container-expand'>
-        <div class = 'uk-child-width-1-2@l uk-flex uk-flex-center' uk-grid>
-            <div class = 'uk-first-column'>
-                <h3 class = 'uk-article-title uk-text-bold' style = 'color: white'>Distribución de ingresos y egresos</h3>
-            </div>
-            <div class = 'uk-expand uk-padding'>
-                <select class = 'uk-select  uk-light' style = 'background-color: #222222'id = 'select-tree'>
-                    <option value = 2018>2018</option>
-                    <option value = 2015>2015</option>
-                    <option value = 2010>2010</option>
-                    <option value = 2000>2000</option>
-                    <option value = 1990>1990</option>
-                </select>    
-            </div>
-        </div>
-        <div class = 'uk-grid-small uk-child-width-1-2@l' uk-grid>
-            <div class = 'uk-first-column uk-width-auto@m uk-align-middle'>
-                <ul class="uk-tab-left" uk-tab>
-                    <li><a href="#">Ingresos</a></li>
-                    <li><a href="#">Egresos</a></li>
-                </ul>
-            </div>
-
-            <div class = 'uk-first-column'>
-                <div class = 'grafica_container2 uk-width-2-5@m' id = 'treemap_hist'></div>
-            </div>
-
-            <divå>
-                <div class = 'grafica_container2 uk-width-2-5@m' id = 'treemap_des'></div>
-            </div>
-        </div>
-    </div>-->
     <script src='./js/egresos.js'></script>
     <script>
         function mobileNav() {
@@ -154,6 +158,21 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
+
+
+        var pcontents = {'1':1990,'2':2000,'3':2010,'4':2015,'5':2018}; 
+        var slider = document.getElementById('slider-years');
+        var yearval = document.getElementById('year-label');
+
+
+        slider.addEventListener('change', function() {
+            yearval.textContent = String(pcontents[this.value]);
+        })
+
+        window.onload = function () {
+            yearval.textContent = String(pcontents[slider.value]);
+        }
+
     </script>
 
 </body>
