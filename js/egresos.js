@@ -1,16 +1,30 @@
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJja2MyajhuMjIwMGxhMnN1bTRudTk5MmlxIn0.FaHKa4n3CaUvaTKcwLXXGw';
 var activeYear = document.getElementById('select-bubbles').value;
 var activeTab = 'b';
+var activeMun = 'Monterrey';
 var selectMun = document.getElementById('select-mun');
 var btnRec = document.getElementById('recBtn');
 var btnHist = document.getElementById('histBtn');
 var yearBubbles = document.getElementById('select-bubbles');
+var sliderYear = document.getElementById('slider-years');
+var labelMun = document.getElementById('state-label');
+var pcontents = {'1':1990,'2':2000,'3':2010,'4':2015,'5':2018}; 
+var commaValues = d3.format('$,.0f');
+
+const muncolors = {"Abasolo": "#89C5DA", "Apodaca": "#DA5724","Cadereyta": "#74D944","Ciénaga de Flores": "#CE50CA","El Carmen": "#3F4921","García": "#C0717C", 
+    "General Escobedo": "#CBD588", "General Zuazua": "#5F7FC7", "Guadalupe": "#673770", "Juárez": "#D3D93E", "Monterrey": "#c84248","Pesquería": "#508578",
+    "Salinas Victoria": "#D7C1B1", "San Nicolás": "#689030","San Pedro": "#8569D5", "Santa Catarina": "#CD9BCD", "Santiago": "#D14285"};
 
 
-const color_palette = {'b':['#000004', '#120b2f', '#2e0f5a', '#501479','#732181', '#942d80', '#b73b78', '#d74b6c', '#f2635e', '#fb8a66', '#ffb17c', '#ffd89b', '#fcfdc0'],
-                'a':['#2e0f5a', '#942d80', '#f2635e', '#ffd89b']};
+var map_mun = new mapboxgl.Map({
+    container: 'map_mun',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [-100.3155448, 25.82164],
+    zoom: 8.0
+});
 
 function renderBubbles() {
-    Plotly.d3.csv('./data/propinv.csv', function(data) {
+    Plotly.d3.csv('./data/propinvajustado.csv', function(data) {
         function filterData(year, group) {
             return data.filter(function (d) {
                 return (d.Year == year && d.hist === group)});
@@ -37,16 +51,18 @@ function renderBubbles() {
         };
         
         var layout = {
+            title: 'Tamaño de esferas equivale a población',
             xaxis: {
                 title: {
-                  text: 'Gastos en inversión del municipio (per cápita)',
-                }
+                  text: 'Gastos en inversión del municipio (per cápita).',
+                },
+                hoverformat:'$,.2f'
             },
             yaxis: {
                 title: {
                   text: 'Ingresos propios del municipio (per cápita)',
                 },
-                hoverformat:'.2f'
+                hoverformat:'$,.2f'
             },
             plot_bgcolor: '#212121',
             paper_bgcolor:'#141414',
@@ -63,7 +79,6 @@ function renderBubbles() {
         function setDenue() {
             var initData = processData(activeYear, activeTab);
             var traces = [];
-            var colors = color_palette[activeTab]
             for(var i = 0; i < initData[3].length; i++) {
                 traces.push(
                     {
@@ -76,12 +91,12 @@ function renderBubbles() {
                             size: [initData[2][i]],
                             sizeref: 250,
                             sizemode: 'area',
-                            color: colors[i],
+                            color: muncolors[initData[3][i]],
                             line: {color:'#141414'}
                         },
                         text: [initData[3][i]],
                         hovertemplate: '<b>%{text}<b>' +
-                        '<br><b>Población: </b>%{marker.size}'
+                        '<br><b>Población: </b>%{marker.size:,}'
                         + '<br><b>Gasto en inversión (per cap.): </b>%{x}' + '<br><b>Ingresos propios (per cap.): </b>%{y}' + '<extra></extra>'
                     }
                 )
@@ -94,7 +109,6 @@ function renderBubbles() {
         function updateBubbles(year,hist) {
             var initData = processData(year, hist);
             var traces = [];
-            var colors = color_palette[hist];
             for(var i = 0; i < initData[3].length; i++) {
                 traces.push(
                     {
@@ -107,7 +121,7 @@ function renderBubbles() {
                             size: [initData[2][i]],
                             sizeref: 250,
                             sizemode: 'area',
-                            color: colors[i],
+                            color: muncolors[initData[3][i]],
                             line: {color:'#141414'}
                         },
                         text: [initData[3][i]],
@@ -142,16 +156,16 @@ function renderBubbles() {
 }
 
 function renderIngresos() {
-    Plotly.d3.csv('./data/ingeg.csv', function (data) {
+    Plotly.d3.csv('./data/ingegajustado.csv', function (data) {
         function municipioFilter(mun,tipo) {
             return data.filter(function (d) {
                 return(d.mun === mun && d.t === tipo)});
         }
 
-        /*function tipoFilter(histr, tipo,y) {
+        function tipoFilter(mun, tipo,y) {
             return data.filter(function (d) {
-                return(d.hist === histr && d.t === tipo && d.year == y)});
-        }*/
+                return(d.mun === mun && d.t === tipo && d.year == y)});
+        }
 
         function processIng(mun,t) {
             var set = municipioFilter(mun,t); 
@@ -160,13 +174,13 @@ function renderIngresos() {
             for(var i = 0; i < set.length; i++) {
                 switch(set[i]['concepto']) {
                     case 'Ingresos propios':
-                        dataProp.push(set[i]['prop_ingr']);
+                        dataProp.push(set[i]['monto']);
                         break;
                     case 'Ingresos provenientes de transferencias federales':
-                        dataFed.push(set[i]['prop_ingr']);
+                        dataFed.push(set[i]['monto']);
                         break;
                     case 'Ingresos de deuda':
-                        dataDeuda.push(set[i]['prop_ingr']);
+                        dataDeuda.push(set[i]['monto']);
                         break;
                     default:
                         console.log('Unknown row found!');
@@ -184,16 +198,16 @@ function renderIngresos() {
             for(var i = 0; i < set.length; i++) {
                 switch(set[i]['concepto']) {
                     case 'Gasto corriente':
-                        dataGasto.push(set[i]['prop_ingr']);
+                        dataGasto.push(set[i]['monto']);
                         break;
                     case 'Inversión':
-                        dataInv.push(set[i]['prop_ingr']);
+                        dataInv.push(set[i]['monto']);
                         break;
                     case 'Deuda':
-                        dataDeuda.push(set[i]['prop_ingr']);
+                        dataDeuda.push(set[i]['monto']);
                         break;
                     case 'Otros':
-                        dataOtros.push(set[i]['prop_ingr']);
+                        dataOtros.push(set[i]['monto']);
                         break;
                     default:
                         console.log('Unknown row found!');
@@ -203,23 +217,29 @@ function renderIngresos() {
             return [dataGasto.map(Number), dataInv.map(Number), dataDeuda.map(Number), dataOtros.map(Number), periodo.map(Number)];
         }
 
-       /* function processDist(histr,tipo,y) {
-            var set = tipoFilter(histr,tipo,y); 
-            var dataMun = [], dataConc = [], dataMonto = [];
+       function processDist(mun,tipo,y) {
+            var set = tipoFilter(mun,tipo,y); 
+            var dataConc = [], dataMonto = [];
             for(var i = 0; i < set.length; i++) {
-                dataMun.push(set[i]['mun']),
                 dataConc.push(set[i]['concepto']);
                 dataMonto.push(set[i]['monto']); 
             }
             
-            return [dataMun, dataConc, dataMonto.map(Number)]; 
+            return [dataConc, dataMonto.map(Number)]; 
 
-        }*/
+        }
 
         var config = {
             displayModeBar: false,
             displayLogo: false,
             responsive:true
+        };
+
+        var config2 = {
+            displayModeBar: false,
+            displayLogo: false,
+            responsive:true,
+            staticPlot:true
         };
 
         var layout = {
@@ -230,9 +250,9 @@ function renderIngresos() {
             },
             yaxis: {
                 title: {
-                  text: 'Monto ingresos del municipio (per cápita)',
+                  text: 'Monto ingresos del municipio (MXN 2020)',
                 },
-                hoverformat:'.2f'
+                hoverformat:'$,.0f'
             },
             plot_bgcolor: '#212121',
             paper_bgcolor:'#141414',
@@ -253,9 +273,9 @@ function renderIngresos() {
             },
             yaxis: {
                 title: {
-                  text: 'Monto egresos del municipio (per cápita)',
+                  text: 'Monto egresos del municipio (MXN 2020)',
                 },
-                hoverformat:'.2f'
+                hoverformat:'$,.0f'
             },
             plot_bgcolor: '#212121',
             paper_bgcolor:'#141414',
@@ -268,15 +288,45 @@ function renderIngresos() {
             }
         }; 
 
-
-        /*var layout3 = {
+        var layout3 = {
+            xaxis: {
+                title: {
+                  text: 'Ingresos',
+                }
+            },
+            yaxis: {
+                title: {
+                  text: 'Monto (MXN)',
+                }
+            },
             plot_bgcolor: '#212121',
             paper_bgcolor:'#141414',
-            margin : {l:0,r:0,t:0,b:0},
+            margin : {l:80,r:40,t:20,b:60},
+            pad:{t:0,r:0,b:0,l:0},
             font : {
                 color:'#bcbcbc'
             }
-        }; */
+        }; 
+
+        var layout4 = {
+            xaxis: {
+                title: {
+                  text: 'Egresos',
+                }
+            },
+            yaxis: {
+                title: {
+                  text: 'Monto (MXN)',
+                }
+            },
+            plot_bgcolor: '#212121',
+            paper_bgcolor:'#141414',
+            margin : {l:50,r:40,t:20,b:60},
+            pad:{t:0,r:0,b:0,l:0},
+            font : {
+                color:'#bcbcbc'
+            }
+        }; 
 
         function setHistIng() {
             var initData = processIng('Abasolo','ing');
@@ -387,63 +437,106 @@ function renderIngresos() {
             Plotly.newPlot('historico_2', traces2, layout2, config); 
 
         }
-/*
-        function setTree() {
-            var initData_l = processDist('a', 'ing', 2018);
-            var initData_r = processDist('b', 'ing',2018);
-            console.log(initData_l);
-            var traces_l = [{
-                type: "treemap",
-                labels:  ["Guadalupe","Ingresos propios", "Ingresos provenientes de transferencias federales", "Ingresos de deuda"],
-                parents: ["","Guadalupe", "Guadalupe", "Guadalupe"],
-                values:   [,653250941, 1805378768, 75184782],
-                textinfo: "label+value+percent parent+percent entry",
-                domain: {"x": [0, 0.25]},
-                outsidetextfont: {"size": 20, "color": "#377eb8"},
-                marker: {"line": {"width": 2}},
-                pathbar: {"visible": false}
-              },
-              {
-                type: "treemap",
-                labels:  ["Monterrey","Ingresos propios", "Ingresos provenientes de transferencias federales", "Ingresos de deuda"],
-                parents: ["","Monterrey", "Monterrey", "Monterrey"],
-                values:   [,2886395879, 2886395879, 2886395879],
-                textinfo: "label+value+percent parent+percent entry",
-                domain: {"x": [0.25, .5]},
-                outsidetextfont: {"size": 20, "color": "#377eb8"},
-                marker: {"line": {"width": 2}},
-                pathbar: {"visible": false}
-              },
-              {
-                type: "treemap",
-                labels:  ["Monterrey","Ingresos propios", "Ingresos provenientes de transferencias federales", "Ingresos de deuda"],
-                parents: ["","Monterrey", "Monterrey", "Monterrey"],
-                values:   [,2886395879, 2886395879, 2886395879],
-                textinfo: "label+value+percent parent+percent entry",
-                domain: {"x": [0.5, .75]},
-                outsidetextfont: {"size": 20, "color": "#377eb8"},
-                marker: {"line": {"width": 2}},
-                pathbar: {"visible": false}
-              },
-              {
-                type: "treemap",
-                labels:  ["Monterrey","Ingresos propios", "Ingresos provenientes de transferencias federales", "Ingresos de deuda"],
-                parents: ["","Monterrey", "Monterrey", "Monterrey"],
-                values:   [,2886395879, 2886395879, 2886395879],
-                textinfo: "label+value+percent parent+percent entry",
-                domain: {"x": [0.75, 1]},
-                outsidetextfont: {"size": 20, "color": "#377eb8"},
-                marker: {"line": {"width": 2}},
-                pathbar: {"visible": false}
-              }
-            ]; 
 
-           // var traces = [traces_l, traces_1];
+        function setBars() {
+            var dataIng = processDist('Monterrey', 'ing' , pcontents[sliderYear.value]);
+            var dataEng = processDist('Monterrey', 'eg' , pcontents[sliderYear.value]);
+     
+            var traceIng = {
+                x: ['Propios','Trans. Fed','Deuda'],
+                y: dataIng[1],
+                width: 0.6,
+                type: 'bar',
+                text: dataIng[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
+                textposition:'auto',
+                hoverinfo:'none',
+                marker: {
+                    color: ['#feca8d', '#f1605d', '#9e2f7f']
+                }
+            };
 
-            Plotly.newPlot('treemap_hist', traces_l, layout3, config);
+            var traceEg = {
+                x: dataEng[0],
+                y: dataEng[1],
+                width:0.6,
+                type: 'bar',
+                text: dataEng[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
+                textposition:'auto',
+                hoverinfo:'none',
+                marker: {
+                    color: ['#feca8d', '#f1605d', '#9e2f7f','#440f76']
+                }
+            }
 
+            Plotly.newPlot('bars1',[traceIng], layout3, config2);
+            Plotly.newPlot('bars2',[traceEg], layout4, config2);
+            
         }
-*/
+
+        function renderMap() {
+            var shapeMun = './data/municipiosNL.geojson';
+            var muns = Object.keys(muncolors), colors = Object.values(muncolors);
+            var stepsMun = muns.map((mun,i) => {
+                return[mun, colors[i]]; 
+            });
+
+            map_mun.on('load', function() {
+                map_mun.addSource('municipios', {
+                    type:'geojson',
+                    data: shapeMun
+                });
+
+                map_mun.addLayer({
+                    'id':'mun',
+                    'type':'fill',
+                    'source':'municipios',
+                    'paint':{
+                        'fill-color':'#120b2f',
+                        'fill-opacity':0.99
+                    },
+                    'layout': {
+                        'visibility': 'visible'
+                    }
+                });
+                map_mun.addLayer({
+                    'id':'munlines',
+                    'type':'line',
+                    'source':'municipios',
+                    'paint':{
+                        'line-color':'#e6e6e6',
+                    },
+                    'layout': {
+                        'visibility': 'visible'
+                    }
+                });
+
+               map_mun.addLayer({
+                    'id':'mun_nom',
+                    'type':'symbol',
+                    'source':'municipios',
+                    'paint':{
+                        'text-color':'#e6e6e6'
+                    },
+                    'layout':{
+                        'text-field':['get', 'NOMGEO'],
+                        'text-font': ['Open Sans Semibold',
+                        'Arial Unicode MS Bold'],
+                        'text-offset': [0.4, -0.5],
+                        'text-size':12,
+                        'text-anchor': 'center',
+                        //'text-ignore-placement':true
+                        
+                    }
+                });
+
+                map_mun.on('click','mun', function(e){
+                    var munic = e.features[0].properties.NOMGEO; 
+                    activeMun = munic; 
+                    labelMun.textContent = activeMun; 
+                    updateBars(munic, pcontents[sliderYear.value]);
+                })
+            });
+        }
 
         function assignOptions() {
             var allGroup = d3.map(data, function(d){return(d.mun)}).keys(); 
@@ -509,16 +602,55 @@ function renderIngresos() {
 
         }
 
+        function updateBars(mun, year) {
+            var updateDataing = processDist(mun,'ing',year);
+            var updateDataeg = processDist(mun,'eg',year);
+            var upIng = {
+                x: ['Propios','Trans. Fed','Deuda'],
+                y: updateDataing[1],
+                width:0.6,
+                type: 'bar',
+                text: updateDataing[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
+                textposition:'auto',
+                hoverinfo:'none',
+                marker: {
+                    color: ['#feca8d', '#f1605d', '#9e2f7f']
+                }
+            }
+
+            var upEg = {
+                x: updateDataeg[0],
+                y: updateDataeg[1],
+                width:0.6,
+                type: 'bar',
+                text: updateDataeg[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
+                textposition:'auto',
+                hoverinfo:'none',
+                marker: {
+                    color: ['#feca8d', '#f1605d', '#9e2f7f','#440f76']
+                }
+            }
+
+            Plotly.react('bars1', [upIng], layout3, config2);
+            Plotly.react('bars2', [upEg], layout4, config2);
+
+            
+        }
+
         assignOptions(); 
         setHistIng(); 
         setHistEg(); 
-        //setTree(); 
+        setBars(); 
+        renderMap(); 
 
         selectMun.addEventListener('change', function () {
             updateIng(this.value); 
             updateEg(this.value); 
         });
 
+        sliderYear.addEventListener('change', function () {
+            updateBars(activeMun, pcontents[this.value]);
+        })
 
 
     });

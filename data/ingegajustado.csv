@@ -1,0 +1,547 @@
+,mun,year,concepto,prop_ingr,hist,t,monto
+0,Abasolo,1990,Ingresos propios,10.62418063,b,ing,163625.2964
+1,Abasolo,1990,Ingresos provenientes de transferencias federales,338.5484341,b,ing,5214057.4244
+2,Abasolo,1990,Ingresos de deuda,8.739985433,b,ing,134606.4
+3,Abasolo,2000,Ingresos propios,155.70684169999998,b,ing,876058.3859999999
+4,Abasolo,2000,Ingresos provenientes de transferencias federales,2553.803103,b,ing,14368544.118
+5,Abasolo,2000,Ingresos de deuda,0.0,b,ing,0.0
+6,Abasolo,2010,Ingresos propios,547.8473665,b,ing,2206101.7976
+7,Abasolo,2010,Ingresos provenientes de transferencias federales,5381.866714,b,ing,21671995.812000003
+8,Abasolo,2010,Ingresos de deuda,732.6119669999999,b,ing,2950122.0160000003
+9,Abasolo,2015,Ingresos propios,1299.834407,b,ing,4164682.3082999997
+10,Abasolo,2015,Ingresos provenientes de transferencias federales,13820.439180000001,b,ing,44280823.9599
+11,Abasolo,2015,Ingresos de deuda,0.0,b,ing,0.0
+12,Apodaca,1990,Ingresos propios,52.01060278,b,ing,67625189.726
+13,Apodaca,1990,Ingresos provenientes de transferencias federales,89.29925893,b,ing,116108620.254
+14,Apodaca,1990,Ingresos de deuda,5.7370614170000005,b,ing,7459438.0
+15,Apodaca,2000,Ingresos propios,431.8397584,b,ing,273987767.688
+16,Apodaca,2000,Ingresos provenientes de transferencias federales,492.2739853,b,ing,312331247.124
+17,Apodaca,2000,Ingresos de deuda,16.75502739,b,ing,10630500.0
+18,Apodaca,2010,Ingresos propios,565.2974187000001,b,ing,426866389.588
+19,Apodaca,2010,Ingresos provenientes de transferencias federales,1009.0057529999999,b,ing,761918644.3948001
+20,Apodaca,2010,Ingresos de deuda,374.8428798,b,ing,283050694.1704
+21,Apodaca,2015,Ingresos propios,290.8494609,b,ing,210885933.2094
+22,Apodaca,2015,Ingresos provenientes de transferencias federales,1674.5792880000001,b,ing,1214185561.2693
+23,Apodaca,2015,Ingresos de deuda,654.2732235000001,b,ing,474393244.14089996
+24,Apodaca,2018,Ingresos propios,1357.525624,b,ing,914040912.0744001
+25,Apodaca,2018,Ingresos provenientes de transferencias federales,1739.2598420000002,b,ing,1171067877.7974002
+26,Apodaca,2018,Ingresos de deuda,41.74146611,b,ing,28105110.554400004
+27,Cadereyta,1990,Ingresos propios,25.38115412,b,ing,15255089.1356
+28,Cadereyta,1990,Ingresos provenientes de transferencias federales,59.214381700000004,b,ing,35590212.59
+29,Cadereyta,1990,Ingresos de deuda,1.3641894669999999,b,ing,819932.4512
+30,Cadereyta,2000,Ingresos propios,400.1881053999999,b,ing,67224415.122
+31,Cadereyta,2000,Ingresos provenientes de transferencias federales,718.4812614,b,ing,120691949.42999999
+32,Cadereyta,2000,Ingresos de deuda,0.0,b,ing,0.0
+33,Cadereyta,2010,Ingresos propios,526.5866041999999,b,ing,65677379.9412
+34,Cadereyta,2010,Ingresos provenientes de transferencias federales,2121.602221,b,ing,264612267.09120002
+35,Cadereyta,2010,Ingresos de deuda,138.0387877,b,ing,17216590.4564
+36,Cadereyta,2015,Ingresos propios,933.3154479,b,ing,108253232.9478
+37,Cadereyta,2015,Ingresos provenientes de transferencias federales,2752.912921,b,ing,319304394.2403
+38,Cadereyta,2015,Ingresos de deuda,179.64647140000002,b,ing,20836804.2786
+39,Cadereyta,2018,Ingresos propios,937.4782536,b,ing,100634797.67220001
+40,Cadereyta,2018,Ingresos provenientes de transferencias federales,2944.211491,b,ing,316050133.96440005
+41,Cadereyta,2018,Ingresos de deuda,2944.211491,b,ing,316050133.96440005
+42,Ciénaga de Flores,1990,Ingresos propios,34.9287418,b,ing,2628212.3944
+43,Ciénaga de Flores,1990,Ingresos provenientes de transferencias federales,223.56484790000002,b,ing,16822131.9756
+44,Ciénaga de Flores,1990,Ingresos de deuda,0.0,b,ing,0.0
+45,Ciénaga de Flores,2000,Ingresos propios,857.470457,b,ing,21500687.562
+46,Ciénaga de Flores,2000,Ingresos provenientes de transferencias federales,1124.456176,b,ing,28195234.866
+47,Ciénaga de Flores,2000,Ingresos de deuda,0.0,b,ing,0.0
+48,Ciénaga de Flores,2010,Ingresos propios,1414.645274,b,ing,50058797.252000004
+49,Ciénaga de Flores,2010,Ingresos provenientes de transferencias federales,1543.3374789999998,b,ing,54612714.106000006
+50,Ciénaga de Flores,2010,Ingresos de deuda,724.9786757,b,ing,25654177.195600003
+51,Ciénaga de Flores,2015,Ingresos propios,1648.975067,b,ing,85516311.177
+52,Ciénaga de Flores,2015,Ingresos provenientes de transferencias federales,1870.864755,b,ing,97023572.8308
+53,Ciénaga de Flores,2015,Ingresos de deuda,23.41097975,b,ing,1214100.0
+54,El Carmen,1990,Ingresos propios,15.37810844,b,ing,846281.654
+55,El Carmen,1990,Ingresos provenientes de transferencias federales,219.6351406,b,ing,12086869.516
+56,El Carmen,1990,Ingresos de deuda,0.0,b,ing,0.0
+57,El Carmen,2000,Ingresos propios,447.9254967,b,ing,6660326.046
+58,El Carmen,2000,Ingresos provenientes de transferencias federales,1702.6178510000002,b,ing,25316687.934
+59,El Carmen,2000,Ingresos de deuda,0.0,b,ing,0.0
+60,El Carmen,2010,Ingresos propios,872.3255034,b,ing,20253250.1736
+61,El Carmen,2010,Ingresos provenientes de transferencias federales,1898.2989059999998,b,ing,44073826.2328
+62,El Carmen,2010,Ingresos de deuda,0.0,b,ing,0.0
+63,El Carmen,2015,Ingresos propios,835.9931342,b,ing,38879795.6973
+64,El Carmen,2015,Ingresos provenientes de transferencias federales,920.0979481,b,ing,42791284.735199995
+65,El Carmen,2015,Ingresos de deuda,0.0,b,ing,0.0
+66,García,1990,Ingresos propios,61.78608326,b,ing,9123532.0544
+67,García,1990,Ingresos provenientes de transferencias federales,252.6383318,b,ing,37305389.7732
+68,García,1990,Ingresos de deuda,17.527803100000003,b,ing,2588211.8592
+69,García,2000,Ingresos propios,322.62404219999996,b,ing,20920172.742
+70,García,2000,Ingresos provenientes de transferencias federales,917.3252916000001,b,ing,59482868.754
+71,García,2000,Ingresos de deuda,37.96507213,b,ing,2461800.0
+72,García,2010,Ingresos propios,856.9053303,b,ing,177622927.65
+73,García,2010,Ingresos provenientes de transferencias federales,943.2806749,b,ing,195527171.0144
+74,García,2010,Ingresos de deuda,772.1629173,b,ing,160057165.1656
+75,García,2015,Ingresos propios,939.7426567,b,ing,282234713.5881
+76,García,2015,Ingresos provenientes de transferencias federales,1553.4670609999998,b,ing,466555740.57269996
+77,García,2015,Ingresos de deuda,0.0,b,ing,0.0
+78,General Escobedo,1990,Ingresos propios,17.73521351,b,ing,19525308.9176
+79,General Escobedo,1990,Ingresos provenientes de transferencias federales,48.4627956,b,ing,53354365.0216
+80,General Escobedo,1990,Ingresos de deuda,1.882788063,b,ing,2072826.388
+81,General Escobedo,2000,Ingresos propios,355.76804289999995,b,ing,185880536.52
+82,General Escobedo,2000,Ingresos provenientes de transferencias federales,512.5653846,b,ing,267803504.526
+83,General Escobedo,2000,Ingresos de deuda,64.14239881,b,ing,33512913.096
+84,General Escobedo,2010,Ingresos propios,559.7217667,b,ing,289057953.564
+85,General Escobedo,2010,Ingresos provenientes de transferencias federales,1327.715011,b,ing,685673859.6384001
+86,General Escobedo,2010,Ingresos de deuda,938.7964921,b,ing,484824084.0
+87,General Escobedo,2015,Ingresos propios,1153.361735,b,ing,595333249.0335
+88,General Escobedo,2015,Ingresos provenientes de transferencias federales,1618.6548050000001,b,ing,835504590.3273
+89,General Escobedo,2015,Ingresos de deuda,0.0,b,ing,0.0
+90,General Escobedo,2018,Ingresos propios,770.7654464999999,b,ing,364899028.15080005
+91,General Escobedo,2018,Ingresos provenientes de transferencias federales,1915.343711,b,ing,906770096.9514
+92,General Escobedo,2018,Ingresos de deuda,91.00531545,b,ing,43084120.2264
+93,General Zuazua,1990,Ingresos propios,26.11383688,b,ing,1361218.4372
+94,General Zuazua,1990,Ingresos provenientes de transferencias federales,272.1704325,b,ing,14187245.3472
+95,General Zuazua,1990,Ingresos de deuda,0.0,b,ing,0.0
+96,General Zuazua,2000,Ingresos propios,470.67611469999997,b,ing,6355000.182
+97,General Zuazua,2000,Ingresos provenientes de transferencias federales,1941.977623,b,ing,26220298.338
+98,General Zuazua,2000,Ingresos de deuda,0.0,b,ing,0.0
+99,General Zuazua,2010,Ingresos propios,223.47083109999997,b,ing,17801980.586
+100,General Zuazua,2010,Ingresos provenientes de transferencias federales,600.6673972,b,ing,47849955.5772
+101,General Zuazua,2010,Ingresos de deuda,0.0,b,ing,0.0
+102,General Zuazua,2015,Ingresos propios,257.8147235,b,ing,21063887.1144
+103,General Zuazua,2015,Ingresos provenientes de transferencias federales,1179.0917470000002,b,ing,96333735.78
+104,General Zuazua,2015,Ingresos de deuda,71.84523137,b,ing,5869873.6173
+105,Guadalupe,1990,Ingresos propios,49.23340429,a,ing,295768870.4024
+106,Guadalupe,1990,Ingresos provenientes de transferencias federales,51.06068788,a,ing,306746246.6664
+107,Guadalupe,1990,Ingresos de deuda,0.0,a,ing,0.0
+108,Guadalupe,2000,Ingresos propios,346.87645519999995,a,ing,520253131.722
+109,Guadalupe,2000,Ingresos provenientes de transferencias federales,550.7046908,a,ing,825959316.966
+110,Guadalupe,2000,Ingresos de deuda,23.56757023,a,ing,35347173.42
+111,Guadalupe,2010,Ingresos propios,481.6997637,a,ing,471211742.124
+112,Guadalupe,2010,Ingresos provenientes de transferencias federales,1431.858298,a,ing,1400682528.3276
+113,Guadalupe,2010,Ingresos de deuda,250.73524419999998,a,ing,245276000.0
+114,Guadalupe,2015,Ingresos propios,686.6052674,a,ing,569253858.9705
+115,Guadalupe,2015,Ingresos provenientes de transferencias federales,1880.2004350000002,a,ing,1558845240.5493
+116,Guadalupe,2015,Ingresos de deuda,87.86316776,a,ing,72846000.0
+117,Guadalupe,2018,Ingresos propios,929.481769,a,ing,685521537.4854001
+118,Guadalupe,2018,Ingresos provenientes de transferencias federales,2568.7933160000002,a,ing,1894564479.1392002
+119,Guadalupe,2018,Ingresos de deuda,106.9770892,a,ing,78898910.2308
+120,Juárez,1990,Ingresos propios,32.3486828,b,ing,10165206.1152
+121,Juárez,1990,Ingresos provenientes de transferencias federales,57.95873492,b,ing,18212874.0832
+122,Juárez,1990,Ingresos de deuda,0.0,b,ing,0.0
+123,Juárez,2000,Ingresos propios,333.77095210000004,b,ing,49671888.546
+124,Juárez,2000,Ingresos provenientes de transferencias federales,513.9538024,b,ing,76486751.868
+125,Juárez,2000,Ingresos de deuda,0.0,b,ing,0.0
+126,Juárez,2010,Ingresos propios,442.1148072,b,ing,163916857.15760002
+127,Juárez,2010,Ingresos provenientes de transferencias federales,839.8434097,b,ing,311377248.6108
+128,Juárez,2010,Ingresos de deuda,44.36205394,b,ing,16447511.687600002
+129,Juárez,2015,Ingresos propios,815.6702031000001,b,ing,330247966.2615
+130,Juárez,2015,Ingresos provenientes de transferencias federales,1187.159868,b,ing,480656435.166
+131,Juárez,2015,Ingresos de deuda,87.62410452,b,ing,35477184.5334
+132,Juárez,2018,Ingresos propios,437.1304863,b,ing,171436900.5954
+133,Juárez,2018,Ingresos provenientes de transferencias federales,1621.768142,b,ing,636036406.7706001
+134,Juárez,2018,Ingresos de deuda,217.9753589,b,ing,85487105.3454
+135,Monterrey,1990,Ingresos propios,59.25250225,a,ing,710666008.8644
+136,Monterrey,1990,Ingresos provenientes de transferencias federales,93.48227242,a,ing,1121212960.1256
+137,Monterrey,1990,Ingresos de deuda,0.0,a,ing,0.0
+138,Monterrey,2000,Ingresos propios,698.8344703,a,ing,1737589914.0
+139,Monterrey,2000,Ingresos provenientes de transferencias federales,761.4962057,a,ing,1893392760.0
+140,Monterrey,2000,Ingresos de deuda,81.18833804,a,ing,201867600.0
+141,Monterrey,2010,Ingresos propios,1123.098298,a,ing,1840052287.6416001
+142,Monterrey,2010,Ingresos provenientes de transferencias federales,1962.662607,a,ing,3215570557.3844004
+143,Monterrey,2010,Ingresos de deuda,186.0849694,a,ing,304876317.8836
+144,Monterrey,2015,Ingresos propios,1693.7508920000002,a,ing,2280880342.3311
+145,Monterrey,2015,Ingresos provenientes de transferencias federales,2429.0678629999998,a,ing,3271090905.1970997
+146,Monterrey,2015,Ingresos de deuda,257.2682409,a,ing,346448864.4552
+147,Monterrey,2018,Ingresos propios,2607.83479,a,ing,3028983835.4226003
+148,Monterrey,2018,Ingresos provenientes de transferencias federales,3131.851463,a,ing,3637625931.1854005
+149,Monterrey,2018,Ingresos de deuda,32.16430539,a,ing,37358640.00000001
+150,Pesquería,1990,Ingresos propios,43.13837323,b,ing,3962105.7324
+151,Pesquería,1990,Ingresos provenientes de transferencias federales,178.26563259999998,b,ing,16373062.5908
+152,Pesquería,1990,Ingresos de deuda,7.309477284,b,ing,671349.42
+153,Pesquería,2000,Ingresos propios,575.8190089,b,ing,14589179.586
+154,Pesquería,2000,Ingresos provenientes de transferencias federales,905.9046903999999,b,ing,22952361.786
+155,Pesquería,2000,Ingresos de deuda,8.833141949,b,ing,223800.0
+156,Pesquería,2010,Ingresos propios,2305.7922559999997,b,ing,69340431.2784
+157,Pesquería,2010,Ingresos provenientes de transferencias federales,1456.2766880000001,b,ing,43793560.89
+158,Pesquería,2010,Ingresos de deuda,392.88451760000004,b,ing,11814933.377600001
+159,Pesquería,2015,Ingresos propios,850.6106828,b,ing,90020697.4512
+160,Pesquería,2015,Ingresos provenientes de transferencias federales,656.3936651,b,ing,69466580.57429999
+161,Pesquería,2015,Ingresos de deuda,0.0,b,ing,0.0
+162,Pesquería,2018,Ingresos propios,1728.881807,b,ing,189850784.31000003
+163,Pesquería,2018,Ingresos provenientes de transferencias federales,1937.748982,b,ing,212786763.49260002
+164,Pesquería,2018,Ingresos de deuda,0.0,b,ing,0.0
+165,Salinas Victoria,1990,Ingresos propios,30.66305947,b,ing,3273751.0372
+166,Salinas Victoria,1990,Ingresos provenientes de transferencias federales,170.4040765,b,ing,18193243.9832
+167,Salinas Victoria,1990,Ingresos de deuda,0.0,b,ing,0.0
+168,Salinas Victoria,2000,Ingresos propios,329.7678722,b,ing,14040101.952
+169,Salinas Victoria,2000,Ingresos provenientes de transferencias federales,897.7988856000001,b,ing,38224426.788
+170,Salinas Victoria,2000,Ingresos de deuda,5.476135407999999,b,ing,233150.364
+171,Salinas Victoria,2010,Ingresos propios,996.4654011,b,ing,46955291.168000005
+172,Salinas Victoria,2010,Ingresos provenientes de transferencias federales,1967.782578,b,ing,92725551.54120001
+173,Salinas Victoria,2010,Ingresos de deuda,358.5945805,b,ing,16897639.3172
+174,Salinas Victoria,2015,Ingresos propios,1726.373136,b,ing,113585869.74329999
+175,Salinas Victoria,2015,Ingresos provenientes de transferencias federales,1703.1490989999998,b,ing,112057855.68959999
+176,Salinas Victoria,2015,Ingresos de deuda,243.708481,b,ing,16034679.405
+177,San Nicolás,1990,Ingresos propios,51.19982455,a,ing,250749255.1484
+178,San Nicolás,1990,Ingresos provenientes de transferencias federales,69.53791889,a,ing,340559396.7808
+179,San Nicolás,1990,Ingresos de deuda,0.0,a,ing,0.0
+180,San Nicolás,2000,Ingresos propios,373.91069839999994,a,ing,415793544.0
+181,San Nicolás,2000,Ingresos provenientes de transferencias federales,615.4971642999999,a,ing,684440826.0
+182,San Nicolás,2000,Ingresos de deuda,106.2775973,a,ing,118182066.0
+183,San Nicolás,2010,Ingresos propios,778.9576175,a,ing,498185681.66400003
+184,San Nicolás,2010,Ingresos provenientes de transferencias federales,2119.697369,a,ing,1355661534.1936002
+185,San Nicolás,2010,Ingresos de deuda,772.5397216,a,ing,494081088.8
+186,San Nicolás,2015,Ingresos propios,1055.8601119999998,a,ing,551408811.9876
+187,San Nicolás,2015,Ingresos provenientes de transferencias federales,3078.240941,a,ing,1607570133.0813
+188,San Nicolás,2015,Ingresos de deuda,0.0,a,ing,0.0
+189,San Nicolás,2018,Ingresos propios,1347.552955,a,ing,669356298.6462001
+190,San Nicolás,2018,Ingresos provenientes de transferencias federales,2869.2278690000003,a,ing,1425202430.5728002
+191,San Nicolás,2018,Ingresos de deuda,431.4381572,a,ing,214303895.76420003
+192,San Pedro,1990,Ingresos propios,366.63283789999997,a,ing,464887611.0272
+193,San Pedro,1990,Ingresos provenientes de transferencias federales,257.16037689999996,a,ing,326077374.6348
+194,San Pedro,1990,Ingresos de deuda,0.0,a,ing,0.0
+195,San Pedro,2000,Ingresos propios,2935.8708269999997,a,ing,827735792.13
+196,San Pedro,2000,Ingresos provenientes de transferencias federales,1270.857872,a,ing,358304097.654
+197,San Pedro,2000,Ingresos de deuda,0.0,a,ing,0.0
+198,San Pedro,2010,Ingresos propios,4524.398446,a,ing,800693675.0892
+199,San Pedro,2010,Ingresos provenientes de transferencias federales,3628.471046,a,ing,642139248.164
+200,San Pedro,2010,Ingresos de deuda,81.52683456,a,ing,14428000.0
+201,San Pedro,2015,Ingresos propios,10699.762509999999,a,ing,1599868075.7231998
+202,San Pedro,2015,Ingresos provenientes de transferencias federales,6508.134715,a,ing,973120380.1299
+203,San Pedro,2015,Ingresos de deuda,615.3488907999999,a,ing,92009242.70279999
+204,San Pedro,2018,Ingresos propios,11684.511359999999,a,ing,1661574258.63
+205,San Pedro,2018,Ingresos provenientes de transferencias federales,9686.396077,a,ing,1377435981.9924002
+206,San Pedro,2018,Ingresos de deuda,1143.4805880000001,a,ing,162606535.4034
+207,Santa Catarina,1990,Ingresos propios,37.70282823,b,ing,69294623.1676
+208,Santa Catarina,1990,Ingresos provenientes de transferencias federales,64.84138958,b,ing,119173013.4704
+209,Santa Catarina,1990,Ingresos de deuda,0.0,b,ing,0.0
+210,Santa Catarina,2000,Ingresos propios,385.28017939999995,b,ing,195754767.084
+211,Santa Catarina,2000,Ingresos provenientes de transferencias federales,615.4658585,b,ing,312708470.976
+212,Santa Catarina,2000,Ingresos de deuda,72.67890021,b,ing,36927000.0
+213,Santa Catarina,2010,Ingresos propios,616.3624732999999,b,ing,239178393.91320002
+214,Santa Catarina,2010,Ingresos provenientes de transferencias federales,1415.4588609999998,b,ing,549266367.9864
+215,Santa Catarina,2010,Ingresos de deuda,1038.712796,b,ing,403070707.6
+216,Santa Catarina,2015,Ingresos propios,881.8221071,b,ing,317924956.8882
+217,Santa Catarina,2015,Ingresos provenientes de transferencias federales,2357.036827,b,ing,849786851.1474
+218,Santa Catarina,2015,Ingresos de deuda,417.7129084,b,ing,150598808.2179
+219,Santiago,1990,Ingresos propios,116.435392,b,ing,39420078.7516
+220,Santiago,1990,Ingresos provenientes de transferencias federales,90.94950633,b,ing,30791640.2536
+221,Santiago,1990,Ingresos de deuda,28.59306872,b,ing,9680398.7312
+222,Santiago,2000,Ingresos propios,703.6002391,b,ing,57966285.816
+223,Santiago,2000,Ingresos provenientes de transferencias federales,834.2633652000001,b,ing,68731000.914
+224,Santiago,2000,Ingresos de deuda,40.74758231,b,ing,3357000.0
+225,Santiago,2010,Ingresos propios,1729.188243,b,ing,100965007.2132
+226,Santiago,2010,Ingresos provenientes de transferencias federales,2158.75092,b,ing,126046602.01480001
+227,Santiago,2010,Ingresos de deuda,547.3908424,b,ing,31961425.008
+228,Santiago,2015,Ingresos propios,2378.215861,b,ing,122445627.3
+229,Santiago,2015,Ingresos provenientes de transferencias federales,3813.8279060000004,b,ing,196360035.29999998
+230,Santiago,2015,Ingresos de deuda,47.16202514,b,ing,2428200.0
+231,Santiago,2018,Ingresos propios,4174.446997,b,ing,201208309.335
+232,Santiago,2018,Ingresos provenientes de transferencias federales,5268.4891689999995,b,ing,253941132.61440003
+233,Santiago,2018,Ingresos de deuda,839.2299972000001,b,ing,40450878.6462
+234,Abasolo,1990,Gasto corriente,283.9949017,b,eg,4373866.71
+235,Abasolo,1990,Inversión,44.44938092,b,eg,684574.4988000001
+236,Abasolo,1990,Deuda,15.61689731,b,eg,240519.2024
+237,Abasolo,1990,Otros,13.85142025,b,eg,213328.7096
+238,Abasolo,2000,Gasto corriente,2389.05529,b,eg,13441618.23
+239,Abasolo,2000,Inversión,238.0190931,b,eg,1339174.44
+240,Abasolo,2000,Deuda,2.252187749,b,eg,12671.556
+241,Abasolo,2000,Otros,80.18337311,b,eg,451138.278
+242,Abasolo,2010,Gasto corriente,4305.017198,b,eg,17335679.1684
+243,Abasolo,2010,Inversión,2077.712648,b,eg,8366647.148800001
+244,Abasolo,2010,Deuda,52.15621641,b,eg,210025.5104
+245,Abasolo,2010,Otros,227.4399857,b,eg,915867.7980000001
+246,Abasolo,2015,Gasto corriente,5665.518757,b,eg,18152378.1864
+247,Abasolo,2015,Inversión,6950.651004,b,eg,22269954.6288
+248,Abasolo,2015,Deuda,0.0,b,eg,0.0
+249,Abasolo,2015,Otros,2504.103827,b,eg,8023173.453
+250,Apodaca,1990,Gasto corriente,49.21676602,b,eg,63992589.2436
+251,Apodaca,1990,Inversión,78.90063237,b,eg,102588125.2748
+252,Apodaca,1990,Deuda,1.632707289,b,eg,2122877.5344000002
+253,Apodaca,1990,Otros,17.29681744,b,eg,22489655.9272
+254,Apodaca,2000,Gasto corriente,445.1815963,b,eg,282452713.986
+255,Apodaca,2000,Inversión,430.25340660000006,b,eg,272981280.9
+256,Apodaca,2000,Deuda,26.94270839,b,eg,17094240.126
+257,Apodaca,2000,Otros,38.49105987,b,eg,24421279.8
+258,Apodaca,2010,Gasto corriente,769.5816994,b,eg,581125175.2872
+259,Apodaca,2010,Inversión,1044.663725,b,eg,788844629.5912
+260,Apodaca,2010,Deuda,108.8258364,b,eg,82176373.61840001
+261,Apodaca,2010,Otros,26.074790300000004,b,eg,19689549.656400003
+262,Apodaca,2015,Gasto corriente,1828.154347,b,eg,1325538078.2793
+263,Apodaca,2015,Inversión,883.1894151,b,eg,640373282.5041
+264,Apodaca,2015,Deuda,322.3211031,b,eg,233705045.9079
+265,Apodaca,2015,Otros,94.56496826,b,eg,68566128.7401
+266,Apodaca,2018,Gasto corriente,2039.4038449999998,b,eg,1373159015.8704002
+267,Apodaca,2018,Inversión,943.9246747999999,b,eg,635557631.6628001
+268,Apodaca,2018,Deuda,13.63229835,b,eg,9178816.363200001
+269,Apodaca,2018,Otros,141.5661141,b,eg,95318436.52980001
+270,Cadereyta,1990,Gasto corriente,61.45849352,b,eg,36939013.5868
+271,Cadereyta,1990,Inversión,13.53131649,b,eg,8132862.602
+272,Cadereyta,1990,Deuda,3.7601246689999996,b,eg,2259985.37
+273,Cadereyta,1990,Otros,7.209790601,b,eg,4333372.618
+274,Cadereyta,2000,Gasto corriente,644.669047,b,eg,108292822.932
+275,Cadereyta,2000,Inversión,355.8246313,b,eg,59772148.158
+276,Cadereyta,2000,Deuda,52.94836062,b,eg,8894373.738
+277,Cadereyta,2000,Otros,65.22732784,b,eg,10957019.724
+278,Cadereyta,2010,Gasto corriente,2093.1786690000004,b,eg,261067200.724
+279,Cadereyta,2010,Inversión,594.1537509,b,eg,74104546.77880001
+280,Cadereyta,2010,Deuda,0.0,b,eg,0.0
+281,Cadereyta,2010,Otros,98.89519348,b,eg,12334489.986000001
+282,Cadereyta,2015,Gasto corriente,1348.30631,b,eg,156387122.2395
+283,Cadereyta,2015,Inversión,235.1571168,b,eg,27275363.55
+284,Cadereyta,2015,Deuda,69.28272657,b,eg,8035953.0696
+285,Cadereyta,2015,Otros,2213.128687,b,eg,256695992.6076
+286,Cadereyta,2018,Gasto corriente,2774.0799079999997,b,eg,297787142.4264
+287,Cadereyta,2018,Inversión,732.71522,b,eg,78654248.91720001
+288,Cadereyta,2018,Deuda,1.438182476,b,eg,154383.53040000002
+289,Cadereyta,2018,Otros,373.456434,b,eg,40089156.762600005
+290,Ciénaga de Flores,1990,Gasto corriente,188.89281450000001,b,eg,14213235.5996
+291,Ciénaga de Flores,1990,Inversión,45.02146691,b,eg,3387639.2688
+292,Ciénaga de Flores,1990,Deuda,0.083184258,b,eg,6259.1976
+293,Ciénaga de Flores,1990,Otros,24.49612403,b,eg,1843210.304
+294,Ciénaga de Flores,2000,Gasto corriente,1032.455641,b,eg,25888362.654
+295,Ciénaga de Flores,2000,Inversión,833.8958408,b,eg,20909564.622
+296,Ciénaga de Flores,2000,Deuda,0.0,b,eg,0.0
+297,Ciénaga de Flores,2000,Otros,115.57515169999999,b,eg,2897995.152
+298,Ciénaga de Flores,2010,Gasto corriente,2792.983079,b,eg,98832814.28840001
+299,Ciénaga de Flores,2010,Inversión,795.9263231000001,b,eg,28164738.6492
+300,Ciénaga de Flores,2010,Deuda,34.29593085,b,eg,1213599.6776
+301,Ciénaga de Flores,2010,Otros,59.75609557,b,eg,2114535.9384000003
+302,Ciénaga de Flores,2015,Gasto corriente,2289.575372,b,eg,118738023.2892
+303,Ciénaga de Flores,2015,Inversión,893.6947442,b,eg,46347261.0111
+304,Ciénaga de Flores,2015,Deuda,43.95313122,b,eg,2279421.7578
+305,Ciénaga de Flores,2015,Otros,316.0275547,b,eg,16389277.9497
+306,El Carmen,1990,Gasto corriente,161.31349369999998,b,eg,8877336.9488
+307,El Carmen,1990,Inversión,37.06828373,b,eg,2039926.3404
+308,El Carmen,1990,Deuda,0.8681206690000001,b,eg,47774.0548
+309,El Carmen,1990,Otros,35.763351,b,eg,1968113.8260000001
+310,El Carmen,2000,Gasto corriente,1259.389073,b,eg,18726198.678
+311,El Carmen,2000,Inversión,794.0621613,b,eg,11807126.262
+312,El Carmen,2000,Deuda,0.0,b,eg,0.0
+313,El Carmen,2000,Otros,97.09211318,b,eg,1443689.04
+314,El Carmen,2010,Gasto corriente,1888.1286969999999,b,eg,43837699.027600005
+315,El Carmen,2010,Inversión,756.0757518999999,b,eg,17554217.1988
+316,El Carmen,2010,Deuda,1.880437484,b,eg,43659.128000000004
+317,El Carmen,2010,Otros,124.53952269999999,b,eg,2891501.052
+318,El Carmen,2015,Gasto corriente,1209.642223,b,eg,56257211.4255
+319,El Carmen,2015,Inversión,343.201274,b,eg,15961369.6188
+320,El Carmen,2015,Deuda,0.721897353,b,eg,33573.5073
+321,El Carmen,2015,Otros,202.5256879,b,eg,9418925.8809
+322,García,1990,Gasto corriente,187.7438469,b,eg,27722861.112
+323,García,1990,Inversión,107.7862352,b,eg,15916062.6456
+324,García,1990,Deuda,18.95176238,b,eg,2798478.2732
+325,García,1990,Otros,17.47037375,b,eg,2579731.656
+326,García,2000,Gasto corriente,756.1998342999999,b,eg,49034879.892
+327,García,2000,Inversión,420.97477050000003,b,eg,27297608.874
+328,García,2000,Deuda,30.62652723,b,eg,1985940.774
+329,García,2000,Otros,70.11327397,b,eg,4546411.956
+330,García,2010,Gasto corriente,1282.8894810000002,b,eg,265922707.50480002
+331,García,2010,Inversión,502.6733302,b,eg,104196234.28160001
+332,García,2010,Deuda,74.06039619,b,eg,15351549.2652
+333,García,2010,Otros,712.7257147999999,b,eg,147736772.7784
+334,García,2015,Gasto corriente,1565.8779439999998,b,eg,470283124.7007
+335,García,2015,Inversión,518.814351,b,eg,155816508.5946
+336,García,2015,Deuda,136.15782030000003,b,eg,40892539.176
+337,García,2015,Otros,272.359603,b,eg,81798281.6895
+338,General Escobedo,1990,Gasto corriente,36.94954507,b,eg,40679029.9764
+339,General Escobedo,1990,Inversión,17.73156592,b,eg,19521293.16
+340,General Escobedo,1990,Deuda,9.867148257,b,eg,10863084.2132
+341,General Escobedo,1990,Otros,3.532537928,b,eg,3889092.9776
+342,General Escobedo,2000,Gasto corriente,521.1053684,b,eg,272265447.648
+343,General Escobedo,2000,Inversión,301.252916,b,eg,157397649.276
+344,General Escobedo,2000,Deuda,34.50066179,b,eg,18025794.198
+345,General Escobedo,2000,Otros,75.6168802,b,eg,39508063.02
+346,General Escobedo,2010,Gasto corriente,1033.697623,b,eg,533834017.5928
+347,General Escobedo,2010,Inversión,950.1662471000001,b,eg,490695783.6768
+348,General Escobedo,2010,Deuda,214.9150242,b,eg,110988889.06920001
+349,General Escobedo,2010,Otros,627.454376,b,eg,324037206.8636
+350,General Escobedo,2015,Gasto corriente,1825.644366,b,eg,942346844.8191
+351,General Escobedo,2015,Inversión,574.7903695,b,eg,296690801.9616
+352,General Escobedo,2015,Deuda,108.90738049999999,b,eg,56214960.7455
+353,General Escobedo,2015,Otros,262.67442400000004,b,eg,135585231.8346
+354,General Escobedo,2018,Gasto corriente,2099.214322,b,eg,993818897.3394
+355,General Escobedo,2018,Inversión,462.118057,b,eg,218777879.39040002
+356,General Escobedo,2018,Deuda,66.06514193,b,eg,31276838.102400005
+357,General Escobedo,2018,Otros,149.7169514,b,eg,70879630.49640001
+358,General Zuazua,1990,Gasto corriente,137.185496,b,eg,7150976.2172
+359,General Zuazua,1990,Inversión,141.3830428,b,eg,7369778.9204
+360,General Zuazua,1990,Deuda,0.023671186,b,eg,1233.892
+361,General Zuazua,1990,Otros,19.69205939,b,eg,1026474.7548
+362,General Zuazua,2000,Gasto corriente,1576.8869550000002,b,eg,21290897.442
+363,General Zuazua,2000,Inversión,595.8441903,b,eg,8045001.2639999995
+364,General Zuazua,2000,Deuda,30.23719543,b,eg,408258.198
+365,General Zuazua,2000,Otros,209.685397,b,eg,2831141.616
+366,General Zuazua,2010,Gasto corriente,522.6052379,b,eg,41631421.2084
+367,General Zuazua,2010,Inversión,199.8861862,b,eg,15923196.724800002
+368,General Zuazua,2010,Deuda,0.581366707,b,eg,46312.4372
+369,General Zuazua,2010,Otros,101.0654375,b,eg,8051005.792800001
+370,General Zuazua,2015,Gasto corriente,605.2457277000001,b,eg,49449571.824599996
+371,General Zuazua,2015,Inversión,473.99854369999997,b,eg,38726460.9378
+372,General Zuazua,2015,Deuda,0.366600291,b,eg,29951.846999999998
+373,General Zuazua,2015,Otros,429.14082980000006,b,eg,35061511.9023
+374,Guadalupe,1990,Gasto corriente,73.08047278,a,eg,439029744.0216
+375,Guadalupe,1990,Inversión,20.71870565,a,eg,124467285.09200001
+376,Guadalupe,1990,Deuda,2.374327806,a,eg,14263735.434
+377,Guadalupe,1990,Otros,4.120585929,a,eg,24754352.5212
+378,Guadalupe,2000,Gasto corriente,566.3938958,a,eg,849490340.508
+379,Guadalupe,2000,Inversión,241.4772712,a,eg,362173058.05799997
+380,Guadalupe,2000,Deuda,37.90673449,a,eg,56853375.414
+381,Guadalupe,2000,Otros,75.37081482,a,eg,113042848.128
+382,Guadalupe,2010,Gasto corriente,1479.019687,a,eg,1446817075.5016
+383,Guadalupe,2010,Inversión,469.06967189999995,a,eg,458856644.62560004
+384,Guadalupe,2010,Deuda,70.26836636,a,eg,68738417.2072
+385,Guadalupe,2010,Otros,145.9355802,a,eg,142758133.11720002
+386,Guadalupe,2015,Gasto corriente,1880.7318879999998,a,eg,1559285860.5072
+387,Guadalupe,2015,Inversión,578.222616,a,eg,479395470.90599996
+388,Guadalupe,2015,Deuda,95.35911873,a,eg,79060777.57349999
+389,Guadalupe,2015,Otros,100.3552469,a,eg,83202990.5331
+390,Guadalupe,2018,Gasto corriente,2431.395914,a,eg,1793229647.7150002
+391,Guadalupe,2018,Inversión,931.9168327,a,eg,687317472.2502
+392,Guadalupe,2018,Deuda,168.5814457,a,eg,124334027.51220001
+393,Guadalupe,2018,Otros,73.35798194,a,eg,54103779.378000006
+394,Juárez,1990,Gasto corriente,57.37566931,b,eg,18029652.3384
+395,Juárez,1990,Inversión,22.615228100000003,b,eg,7106578.5396
+396,Juárez,1990,Deuda,4.660955237,b,eg,1464652.2384
+397,Juárez,1990,Otros,5.655565075,b,eg,1777197.082
+398,Juárez,2000,Gasto corriente,358.71087420000003,b,eg,53383454.886
+399,Juárez,2000,Inversión,151.30022409999998,b,eg,22516542.618
+400,Juárez,2000,Deuda,0.0,b,eg,0.0
+401,Juárez,2000,Otros,337.7136563,b,eg,50258642.91
+402,Juárez,2010,Gasto corriente,782.0927385,b,eg,289965822.4788
+403,Juárez,2010,Inversión,488.7981165,b,eg,181224988.9456
+404,Juárez,2010,Deuda,22.88924388,b,eg,8486331.737200001
+405,Juárez,2010,Otros,32.540172,b,eg,12064474.294400001
+406,Juárez,2015,Gasto corriente,1461.455897,b,eg,591713214.4133999
+407,Juárez,2015,Inversión,314.6562863,b,eg,127397811.2913
+408,Juárez,2015,Deuda,266.9739745,b,eg,108092231.1468
+409,Juárez,2015,Otros,47.37101664,b,eg,19179543.2094
+410,Juárez,2018,Gasto corriente,1847.342996,b,eg,724503935.0934001
+411,Juárez,2018,Inversión,327.9157,b,eg,128604279.57300001
+412,Juárez,2018,Deuda,75.71542979,b,eg,29694608.400600005
+413,Juárez,2018,Otros,25.8998622,b,eg,10157589.6444
+414,Monterrey,1990,Gasto corriente,100.201493,a,eg,1201802327.7968
+415,Monterrey,1990,Inversión,48.23094016,a,eg,578474974.8888
+416,Monterrey,1990,Deuda,0.8771760820000001,a,eg,10520724.052
+417,Monterrey,1990,Otros,3.4251653980000003,a,eg,41080942.2524
+418,Monterrey,2000,Gasto corriente,914.5389231,a,eg,2273919900.0
+419,Monterrey,2000,Inversión,458.69790830000005,a,eg,1140511656.0
+420,Monterrey,2000,Deuda,49.252158200000004,a,eg,122461122.0
+421,Monterrey,2000,Otros,119.03002439999999,a,eg,295957596.0
+422,Monterrey,2010,Gasto corriente,2149.273338,a,eg,3521308268.7092004
+423,Monterrey,2010,Inversión,849.4769918,a,eg,1391758927.1944
+424,Monterrey,2010,Deuda,179.36075469999997,a,eg,293859555.894
+425,Monterrey,2010,Otros,93.73478931,a,eg,153572411.11200002
+426,Monterrey,2015,Gasto corriente,2915.342873,a,eg,3925930478.157
+427,Monterrey,2015,Inversión,1102.284517,a,eg,1484385394.4819999
+428,Monterrey,2015,Deuda,324.27065530000004,a,eg,436677298.05869997
+429,Monterrey,2015,Otros,38.18895103,a,eg,51426941.2857
+430,Monterrey,2018,Gasto corriente,3509.805306,a,eg,4076616960.6426005
+431,Monterrey,2018,Inversión,1587.835132,a,eg,1844260597.0998
+432,Monterrey,2018,Deuda,228.40575809999999,a,eg,265291862.77440003
+433,Monterrey,2018,Otros,445.80436330000003,a,eg,517798986.09120005
+434,Pesquería,1990,Gasto corriente,133.4148754,b,eg,12253680.4972
+435,Pesquería,1990,Inversión,68.94675134,b,eg,6332513.2192
+436,Pesquería,1990,Deuda,7.563263312,b,eg,694658.7616
+437,Pesquería,1990,Otros,18.78859306,b,eg,1725665.2652
+438,Pesquería,2000,Gasto corriente,1075.177281,b,eg,27241119.516
+439,Pesquería,2000,Inversión,245.4056179,b,eg,6217694.406
+440,Pesquería,2000,Deuda,17.56752937,b,eg,445097.916
+441,Pesquería,2000,Otros,152.4064129,b,eg,3861429.534
+442,Pesquería,2010,Gasto corriente,2766.701674,b,eg,83201028.5364
+443,Pesquería,2010,Inversión,1314.070431,b,eg,39517094.476
+444,Pesquería,2010,Deuda,0.0,b,eg,0.0
+445,Pesquería,2010,Otros,74.18135585,b,eg,2230802.5336
+446,Pesquería,2015,Gasto corriente,954.5484467,b,eg,101020500.5139
+447,Pesquería,2015,Inversión,357.5868438,b,eg,37843654.833
+448,Pesquería,2015,Deuda,29.92519044,b,eg,3167002.9179
+449,Pesquería,2015,Otros,164.94386699999998,b,eg,17456119.7607
+450,Pesquería,2018,Gasto corriente,2215.190344,b,eg,243252964.23120004
+451,Pesquería,2018,Inversión,1171.541207,b,eg,128648480.30100001
+452,Pesquería,2018,Deuda,0.0,b,eg,0.0
+453,Pesquería,2018,Otros,279.8992374,b,eg,30736103.270400003
+454,Salinas Victoria,1990,Gasto corriente,118.97404920000001,b,eg,12702301.194
+455,Salinas Victoria,1990,Inversión,67.19352805,b,eg,7173937.8256
+456,Salinas Victoria,1990,Deuda,0.025320445,b,eg,2703.3452
+457,Salinas Victoria,1990,Otros,14.87423829,b,eg,1588052.6556
+458,Salinas Victoria,2000,Gasto corriente,461.7904226,b,eg,19661056.038
+459,Salinas Victoria,2000,Inversión,626.7739697000001,b,eg,26685348.024
+460,Salinas Victoria,2000,Deuda,0.0,b,eg,0.0
+461,Salinas Victoria,2000,Otros,144.4785008,b,eg,6151275.042
+462,Salinas Victoria,2010,Gasto corriente,1984.993509,b,eg,93536562.40640001
+463,Salinas Victoria,2010,Inversión,1202.724862,b,eg,56674618.1432
+464,Salinas Victoria,2010,Deuda,0.901775873,b,eg,42493.3456
+465,Salinas Victoria,2010,Otros,134.22241269999998,b,eg,6324808.131200001
+466,Salinas Victoria,2015,Gasto corriente,1738.167718,b,eg,114361888.4685
+467,Salinas Victoria,2015,Inversión,1721.678882,b,eg,113277013.6302
+468,Salinas Victoria,2015,Deuda,42.08964423,b,eg,2769267.4002
+469,Salinas Victoria,2015,Otros,171.29447150000001,b,eg,11270235.339
+470,San Nicolás,1990,Gasto corriente,79.35353628,a,eg,388631021.4624
+471,San Nicolás,1990,Inversión,24.87285016,a,eg,121813867.6492
+472,San Nicolás,1990,Deuda,0.020627435,a,eg,101022.1032
+473,San Nicolás,1990,Otros,16.49072956,a,eg,80762740.7144
+474,San Nicolás,2000,Gasto corriente,658.4896091,a,eg,732248982.0
+475,San Nicolás,2000,Inversión,146.97169119999998,a,eg,163434426.0
+476,San Nicolás,2000,Deuda,44.16577107,a,eg,49112910.0
+477,San Nicolás,2000,Otros,246.0583886,a,eg,273620118.0
+478,San Nicolás,2010,Gasto corriente,1666.225261,a,eg,1065641504.276
+479,San Nicolás,2010,Inversión,955.614531,a,eg,611167367.536
+480,San Nicolás,2010,Deuda,711.9184769,a,eg,455310512.0292
+481,San Nicolás,2010,Otros,337.4364398,a,eg,215808920.81640002
+482,San Nicolás,2015,Gasto corriente,1889.6253940000001,a,eg,986831572.0175999
+483,San Nicolás,2015,Inversión,765.1571687,a,eg,399593090.7
+484,San Nicolás,2015,Deuda,314.4720151,a,eg,164228801.09759998
+485,San Nicolás,2015,Otros,1164.846474,a,eg,608325481.2537
+486,San Nicolás,2018,Gasto corriente,2401.52575,a,eg,1192885505.1036
+487,San Nicolás,2018,Inversión,1057.830444,a,eg,525445377.27660006
+488,San Nicolás,2018,Deuda,265.9886846,a,eg,132121858.92840001
+489,San Nicolás,2018,Otros,922.8741024,a,eg,458409883.67460006
+490,San Pedro,1990,Gasto corriente,310.4052017,a,eg,393591401.9088
+491,San Pedro,1990,Inversión,194.87717619999998,a,eg,247102756.5552
+492,San Pedro,1990,Deuda,13.26963907,a,eg,16825800.0
+493,San Pedro,1990,Otros,105.2411978,a,eg,133445027.198
+494,San Pedro,2000,Gasto corriente,2210.750377,a,eg,623296228.818
+495,San Pedro,2000,Inversión,760.7878122000001,a,eg,214495575.426
+496,San Pedro,2000,Deuda,59.08172062,a,eg,16657427.286
+497,San Pedro,2000,Otros,1176.1087890000001,a,eg,331590658.254
+498,San Pedro,2010,Gasto corriente,5942.377306,a,eg,1051636804.4824001
+499,San Pedro,2010,Inversión,1232.045508,a,eg,218038056.916
+500,San Pedro,2010,Deuda,318.852306,a,eg,56428059.494
+501,San Pedro,2010,Otros,741.1212059,a,eg,131158002.36080001
+502,San Pedro,2015,Gasto corriente,10150.31631,a,eg,1517712847.4196
+503,San Pedro,2015,Inversión,3062.809591,a,eg,457962621.2298
+504,San Pedro,2015,Deuda,1608.177669,a,eg,240460674.6789
+505,San Pedro,2015,Otros,3001.942544,a,eg,448861555.2276
+506,San Pedro,2018,Gasto corriente,12697.04085,a,eg,1805559136.4646
+507,San Pedro,2018,Inversión,6407.0576710000005,a,eg,911103748.5132
+508,San Pedro,2018,Deuda,1791.395287,a,eg,254742043.08960003
+509,San Pedro,2018,Otros,1618.8942140000001,a,eg,230211847.9584
+510,Santa Catarina,1990,Gasto corriente,71.54526146,b,eg,131494165.4256
+511,Santa Catarina,1990,Inversión,18.30705898,b,eg,33646832.69
+512,Santa Catarina,1990,Deuda,9.175882525,b,eg,16864499.34
+513,Santa Catarina,1990,Otros,3.5160148430000002,b,eg,6462139.1824
+514,Santa Catarina,2000,Gasto corriente,647.8466872,b,eg,329160657.996
+515,Santa Catarina,2000,Inversión,291.10677630000004,b,eg,147906750.06599998
+516,Santa Catarina,2000,Deuda,77.46050673,b,eg,39356458.662
+517,Santa Catarina,2000,Otros,57.01096791,b,eg,28966371.336
+518,Santa Catarina,2010,Gasto corriente,1445.193285,b,eg,560804759.888
+519,Santa Catarina,2010,Inversión,381.6303954,b,eg,148091016.2484
+520,Santa Catarina,2010,Deuda,675.4908218999999,b,eg,262123047.53520003
+521,Santa Catarina,2010,Otros,568.2196278,b,eg,220496645.828
+522,Santa Catarina,2015,Gasto corriente,1897.4320530000002,b,eg,684084691.1358
+523,Santa Catarina,2015,Inversión,1263.44449,b,eg,455511981.01949996
+524,Santa Catarina,2015,Deuda,366.4264701,b,eg,132108413.6646
+525,Santa Catarina,2015,Otros,129.26882949999998,b,eg,46605530.4336
+526,Santiago,1990,Gasto corriente,96.22145649999999,b,eg,32576498.6832
+527,Santiago,1990,Inversión,89.31310052,b,eg,30237622.7456
+528,Santiago,1990,Deuda,32.90404877,b,eg,11139913.492
+529,Santiago,1990,Otros,17.53936121,b,eg,5938082.8156
+530,Santiago,2000,Gasto corriente,1050.752798,b,eg,86566538.256
+531,Santiago,2000,Inversión,360.598908,b,eg,29708033.346
+532,Santiago,2000,Deuda,10.86602195,b,eg,895200.0
+533,Santiago,2000,Otros,156.3934587,b,eg,12884515.128
+534,Santiago,2010,Gasto corriente,3289.178804,b,eg,192050786.2556
+535,Santiago,2010,Inversión,802.9936,b,eg,46885730.8944
+536,Santiago,2010,Deuda,119.1377845,b,eg,6956297.163600001
+537,Santiago,2010,Otros,224.0198176,b,eg,13080219.922400001
+538,Santiago,2015,Gasto corriente,4447.355389,b,eg,228978045.9
+539,Santiago,2015,Inversión,1156.978801,b,eg,59568602.4
+540,Santiago,2015,Deuda,85.64623765,b,eg,4409611.2
+541,Santiago,2015,Otros,549.2253637,b,eg,28277603.099999998
+542,Santiago,2018,Gasto corriente,6175.401581,b,eg,297654303.078
+543,Santiago,2018,Inversión,3550.0842350000003,b,eg,171114029.59860003
+544,Santiago,2018,Deuda,64.88506673,b,eg,3127459.6584000005
+545,Santiago,2018,Otros,491.79527989999997,b,eg,23704528.260600004
