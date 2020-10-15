@@ -198,19 +198,16 @@
 
     <div class = 'uk-container uk-container-expand'>
         <div class = 'uk-grid-small' uk-grid>
-            <div class = 'uk-width-3-5@m uk-flex uk-flex-middle uk-padding-small'>
-                <div class = 'uk-width-expand'>
-                    <div class = 'uk-card uk-card-hover uk-card-small' style = 'background-color: #121212;'>
-                        <div uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
-                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
-                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2015'>2015</button>
-                            <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2010'>2010</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class = 'grafica_container' id ='graph_denue'></div>   
-                    </div>
+
+            <div class = 'uk-width-1-1'>
+                <div class = 'uk-align-left' uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
+                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2019'>2019</button>
+                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2015'>2015</button>
+                    <button class = 'uk-button uk-button-secondary' type = 'button' id='denue-2010'>2010</button>
                 </div>
+            </div>
+            <div class = 'uk-width-expand uk-flex uk-flex-middle uk-padding-small'>
+                <div class = 'grafica_container' id ='graph_denue'></div>
             </div>
 
             <div class = 'uk-width-2-5@m'>
@@ -269,7 +266,7 @@
               document.getElementById('select-cus').value = 'CUS';
               document.getElementById('select-jov').value = 'Densidad16';
 
-        })
+        });
 
 
 
