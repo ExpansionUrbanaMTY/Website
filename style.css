@@ -67,6 +67,32 @@ p{
     display: none;
 }
 
+#abstract{
+    height: 150vh;
+    background: black;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 10;
+}
+#abstract.active #abstract-content{
+    background: red;
+    position: fixed;
+}
+
+#abstract #abstract-content{
+    padding: 24px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 25%
+}
+#abstract h1{
+    text-align: center;
+    font-weight: 600;
+    background: -webkit-linear-gradient(45deg, #992b81, #f3775e, #f9f7c3 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 #map-container{
     height: calc(100vh - 80px);
